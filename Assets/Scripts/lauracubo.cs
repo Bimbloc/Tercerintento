@@ -5,6 +5,7 @@ using UnityEngine;
 public class lauracubo : MonoBehaviour
 {
     // Start is called before the first frame update
+    Transform t;
     Rigidbody rb;
     // INPUT
     float vx = 0;
@@ -18,6 +19,7 @@ public class lauracubo : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        t = GetComponent<Transform>();
         vx = Input.GetAxis("Horizontal"); // Q eje
         vy = Input.GetAxis("Vertical"); // Devuelve un número
         // Una forma
@@ -42,7 +44,7 @@ public class lauracubo : MonoBehaviour
         direc.y = vy;
         direc.z = dz;
         rb.velocity = direc * velocidad;
-        Debug.Log(vz);
+        //Debug.Log(vz);
         /*if (vx > -0.001 && vx < 0.001) // Esto es por los gamepads q no funcionan igual q los teclados cuando se ha parado de presionar
         {
             // Otra forma para q no frene de golpe
@@ -58,6 +60,29 @@ public class lauracubo : MonoBehaviour
         else
             rb.AddForce(new Vector3(1, 0, 0) * vx * velocidad);
         */
+    }
+    /*
+    void OnCollisionEnter(Collision other) //Si pones Collider other es distinto
+    {
+        Debug.Log("AAAAAAAAAAAA"); // escribe en pantalla
+        Destroy(other.gameObject); // other es una referencia con el objeto q te chocas
+
+    }
+    */
+    /*
+    private void OnCollisionExit(Collision other)
+    {
+        Debug.Log("AAAAAAAAAAAA"); // escribe en pantalla
+        Destroy(other.gameObject); // other es una referencia con el objeto q te chocas
+
+    }
+    */
+    // Triggers (tiene exit o stay (si está en esa zona))
+    void OnTriggerStay(Collider other)
+    {
+        Debug.Log("AAAAAAAAAAAA");
+
+        t.localScale *= 1.1f; // Cambia el tamaño (mejor hacerlo en un OnTriggerEnter porque sino da error porque se hace muy grande)
     }
 
     // Update is called once per frame
