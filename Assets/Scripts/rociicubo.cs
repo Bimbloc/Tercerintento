@@ -5,6 +5,7 @@ using UnityEngine;
 public class rociicubo : MonoBehaviour
 {
     // Start is called before the first frame update
+    Transform t;
     Rigidbody rb;
     //INPUT
     float vx = 0;
@@ -17,6 +18,7 @@ public class rociicubo : MonoBehaviour
     void Start()
     {
         rb=GetComponent<Rigidbody>();
+        t = GetComponent<Transform>();
         vx = Input.GetAxis("Horizontal");
         vy = Input.GetAxis("Vertical");
         direc.x = vx;
@@ -51,6 +53,28 @@ public class rociicubo : MonoBehaviour
         else
             rb.AddForce(new Vector3(1, 0, 0) * vx * velocidad);*/
 
+
+    }
+    /* void OnCollisionEnter(Collision other)
+     {
+         Debug.Log("AAAAAAAAAAAA");
+         Destroy(other.gameObject);
+
+     }*/
+    //Triggers
+    void OnTriggerStay(Collider other)
+    {
+        Debug.Log("AAAAAAAAAAAA");
+
+        if (t.localScale.x > 10)
+        {
+            t.localScale *= 0.91f;
+        }
+        else if (t.localScale.x <= 10)
+        {
+            t.localScale *= 1.1f;
+        }
+       
 
     }
     // Update is called once per frame
