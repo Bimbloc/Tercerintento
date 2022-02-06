@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cilindrito : MonoBehaviour
 {
     // Start is called before the first frame update
+    Transform t;
     Rigidbody rbody;
     //INPUT
     float vx = 0;
@@ -17,6 +18,7 @@ public class Cilindrito : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
+        t = GetComponent<Transform>();
         vx = Input.GetAxis("Horizontal");
         vy = Input.GetButton("X");
         vz = Input.GetAxis("Vertical");
@@ -40,6 +42,19 @@ public class Cilindrito : MonoBehaviour
         rbody.velocity = direc * velocidad;
     }
 
+
+    /*void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("AAAAAAAA");
+        Destroy(other.gameObject);
+    }
+    */
+
+    void OnTriggerStay(Collider other)
+    {
+        Debug.Log("AAAA");
+        t.localScale *= 1.1f;
+    }
     // Update is called once per frame
     void Update()
     {
