@@ -9,9 +9,9 @@ public class Contenedorsprites : MonoBehaviour
     Sprite jsj;
     void Start()
     {
-        aspectogeneral[0] = Resources.Load<Sprite>("npcsad");
-        aspectogeneral[1] = Resources.Load<Sprite>("npcsad.2png");
-        jsj = Resources.Load<Sprite>("npcsad");
+        aspectogeneral[0] = Resources.Load<Sprite>("Sprites/npcsad");
+        aspectogeneral[1] = Resources.Load<Sprite>("Sprites/npcsad.2png");
+        jsj = Resources.Load<Sprite>("Sprites/npcsad");
         
         Debug.Log(jsj);
     }

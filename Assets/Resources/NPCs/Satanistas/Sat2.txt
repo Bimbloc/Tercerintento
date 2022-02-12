@@ -1,0 +1,4 @@
+2
+0
+1_2_Cuando estés en territorio abierto, no molestes a nadie. Si alguien te molesta, pídele que pare.
+2_0_Si no lo hace, destrúyelo.
