@@ -1,0 +1,9 @@
+5
+2
+1_2_primero
+2_-1_segundo
+3_4_cuarto
+4_-2_quinto
+6_0_séptimo
+-1_3_tercero_4_cuarto
+-2_6_sexto_2_primero

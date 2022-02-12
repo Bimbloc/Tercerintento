@@ -6,32 +6,51 @@ using System.IO;
 using System;
 using UnityEngine.SceneManagement;
 
+
 public class DialogueManager : MonoBehaviour
 {
     private static DialogueManager instance;
 
-    //public GameObject dialogueBox;
-    public TextMeshProUGUI dialogueText;
+    public GameObject mainButton;
+    TextMeshProUGUI dialogueText;
+
+    public GameObject button1;
+    public GameObject button2;
 
     [SerializeField]
     float textSpeed = 0.2f; //velocidad con la que se typean las letras
-    int numDialogue; //número del diálogo a leer
 
-    //const string filePath = "/Resources/dialogue.txt";
+    const string filePath = "/Resources/dialogue.txt";
 
-    [TextArea(3, 10)] //ampliamos la cantidad de líneas que pueden aparecer en el editor
+    struct sentece
+    {
+        public int obj;
+        public int dest;
+        public string text;
+    }
 
-    
-    public string[] sentences; //array de frases de dialogo
-    int numeroSentence = 0;
+    struct option
+    {
+        public string opt1;
+        public string opt2;
 
-    static bool dialogueGoingOn; //bool con el propósito de que no se pueda pasar el juego si hay un diálogo
+        public int dest1;
+        public int dest2;
 
+        public int obj;
+    }
+  
+    sentece[] sentences; //array de frases de dialogo
+    sentece nowWritting;
+
+    option[] options;
+    option nowOptions;
 
     private void Awake()
     {
         instance = this;
     }
+
     public static DialogueManager GetInstance() //Para conseguir la referencia a dialogue manager haciendo DialogueManager.getInstance()
     {
         return instance;
@@ -39,52 +58,55 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        //dialogueBox.SetActive(false);
+        dialogueText = mainButton.GetComponentInChildren<TextMeshProUGUI>();
+        dialogueText.text = "";      
 
-        dialogueText.text = "";
+        button1.SetActive(false);
+        button2.SetActive(false);
 
-        //SetDialogue();
-
-        //if (numDialogue == 0)
-        //{
-        //    StartDialogue();
-        //}
+        SetDialogue();
+        StartDialogue();
     }
 
     private void SetDialogue()
     {
-        string num = "Scene" + numDialogue.ToString();
-        bool inDialogue = false;
-        int i = 0;
-
         TextAsset textFile = Resources.Load<TextAsset>("dialogue");
 
         if (textFile != null)
-        {
+        {          
             StringReader dialogue = new StringReader(textFile.text);
-            bool endOfFile = false;
-            while (!endOfFile)
+            sentences = new sentece[int.Parse(dialogue.ReadLine())];
+            options = new option[int.Parse(dialogue.ReadLine())];
+
+            int i = 0;
+            int j = 0;
+
+            string s = dialogue.ReadLine();
+
+            while (s != null)
             {
-                string s = dialogue.ReadLine();
-                if (s == null)
+                string[] array = s.Split('_');
+
+                int obj_ = int.Parse(array[0]);
+
+                if (obj_ >= 0)
                 {
-                    endOfFile = true;
-                }
-                else if (s == num)
-                {
-                    int numSentences = int.Parse(dialogue.ReadLine());
-                    sentences = new string[numSentences];
-                    inDialogue = true;
-                }
-                else if (inDialogue && s != "")
-                {
-                    sentences[i] = s;
+                    sentences[i].obj = obj_;
+                    sentences[i].dest = int.Parse(array[1]);
+                    sentences[i].text = array[2];
                     i++;
                 }
                 else
                 {
-                    inDialogue = false;
-                }
+                    options[j].obj = obj_;
+                    options[j].dest1 = int.Parse(array[1]);
+                    options[j].opt1 = array[2];
+                    options[j].dest2 = int.Parse(array[3]);
+                    options[j].opt2 = array[4];
+                    j++;
+                }                
+                
+                s = dialogue.ReadLine();
             }
             dialogue.Close();
         }
@@ -96,60 +118,57 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetKeyDown("space")) //si el jugador pulsa espacio
         {
-            if (dialogueText.text == sentences[numeroSentence]) //y el texto ya se ha terminado de poner
-            {
-                NextSentence(); //pasa a la siguiente
-            }
-            else //si no ha terminado la línea de diálogo
-            {
-                StopAllCoroutines(); //para de escribir letra a letra
-                dialogueText.text = sentences[numeroSentence]; //completa el texto
-            }
+            DialogeClicked();
         }
     }
 
-
-    public void StartDialogue() //Para empezar el diálogo
+    void StartDialogue() //Para empezar el diálogo
     {
-        if (sentences != null)
-        {
-            dialogueGoingOn = true;
-            dialogueBox.SetActive(true); //se activa la caja de diálogo y se inicializa todo
-            dialogueText.text = "";
-            Time.timeScale = 0; //se pausa el juego
-            numeroSentence = 0;
-            StartCoroutine(TypeSentence()); //empieza a escribir la primera frase
-        }
-        else
-        {
-            Debug.LogWarningFormat("Diálogo de la escena {0} no encontrado.", numDialogue);
-        }
+        mainButton.SetActive(true); //se activa la caja de diálogo y se inicializa todo
+        dialogueText.text = "";
+        nowWritting = sentences[0];
+        StartCoroutine(TypeSentence()); //empieza a escribir la primera frase
     }
+
     IEnumerator TypeSentence() //Corutina para que el diálogo se muestre letra por letra
     {
-        foreach (char c in sentences[numeroSentence]) //por cada letra en la frase
+        foreach (char c in nowWritting.text) //por cada letra en la frase
         {
             dialogueText.text += c; //se van sumando letras al texto
-            if (numDialogue == 0 && (numeroSentence == 0 || numeroSentence == 1)) //estética
-                dialogueText.color = Color.cyan;
-            else
-                dialogueText.color = Color.white;
             yield return new WaitForSecondsRealtime(textSpeed); //se espera en tiempo real para pasar a escribir la siguiente letra
         }
     }
 
     void NextSentence() //Para pasar a la siguiente línea del diálogo
     {
-        if (numeroSentence < (sentences.Length - 1)) //si la frase todavía está dentro del array de frases
+        int dest = nowWritting.dest;
+        if (dest > 0) //si la frase todavía está dentro del array de frases
         {
-            numeroSentence++; //pasa a la siguiente
+            int i = 0;
+            while (dest != sentences[i].obj)
+                i++;
+
+            nowWritting = sentences[i];
             dialogueText.text = ""; //la caja de diálogo se pone sin texto
+
             StartCoroutine(TypeSentence()); //empieza a escribir la nueva frase
         }
+        else if  (dest < 0) {
+            int i = 0;
+            while (dest != options[i].obj)
+                i++;
+
+            nowOptions = options[i];
+            button1.GetComponentInChildren<TextMeshProUGUI>().text = nowOptions.opt1;
+            button2.GetComponentInChildren<TextMeshProUGUI>().text = nowOptions.opt2;
+
+            button1.SetActive(true);
+            button2.SetActive(true);
+        }
+       
         else //si ya no hay más frases
         {
-            dialogueGoingOn = false;
-            dialogueBox.SetActive(false); //se desactiva la caja de diálogo
+            mainButton.SetActive(false); //se desactiva la caja de diálogo
             Time.timeScale = 1; //se quita la pausa
 
             //if (button != null)
@@ -159,8 +178,35 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public bool DialogueGoing() //devuelve si hay un diálogo actuando o no
+    public void OptionClicked(bool b)
     {
-        return dialogueGoingOn;
+        int dest;
+        if (b) dest = nowOptions.dest1;
+        else dest = nowOptions.dest2;
+
+        int i = 0;
+        while (dest != sentences[i].obj)
+            i++;
+
+        button1.SetActive(false);
+        button2.SetActive(false);
+
+        nowWritting = sentences[i];
+        dialogueText.text = "";
+
+        StartCoroutine(TypeSentence()); 
+    }
+
+    public void DialogeClicked()
+    {
+        if (dialogueText.text == nowWritting.text) //y el texto ya se ha terminado de poner
+        {
+            NextSentence(); //pasa a la siguiente
+        }
+        else //si no ha terminado la línea de diálogo
+        {
+            StopAllCoroutines(); //para de escribir letra a letra
+            dialogueText.text = nowWritting.text; //completa el texto
+        }
     }
 }
