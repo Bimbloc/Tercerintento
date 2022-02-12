@@ -35,12 +35,21 @@ public class Npc : MonoBehaviour
    // Sprite[] aspectoposible;
     Cosamala[] cosasmalas;
     Cosabuena[] cosasbuenas;
-    
+    string[] paparsearstructs= { };
     int caostotal;
     void Start()
     {
         aspecto = GetComponent<SpriteRenderer>();
-        
+        Contenedoracciones c = contenedoracciones.GetComponent<Contenedoracciones>();
+        Debug.Log(paparsearstructs);
+        // Debug.Log(c.Cosasmalasrandom("furro", 2));//danull
+        c.Cosasmalasrandom("furro", 2);
+       // paparsearstructs= c.Cosasmalasrandom("furro", 2);
+
+        for (int i = 0; i < paparsearstructs.Length; i++)
+        {
+            Debug.Log(paparsearstructs[i]);
+        }
     }
 
     // Update is called once per frame

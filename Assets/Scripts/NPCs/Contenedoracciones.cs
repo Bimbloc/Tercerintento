@@ -66,7 +66,7 @@ public class Contenedoracciones : MonoBehaviour
         return resultado;
         
     }
-    string[] Cosasmalasrandom(string tipo, int num)
+    public string[] Cosasmalasrandom(string tipo, int num)
     {
         //HABRA REPETICIONES DE COSAS PORQUE C# NO TIENE VECTORES
         string[] selector = { };
@@ -102,7 +102,9 @@ public class Contenedoracciones : MonoBehaviour
 
 
         }
-        return resultado;
+        string[] prueba = { "nosoynull" };
+        Debug.Log(prueba);
+        return prueba;
 
     }
 }
