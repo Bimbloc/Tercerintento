@@ -15,7 +15,7 @@ public class Guion : MonoBehaviour
     Npc.Cosabuena[] guionBueno;
     Npc.Cosamala[] guionMalo;
 
-    private void Start()
+    private void Awake()
     {
         StringReader archivo = new StringReader(Resources.Load<TextAsset>(filePath1).text);    
         guionBueno = new Npc.Cosabuena[int.Parse(archivo.ReadLine())];
