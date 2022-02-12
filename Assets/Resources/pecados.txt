@@ -1,6 +1,31 @@
-5
-10_cosamala1
-20_cosamala2
-30_cosamala3
-40_cosamala4
-20_cosamala2
+30
+100_Da patadas a los perros
+30_Da oreos con pasta de dientes a vagabundos
+20_Mata moscas inocentes
+60_No se come los bordes de la pizza
+80_Come pizza con piña
+50_Quema hormigas con una lupa
+10_Descuartiza las muñecas de su hija
+10_Roba chuches a niños pequeños.
+90_Su gato perdió 5 de 7 vidas
+20_Finge mirar el móvil para no saludar a su nieta
+70_Graba conversaciones durante las comidas
+90_No sabe usar divide y venceras correctamente
+90_Se rie de las victimas del holocausto
+10_Hace bizcochos de maria a sus nietos.
+30_Usa Windows Vista
+40_Hace llorar a niños por diversion.
+80_Escucha Kpop
+100_Habla francés (de forma fluida)
+40_Come en los laboratorios
+60_Dibuja con el trackpad del portatil
+70_Se sale del Among Us si no le toca impostor
+80_Lleva chanclas con calcetines
+10_Come sopa con tenedor.
+20_Hace ruidos con el boli durante los examenes.
+30_Le dice salud a la gente después de toser.
+60_Lleva la mascarilla por debajo de la nariz.
+100_Estudia ADE
+10_Se ha mudado a  Andorra
+20_Toma prestados cubiertos de la cafeteria
+80_Se hace fotos en el espejo del baño de la FDI

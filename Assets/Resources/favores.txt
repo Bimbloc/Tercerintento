@@ -1,6 +1,33 @@
-5
-10_cosabuena1
-20_cosabuena2
-30_cosabuena3
-40_cosabuena4
-20_cosabuena2
+30
+80_Visita ancianitos en la residencia
+90_Dona dinero a la beneficencia
+70_Apoya a músicos callejeros
+100_Ayuda a sus compañeros con los problemas de EDA
+80_Donó sangre en *múltiples* ocasiones
+20_Acaricia perros callejeros
+80_Mete a su perro en casa cuando hace frío
+10_Ayuda a su hermano con los deberes
+50_Visita niños enfermos en el hospital
+60_Hace galletitas a su abuela
+80_Hace bizcochitos a sus nietos
+20_Da propina al repartidor de pizza
+30_Ayuda a ancianos a bajar las escaleras
+20_Deja propina a los camareros
+40_Ayuda a ancianos a cruzar la calle
+50_Reutiliza los folios varias veces
+80_No se ríe cuando se cae una persona en frente
+90_Escucha Taylor Swift
+10_Paga con dinero justo en el super
+50_Usa bolsas de tela reciclables
+10_Compra en el Mercadona
+90_Utiliza los intermitentes
+70_Colabora en una protectora de animales
+80_Comparte sus patatas fritas
+30_Lleva bandanas
+40_Apoya crowdfunding de juegos indie
+10_Limpia el teclado del ordenador
+20_Le dice salud a la gente después de que estornuden
+80_Le gustan los dinosaurios
+100_Es Dwayne Johnson.
+La roca.
+Es Dwayne Johnson la roca.
