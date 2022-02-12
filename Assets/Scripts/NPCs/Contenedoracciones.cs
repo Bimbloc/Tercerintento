@@ -28,11 +28,11 @@ public class Contenedoracciones : MonoBehaviour
     {
         
     }
-   string[] Cosasbuenasrandom(string tipo,int num)
+    public string Adiosrandom(string tipo)
     {
         //HABRA REPETICIONES DE COSAS PORQUE C# NO TIENE VECTORES
          string[] selector= { };
-        string[] resultado = { };
+        string resultado ;
    
         switch (tipo) {
 
@@ -55,22 +55,23 @@ public class Contenedoracciones : MonoBehaviour
 
         }
         int cont = 0;
-        int selected= Random.Range(0, num);
-        while (selector.Length != 0 || cont < num)
+        int selected= Random.Range(0, selector.Length);
+        /*while (selector.Length != 0 || cont < num)
         {
 
             resultado[cont] = selector[selected];
             
         
-        }
+        }*/
+        resultado = selector[selected];
         return resultado;
         
     }
-    public string[] Cosasmalasrandom(string tipo, int num)
+    public string Holasrandom(string tipo)
     {
         //HABRA REPETICIONES DE COSAS PORQUE C# NO TIENE VECTORES
         string[] selector = { };
-        string[] resultado = { };
+        string resultado ;
 
         switch (tipo)
         {
@@ -93,8 +94,9 @@ public class Contenedoracciones : MonoBehaviour
 
 
         }
-        int cont = 0;
-        int selected = Random.Range(0, num);
+       // int cont = 0;
+        int selected = Random.Range(0, selector.Length);
+        resultado = selector[selected];
        /* while (selector.Length != 0 || cont < num)
         {
 
@@ -102,9 +104,9 @@ public class Contenedoracciones : MonoBehaviour
             cont++;
             selected = Random.Range(0, num);
         }*/
-        string[] prueba = { "nosoynull" };
-        Debug.Log(prueba);
-        return prueba;
+        //string[] prueba = { "nosoynull" };
+        //Debug.Log(prueba);
+        return resultado;
 
     }
 }
