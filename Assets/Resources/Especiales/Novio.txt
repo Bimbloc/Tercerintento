@@ -1,0 +1,11 @@
+6
+3
+1_-1_Vaya, supongo que hasta aquí he llegado.
+-1_2_Eso parece, cuéntame, ¿Cómo has terminado aquí?_2_Cuéntame cómo has llegado si no quieres estar aquí eternamente.
+2_-2_Agg, mi suegra, la maldita suegra se pasaba el día tirándome precocinados.
+-2_3_Vaya, cuanta violencia…_4_¿No será tu suegra lanzadora de croquetas profesional?
+3_-3_Sí, la maldita lisiada no para de tirarme croquetas de diversos tipos. La que acabó conmigo fue de espinacas. ¡ESPINACAS!
+4_-3_Mi suegra en sí es una croqueta. Esta mañana me ha tirado una croqueta congelada y aquí estoy.
+-3_5_¿Qué hiciste para que te tirara una croqueta congelada?_6_Suena divertido. ¿Puedo tirarte una?
+5_0_Rezamos a la Rosa de Guadalupe para lograr la croqueta suprema. Mi suegra atea se enfadó y me tiró una croqueta.
+6_0_¡¡No por favor!! ¡¡Más croquetas no!!

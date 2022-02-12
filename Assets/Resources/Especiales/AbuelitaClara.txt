@@ -1,0 +1,11 @@
+3
+3
+1_-1_Buenas tardes mozo, ¿me dejaría pasar? Traigo pastelitos.
+-1_2_¿De qué están hechos?_5_Uy qué buena pinta, gracias.
+2_-2_De amor hijo, déjeme pasar que me duele la cadera.
+-2_4_De acuerdo señora, pase a sentarse._3_¿Podría ser un poco más concreta por favor?
+3_-3_¡YO HARÉ LOS PASTELITOS DE LO QUE ME SALGA DEL  @#%#!
+-3_4_Señora por favor cálmese, pase._6_Creo que voy a inspeccionarlos un poco.
+4_0_Muchas gracias joven.
+5_0_De nada joven, voy pasando.
+6_0_*Refunfuña*

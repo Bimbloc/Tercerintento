@@ -1,0 +1,6 @@
+3
+1
+1_-1_Buenas, ¿está aquí mi novio Braulio?
+-1_2_¿Sabes la cantidad de Braulios que se mueren todos los días?_3_Lo sabrás cuando entres al cielo. Cuéntame qué ha pasado
+2_0_Vaya que desagradable.*Te tira una croqueta y se va a buscar a Braulio. No entra en el cielo.*
+3_0_Estaba tranquila rezando por la croqueta suprema. Apareció una ardilla voladora y tuvimos una pelea encarnizada defendiendo la Rosa de Guadalupe. Perdí.
