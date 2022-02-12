@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Npc : MonoBehaviour
+public class Npcbeta : MonoBehaviour
 {
     // Start is called before the first frame update
     SpriteRenderer aspecto;
@@ -19,42 +19,44 @@ public class Npc : MonoBehaviour
     int numcosasmalas;
     // enum Tipo {normal,profefdi,furro,capitalista,satanico };
     string[] tipos = { "normal", "profefdi", "furro", "capitalista", "satanico" };
-    struct Cosabuena { 
+    struct Cosabuena
+    {
         public
-        string dialogo; 
+        string dialogo;
         public
-        int caos; 
-    
+        int caos;
+
     };
-    struct Cosamala {
+    struct Cosamala
+    {
         public
-        string dialogo; 
+        string dialogo;
         public
-        int caos; 
+        int caos;
     };
-   // Sprite[] aspectoposible;
+    // Sprite[] aspectoposible;
     Cosamala[] cosasmalas;
     Cosabuena[] cosasbuenas;
-    
+
     int caostotal;
     void Start()
     {
         aspecto = GetComponent<SpriteRenderer>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void Calculacaos()
     {
-        int ct=0;
+        int ct = 0;
         for (int i = 0; i < cosasmalas.Length; i++)
         {
             ct += cosasmalas[i].caos;
-        
+
         }
         for (int i = 0; i < cosasbuenas.Length; i++)
         {
