@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
-    // Start is called before the first frame update
-    SpriteRenderer aspecto;
-    [SerializeField]
-    int maxcosasbuenas;
-    [SerializeField]
-    int maxcosasmalas;
-    [SerializeField]
     MonoBehaviour contenedorsprites;
-    [SerializeField]
-    MonoBehaviour contenedoracciones;
-    [SerializeField]
     MonoBehaviour guion;
-    int numcosasbuenas;
-    int numcosasmalas;
-    // enum Tipo {normal,profefdi,furro,capitalista,satanico };
+    MonoBehaviour dialogo;
 
-    string[] tipos = { "normal", "profefdi", "furro", "capitalista", "satanico" };
+    public string[] tipos = { "Normal", "Furro", "Capitalista", "Satanico" };
+    public int maxDialogosTipo = 4;
+    int tipo;
+    
     public struct Cosabuena {
         public string texto;
         public int caos;
@@ -29,43 +20,12 @@ public class Npc : MonoBehaviour
         public string texto;
         public int caos;
     };
-    // Sprite[] aspectoposible;
-   
     
     Cosamala[] cosasmalas;
     Cosabuena[] cosasbuenas;
 
-    string hola;
-    string adios;
     int caostotal;
-    void Start()
-    {
-        aspecto = GetComponent<SpriteRenderer>();
-        Contenedoracciones c = contenedoracciones.GetComponent<Contenedoracciones>();
-        hola = c.Holasrandom("furro");
-        adios= c.Adiosrandom("furro");
-        Debug.Log(hola);
-        Debug.Log(adios);
 
-        Contenedorsprites s = contenedorsprites.GetComponent<Contenedorsprites>();
-        aspecto.sprite = s.generaAspectoRandom();
-        Debug.Log(s.generaAspectoRandom());
-        //Debug.Log(guion.GetComponent<Guion>());
-        Guion g = guion.GetComponent<Guion>();
-
-        cosasmalas = g.Cosamalarandom();
-        cosasbuenas = g.Cosabuenarandom();
-
-        
-            
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void Calculacaos()
     {
         int ct=0;
@@ -79,6 +39,26 @@ public class Npc : MonoBehaviour
             ct += cosasbuenas[i].caos;
         }
         caostotal = ct;
+    }
 
+    public void setData(MonoBehaviour contenedorsprites_, MonoBehaviour guion_, MonoBehaviour dialogo_)
+    {
+        dialogo = dialogo_;
+        contenedorsprites = contenedorsprites_;
+        guion = guion_;
+
+        tipo = Random.Range(0, tipos.Length);
+        string path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, tipos.Length);      
+        dialogo_.GetComponent<DialogueManager>().startDialogue(path);
+        Debug.Log(path);
+
+
+        GetComponent<SpriteRenderer>().sprite = 
+            contenedorsprites.GetComponent<Contenedorsprites>().generaAspectoRandom();
+
+        Guion g = guion.GetComponent<Guion>();
+
+        cosasmalas = g.Cosamalarandom();
+        cosasbuenas = g.Cosabuenarandom();
     }
 }

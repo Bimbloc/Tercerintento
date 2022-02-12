@@ -17,10 +17,11 @@ public class DialogueManager : MonoBehaviour
     public GameObject button1;
     public GameObject button2;
 
+    public GameObject heavenButton;
+    public GameObject hellButton;
+
     [SerializeField]
     float textSpeed = 0.2f; //velocidad con la que se typean las letras
-
-    const string filePath = "dialogue";
 
     struct sentece
     {
@@ -56,19 +57,24 @@ public class DialogueManager : MonoBehaviour
         return instance;
     }
 
-    private void Start()
+    public void startDialogue(string filePath)
     {
         dialogueText = mainButton.GetComponentInChildren<TextMeshProUGUI>();
-        dialogueText.text = "";      
+        dialogueText.text = "";
+
+        mainButton.SetActive(true);
 
         button1.SetActive(false);
         button2.SetActive(false);
 
-        SetDialogue();
+        heavenButton.SetActive(false);
+        hellButton.SetActive(false);
+
+        SetDialogue(filePath);
         StartDialogue();
     }
 
-    private void SetDialogue()
+    private void SetDialogue(string filePath)
     {
         TextAsset textFile = Resources.Load<TextAsset>(filePath);
 
@@ -164,17 +170,11 @@ public class DialogueManager : MonoBehaviour
 
             button1.SetActive(true);
             button2.SetActive(true);
-        }
-       
-        else //si ya no hay más frases
+        }     
+        else
         {
-            mainButton.SetActive(false); //se desactiva la caja de diálogo
-            Time.timeScale = 1; //se quita la pausa
-
-            //if (button != null)
-            //{
-            //    button.SetActiveButton();
-            //}
+            heavenButton.SetActive(true);
+            hellButton.SetActive(true);
         }
     }
 
@@ -208,5 +208,15 @@ public class DialogueManager : MonoBehaviour
             StopAllCoroutines(); //para de escribir letra a letra
             dialogueText.text = nowWritting.text; //completa el texto
         }
+    }
+
+    public void GoToHeaven(bool b)
+    {
+        if (b) ;
+        else;
+
+        mainButton.SetActive(false);
+        heavenButton.SetActive(false);
+        hellButton.SetActive(false);
     }
 }
