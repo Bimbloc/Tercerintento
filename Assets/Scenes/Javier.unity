@@ -1189,6 +1189,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 402026, guid: 20822131f7a068849967c4eb0328c80d, type: 3}
   m_PrefabInstance: {fileID: 250533726}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &498644278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498644279}
+  m_Layer: 0
+  m_Name: Bisagra der
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &498644279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498644278}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.9960003, y: 0.39699984, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1551705157}
+  m_Father: {fileID: 1679152693}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &522623566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 429004, guid: e5a9e0b66bb8a8b47a28819231a34fc2, type: 3}
@@ -1267,6 +1298,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aa6202481b04fa458b2b223e52a1b0d, type: 3}
+--- !u!1 &539438425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539438426}
+  m_Layer: 0
+  m_Name: Bisagra izq
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &539438426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539438425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.704, y: 0.454, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1153816802}
+  m_Father: {fileID: 1679152693}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &553079024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9aa6202481b04fa458b2b223e52a1b0d, type: 3}
@@ -1532,15 +1594,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdc643a2dc6756c428fd76836ae8da3f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.54
+      value: 8.49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdc643a2dc6756c428fd76836ae8da3f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.61
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdc643a2dc6756c428fd76836ae8da3f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.88
+      value: 4.79
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cdc643a2dc6756c428fd76836ae8da3f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2049,11 +2111,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153816801}
-  m_LocalRotation: {x: 0.014151681, y: -0, z: -0, w: 0.99989986}
-  m_LocalPosition: {x: -0.82, y: 0.47, z: -0.44}
-  m_LocalScale: {x: 1.7442921, y: 0.13066, z: 3.4702}
+  m_LocalRotation: {x: 0.01415168, y: -0, z: -2.3283064e-10, w: 0.99989986}
+  m_LocalPosition: {x: 0.8840001, y: 0.015999794, z: -0.4399999}
+  m_LocalScale: {x: 1.7442923, y: 0.13066, z: 3.4702}
   m_Children: []
-  m_Father: {fileID: 1679152693}
+  m_Father: {fileID: 539438426}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.622, y: 0, z: 0}
 --- !u!65 &1153816803
@@ -2891,12 +2953,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551705156}
-  m_LocalRotation: {x: 0.014151681, y: -0, z: -0, w: 0.99989986}
-  m_LocalPosition: {x: 0.93, y: 0.47, z: -0.44}
-  m_LocalScale: {x: 1.7442921, y: 0.13066, z: 3.4702}
+  m_LocalRotation: {x: 0.01415168, y: -0, z: -2.3283064e-10, w: 0.99989986}
+  m_LocalPosition: {x: -1.0660003, y: 0.072999954, z: -0.43999988}
+  m_LocalScale: {x: 1.7442923, y: 0.13066, z: 3.4702}
   m_Children: []
-  m_Father: {fileID: 1679152693}
-  m_RootOrder: 1
+  m_Father: {fileID: 498644279}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.622, y: 0, z: 0}
 --- !u!65 &1551705158
 BoxCollider:
@@ -2969,6 +3031,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679152693}
+  - component: {fileID: 1679152695}
+  - component: {fileID: 1679152694}
   m_Layer: 0
   m_Name: Trampilla
   m_TagString: Untagged
@@ -2987,11 +3051,49 @@ Transform:
   m_LocalPosition: {x: 8.7, y: 4.79, z: 5.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1153816802}
-  - {fileID: 1551705157}
+  - {fileID: 498644279}
+  - {fileID: 539438426}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 23.283, z: 0}
+--- !u!95 &1679152694
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679152692}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da85db88b85b02547b3f3e08823d6d4d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &1679152695
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679152692}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 97aa89b9a6e703348a64fc1f048c1f8b, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 46b7f0cadcb074344a5309f50d90af7e, type: 2}
+  - {fileID: 7400000, guid: 568cabee2ba948341a6889728fe4e475, type: 2}
+  - {fileID: 7400000, guid: 44a1af993cf028e4c842220fea045191, type: 2}
+  - {fileID: 7400000, guid: 97aa89b9a6e703348a64fc1f048c1f8b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &1680360605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 472720, guid: 79f3726e667d7254296b8aef52d0f074, type: 3}
