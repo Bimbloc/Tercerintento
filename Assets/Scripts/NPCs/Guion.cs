@@ -1,33 +1,98 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using TMPro;
 
 public class Guion : MonoBehaviour
 {
+    string filePath1 = "favores";
+    string filePath2 = "pecados";
+
     public TextMeshProUGUI[] favores;
     public TextMeshProUGUI[] pecados;
 
-    string[] guionbueno = { "accionbuena1", "accionbuen2", "accionbuena3", "accionbuena4" };
-    string[] guionmalo = { "accionmala1", "accionmala2", "accionmala3" , "accionmala4" };
+    Npc.Cosabuena[] guionBueno;
+    Npc.Cosamala[] guionMalo;
 
-    public Npc.Cosabuena Cosabuenarandom(int i)
+    private void Start()
     {
-        Npc.Cosabuena result= new Npc.Cosabuena();
-        result.caos = 0;
-        string d = guionbueno[Random.Range(0, guionmalo.Length)];
-        result.dialogo = d;
-        favores[i].text = d;
+        StringReader archivo = new StringReader(Resources.Load<TextAsset>(filePath1).text);    
+        guionBueno = new Npc.Cosabuena[int.Parse(archivo.ReadLine())];
+        
+        string s = archivo.ReadLine();
+        int i = 0;
+        while (s != null)
+        {
+            string[] array = s.Split('_');
+            guionBueno[i].caos = int.Parse(array[0]);
+            guionBueno[i].texto = array[1];
+            i++;
+            s = archivo.ReadLine();
+        }
+
+        archivo.Close();
+
+        archivo = new StringReader(Resources.Load<TextAsset>(filePath2).text);
+        guionMalo = new Npc.Cosamala[int.Parse(archivo.ReadLine())];
+
+        s = archivo.ReadLine();
+        i = 0;
+        while (s != null)
+        {
+            string[] array = s.Split('_');
+            guionMalo[i].caos = int.Parse(array[0]);
+            guionMalo[i].texto = array[1];
+            i++;
+            s = archivo.ReadLine();
+        }
+
+        archivo.Close();
+    }
+
+    public Npc.Cosabuena[] Cosabuenarandom()
+    {
+        Npc.Cosabuena[] result = new Npc.Cosabuena[Random.Range(0, 4)];
+        int i = 0;
+
+        while (i < result.Length)
+        {
+            Npc.Cosabuena c = guionBueno[Random.Range(0, guionBueno.Length)];
+            int j = 0;
+            while (j < i && c.texto != result[j].texto)
+                j++;
+
+            if (j == i)
+            {
+                result[i] = c;
+                favores[i].text = c.texto;
+                i++;
+            }
+        }
+
         return result;   
     }
 
-    public Npc.Cosamala Cosamalarandom(int i)
+    public Npc.Cosamala[] Cosamalarandom()
     {
-        Npc.Cosamala result = new Npc.Cosamala();
-        result.caos = 0;
-        string d = guionmalo[Random.Range(0, guionmalo.Length)];
-        result.dialogo = d;
-        pecados[i].text = d;
+        Npc.Cosamala[] result = new Npc.Cosamala[Random.Range(0, 4)];
+        int i = 0;
+
+        while (i < result.Length)
+        {
+            Npc.Cosamala c = guionMalo[Random.Range(0, guionMalo.Length)];
+            int j = 0;
+            while (j < i && c.texto != result[j].texto)
+                j++;
+
+            if (j == i)
+            {
+                result[i] = c;
+                pecados[i].text = c.texto;
+                i++;
+            }
+        }
+
         return result;
     }
 }

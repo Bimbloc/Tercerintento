@@ -22,11 +22,11 @@ public class Npc : MonoBehaviour
 
     string[] tipos = { "normal", "profefdi", "furro", "capitalista", "satanico" };
     public struct Cosabuena {
-        public string dialogo;
+        public string texto;
         public int caos;
     };
     public struct Cosamala {
-        public string dialogo;
+        public string texto;
         public int caos;
     };
     // Sprite[] aspectoposible;
@@ -53,19 +53,10 @@ public class Npc : MonoBehaviour
         //Debug.Log(guion.GetComponent<Guion>());
         Guion g = guion.GetComponent<Guion>();
 
-        cosasmalas = new Cosamala[Random.Range(0, 4)];
-        cosasbuenas = new Cosabuena[Random.Range(0, 4)];
+        cosasmalas = g.Cosamalarandom();
+        cosasbuenas = g.Cosabuenarandom();
 
-        for (int i = 0; i < cosasmalas.Length; i++)
-        {
-            cosasmalas[i] = g.Cosamalarandom(i);
-        }
-            
-
-        for (int i = 0; i < cosasbuenas.Length; i++)
-        {
-            cosasbuenas[i] = g.Cosabuenarandom(i);
-        }
+        
             
 
     }
