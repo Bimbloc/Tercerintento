@@ -1,0 +1,14 @@
+9
+3
+1_-1_Tú, haz tu trabajo correctamente y déjame pasar, que tengo una indulgencia.
+-1_3_¿Qué es eso?_2_Claro señor, pase.
+2_0_Así me gusta, respeta a la gente más importante que tú.
+3_4_Bah solo eres un simple peón más, inútil como todos, seguro que no trabajas ni 21 horas al día.
+4_-2_Cállate y déjame pasar. Haz algo bien por una vez en tu vida.
+-2_2_Perdón, perdón, pase._5_De hecho trabajo 24 horas al día…
+5_6_¿No te apetecería trabajar para mí chaval?
+6_7_Te puedo poner un buen sueldo y no tendrás que trabajar las 24 horas, con 21 ó incluso 20 serán suficientes.
+7_-3_Además podemos negociar hasta 50 céntimos la hora. ¿Qué me dices?
+-3_8_Uuu suena interesante. ¡Me uno!_9_Nah, estoy bien ahora.
+8_0_Así me gusta, ven conmigo...
+9_0_… Qué inútil eres.

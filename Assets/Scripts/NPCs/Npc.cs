@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
-    MonoBehaviour contenedorsprites;
-    MonoBehaviour guion;
-    MonoBehaviour dialogo;
-
     public string[] tipos = { "Normal", "Furro", "Capitalista", "Satanico" };
     public int maxDialogosTipo = 4;
     int tipo;
@@ -26,30 +22,24 @@ public class Npc : MonoBehaviour
 
     int caostotal;
 
-    void Calculacaos()
+    private int CalculaKarma()
     {
-        int ct=0;
-        for (int i = 0; i < cosasmalas.Length; i++)
-        {
-            ct += cosasmalas[i].caos;
-        
-        }
+        int karma = 0;
+
         for (int i = 0; i < cosasbuenas.Length; i++)
-        {
-            ct += cosasbuenas[i].caos;
-        }
-        caostotal = ct;
+            karma += cosasbuenas[i].caos;
+
+        for (int i = 0; i < cosasmalas.Length; i++)
+            karma -= cosasmalas[i].caos;
+
+        return karma;
     }
 
-    public void setData(MonoBehaviour contenedorsprites_, MonoBehaviour guion_, MonoBehaviour dialogo_)
+    public void setData(MonoBehaviour contenedorsprites, MonoBehaviour guion, MonoBehaviour dialogo)
     {
-        dialogo = dialogo_;
-        contenedorsprites = contenedorsprites_;
-        guion = guion_;
-
         tipo = Random.Range(0, tipos.Length);
         string path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, tipos.Length);      
-        dialogo_.GetComponent<DialogueManager>().startDialogue(path);
+        dialogo.GetComponent<DialogueManager>().startDialogue(path);
         Debug.Log(path);
 
 
@@ -60,5 +50,18 @@ public class Npc : MonoBehaviour
 
         cosasmalas = g.Cosamalarandom();
         cosasbuenas = g.Cosabuenarandom();
+
+        int caos = CalculaKarma();
+        GameManager.GetInstance().infoNPC(Mathf.Abs(caos), caos >= 0, this.gameObject);
+    }
+
+    public void setSpecialNPC(MonoBehaviour contenedorsprites, MonoBehaviour guion, MonoBehaviour dialogo,
+        string dialogePath, string spritePath)
+    {
+        dialogo.GetComponent<DialogueManager>().startDialogue(dialogePath);
+        GetComponent<SpriteRenderer>().sprite =
+            contenedorsprites.GetComponent<Contenedorsprites>().getEspecialASpect(spritePath);
+
+        GameManager.GetInstance().infoNPC(0, true, this.gameObject);
     }
 }

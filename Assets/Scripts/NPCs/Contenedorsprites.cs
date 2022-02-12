@@ -5,7 +5,7 @@ using UnityEngine;
 public class Contenedorsprites : MonoBehaviour
 {
     // Start is called before the first frame update
-    Sprite[] aspectogeneral= new Sprite[2] ;
+    Sprite[] aspectogeneral = new Sprite[2];
 
     void Start()
     {
@@ -16,5 +16,10 @@ public class Contenedorsprites : MonoBehaviour
     public Sprite generaAspectoRandom()
     {
         return aspectogeneral[Random.Range(0, aspectogeneral.Length)];
+    }
+
+    public Sprite getEspecialASpect(string path)
+    {
+        return Resources.Load<Sprite>("Sprites/Especial/" + path);
     }
 }

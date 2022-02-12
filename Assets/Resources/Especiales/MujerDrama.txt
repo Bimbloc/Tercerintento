@@ -1,0 +1,15 @@
+10
+3
+1_2_Hola, déjeme pasar por favor. Mi vida ha sido un drama continuo. A los nueve meses
+2_3_caí del sexto piso de mi apartamento. Me han atropellado vehículos de todas las clases,
+3_4_suspendí todos mis exámenes siempre y me he intoxicado en múltiples ocasiones.
+4_-1_Justo cuando pensaba que todo estaba saliendo bien acabo aquí.
+-1_5_Qué mala suerte… ¿Qué te estaba saliendo bien?_6_Vaya, ¿y cómo has acabado aquí?
+5_0_Conseguí acariciar a mi perro sin que me mordiera la cara… Después de 5 años.
+6_-2_Patata.
+-2_7_¿Te cayó una patata en la cabeza?_8_¿Te atragantaste con una patata?
+7_9_No,
+8_9_Sí,
+9_-3_para mi desgracia estaba dando de comer a   mi hijo X AE A-XII cuando éste me tiró una patata a la boca que causó mi defunción.
+-3_10_..._10_xd
+10_0_Lo sé, solo me pasa una tragedia tras otra. Bueno ahora déjeme pasar.

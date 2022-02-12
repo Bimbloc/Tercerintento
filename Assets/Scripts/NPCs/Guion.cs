@@ -95,4 +95,14 @@ public class Guion : MonoBehaviour
 
         return result;
     }
+
+    public void Clear()
+    {
+        for (int i = 0; i < favores.Length; i++)
+            favores[i].text = "";
+
+        for (int i = 0; i < pecados.Length; i++)
+            pecados[i].text = "";
+
+    }
 }

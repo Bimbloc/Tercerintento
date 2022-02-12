@@ -212,8 +212,7 @@ public class DialogueManager : MonoBehaviour
 
     public void GoToHeaven(bool b)
     {
-        if (b) ;
-        else;
+        GameManager.GetInstance().compruebaJuicio(b);
 
         mainButton.SetActive(false);
         heavenButton.SetActive(false);

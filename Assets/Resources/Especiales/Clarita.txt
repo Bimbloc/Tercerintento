@@ -1,0 +1,13 @@
+8
+3
+1_2_Hola guapa, venga déjame pasar que tengo algo de prisa. No tengo todo el día,
+2_-1_tengo un montón de responsabilidades, así que rapidito chata.
+-1_4_¿Por qué tiene tanta prisa?_3_Déjeme ver ese bolso.
+3_0_NUNCA *tira el bolso y por algún motivo explota*
+4_-2_No tiene nada que ver con lo que hay en mi bolso se lo prometo.
+-2_5_Vale tranquila pase._6_Déjeme ver ese bolso.
+5_0_Gracias caballero.
+6_-3_Me parece fatal que no respete la intimidad de una dama, sinvergüenza.
+-3_7_Me da igual jaja *se lo quitas*_5_Disculpe, pase usted.
+7_8_*Llorando* Es cierto que con mi familia tenemos un negocio de azúcar mágico,
+8_0_pero déjeme pasar por favor, quiero cambiar como persona.
