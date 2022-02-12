@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     float textSpeed = 0.2f; //velocidad con la que se typean las letras
 
-    const string filePath = "/Resources/dialogue.txt";
+    const string filePath = "dialogue";
 
     struct sentece
     {
@@ -70,7 +70,7 @@ public class DialogueManager : MonoBehaviour
 
     private void SetDialogue()
     {
-        TextAsset textFile = Resources.Load<TextAsset>("dialogue");
+        TextAsset textFile = Resources.Load<TextAsset>(filePath);
 
         if (textFile != null)
         {          
@@ -122,7 +122,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void StartDialogue() //Para empezar el diálogo
+    public void StartDialogue() //Para empezar el diálogo
     {
         mainButton.SetActive(true); //se activa la caja de diálogo y se inicializa todo
         dialogueText.text = "";
