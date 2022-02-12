@@ -1,46 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Guion : MonoBehaviour
 {
-    // Start is called before the first frame update
-    Npc.Cosamala cosamala;
-    Npc.Cosabuena cosabuena;
-    string[] guionbueno= {"accionbuena" };
-    string[] guionmalo= { "accionmala"};
-    void Start()
-    {
-        
-    }
+    public TextMeshProUGUI[] favores;
+    public TextMeshProUGUI[] pecados;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public Npc.Cosabuena Cosabuenarandom()
+    string[] guionbueno = { "accionbuena1", "accionbuen2", "accionbuena3", "accionbuena4" };
+    string[] guionmalo = { "accionmala1", "accionmala2", "accionmala3" , "accionmala4" };
+
+    public Npc.Cosabuena Cosabuenarandom(int i)
     {
         Npc.Cosabuena result= new Npc.Cosabuena();
-        int c = Random.Range(-8,-1);
-        int selected = Random.Range(0, guionmalo.Length);
-        result.caos = c;
-        result.dialogo = guionmalo[selected];
-        return result;
-    
-    
-    
+        result.caos = 0;
+        string d = guionbueno[Random.Range(0, guionmalo.Length)];
+        result.dialogo = d;
+        favores[i].text = d;
+        return result;   
     }
-    public Npc.Cosamala Cosamalarandom()
+
+    public Npc.Cosamala Cosamalarandom(int i)
     {
         Npc.Cosamala result = new Npc.Cosamala();
-        int c = Random.Range(1, 8);
-        int selected = Random.Range(0, guionmalo.Length);
-        result.caos = c;
-        result.dialogo = guionbueno[selected];
+        result.caos = 0;
+        string d = guionmalo[Random.Range(0, guionmalo.Length)];
+        result.dialogo = d;
+        pecados[i].text = d;
         return result;
-
-
-
     }
 }

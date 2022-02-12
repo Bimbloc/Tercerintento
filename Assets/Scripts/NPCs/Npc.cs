@@ -19,28 +19,22 @@ public class Npc : MonoBehaviour
     int numcosasbuenas;
     int numcosasmalas;
     // enum Tipo {normal,profefdi,furro,capitalista,satanico };
+
     string[] tipos = { "normal", "profefdi", "furro", "capitalista", "satanico" };
     public struct Cosabuena {
-        public
-        string dialogo;
-        public
-        int caos;
-
+        public string dialogo;
+        public int caos;
     };
     public struct Cosamala {
-        public
-        string dialogo;
-        public
-        int caos;
+        public string dialogo;
+        public int caos;
     };
     // Sprite[] aspectoposible;
    
     
-    Cosamala[] cosasmalas= new Cosamala[1];
-    //Cosamala[] guionmalo;
-    Cosabuena[] cosasbuenas= new Cosabuena[1];
-    //Cosabuena[] guionbueno;
-    //string[] paparsearstructs= { };
+    Cosamala[] cosasmalas;
+    Cosabuena[] cosasbuenas;
+
     string hola;
     string adios;
     int caostotal;
@@ -52,25 +46,28 @@ public class Npc : MonoBehaviour
         adios= c.Adiosrandom("furro");
         Debug.Log(hola);
         Debug.Log(adios);
+
         Contenedorsprites s = contenedorsprites.GetComponent<Contenedorsprites>();
         aspecto.sprite = s.generaAspectoRandom();
         Debug.Log(s.generaAspectoRandom());
         //Debug.Log(guion.GetComponent<Guion>());
         Guion g = guion.GetComponent<Guion>();
-        cosasbuenas[0] = g.Cosabuenarandom();
-        cosasmalas[0] = g.Cosamalarandom();
-        Debug.Log(cosasbuenas[0]);
-        Debug.Log(cosasmalas[0]);
-       // Debug.Log(paparsearstructs);
-        //Debug.Log(c);
-        // Debug.Log(c.Cosasmalasrandom("furro", 2));//danull
-       // c.Cosasmalasrandom("furro", 1);
-       //paparsearstructs= c.Cosasmalasrandom("furro", 1);
 
-        //for (int i = 0; i < paparsearstructs.Length; i++)
-        //{
-          //  Debug.Log(paparsearstructs[i]);
-        //}
+        cosasmalas = new Cosamala[Random.Range(0, 4)];
+        cosasbuenas = new Cosabuena[Random.Range(0, 4)];
+
+        for (int i = 0; i < cosasmalas.Length; i++)
+        {
+            cosasmalas[i] = g.Cosamalarandom(i);
+        }
+            
+
+        for (int i = 0; i < cosasbuenas.Length; i++)
+        {
+            cosasbuenas[i] = g.Cosabuenarandom(i);
+        }
+            
+
     }
 
     // Update is called once per frame

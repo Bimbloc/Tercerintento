@@ -122,7 +122,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void StartDialogue() //Para empezar el diálogo
+    public void StartDialogue() //Para empezar el diálogo
     {
         mainButton.SetActive(true); //se activa la caja de diálogo y se inicializa todo
         dialogueText.text = "";
