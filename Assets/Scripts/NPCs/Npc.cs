@@ -14,27 +14,32 @@ public class Npc : MonoBehaviour
     MonoBehaviour contenedorsprites;
     [SerializeField]
     MonoBehaviour contenedoracciones;
-
+    [SerializeField]
+    MonoBehaviour guion;
     int numcosasbuenas;
     int numcosasmalas;
     // enum Tipo {normal,profefdi,furro,capitalista,satanico };
     string[] tipos = { "normal", "profefdi", "furro", "capitalista", "satanico" };
-    struct Cosabuena { 
+    public struct Cosabuena {
         public
-        string dialogo; 
+        string dialogo;
         public
-        int caos; 
+        int caos;
+
+    };
+    public struct Cosamala {
+        public
+        string dialogo;
+        public
+        int caos;
+    };
+    // Sprite[] aspectoposible;
+   
     
-    };
-    struct Cosamala {
-        public
-        string dialogo; 
-        public
-        int caos; 
-    };
-   // Sprite[] aspectoposible;
-    Cosamala[] cosasmalas;
-    Cosabuena[] cosasbuenas;
+    Cosamala[] cosasmalas= new Cosamala[1];
+    //Cosamala[] guionmalo;
+    Cosabuena[] cosasbuenas= new Cosabuena[1];
+    //Cosabuena[] guionbueno;
     //string[] paparsearstructs= { };
     string hola;
     string adios;
@@ -50,6 +55,12 @@ public class Npc : MonoBehaviour
         Contenedorsprites s = contenedorsprites.GetComponent<Contenedorsprites>();
         aspecto.sprite = s.generaAspectoRandom();
         Debug.Log(s.generaAspectoRandom());
+        //Debug.Log(guion.GetComponent<Guion>());
+        Guion g = guion.GetComponent<Guion>();
+        cosasbuenas[0] = g.Cosabuenarandom();
+        cosasmalas[0] = g.Cosamalarandom();
+        Debug.Log(cosasbuenas[0]);
+        Debug.Log(cosasmalas[0]);
        // Debug.Log(paparsearstructs);
         //Debug.Log(c);
         // Debug.Log(c.Cosasmalasrandom("furro", 2));//danull
