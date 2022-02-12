@@ -346,8 +346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxcosasbuenas: 0
   maxcosasmalas: 0
-  contenedorsprites: {fileID: 1501119137}
-  contenedoracciones: {fileID: 780525020}
+  contenedorsprites: {fileID: 780525020}
+  contenedoracciones: {fileID: 1501119137}
 --- !u!1 &1265617986
 GameObject:
   m_ObjectHideFlags: 0

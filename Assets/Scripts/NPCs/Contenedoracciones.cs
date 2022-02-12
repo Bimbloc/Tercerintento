@@ -95,13 +95,13 @@ public class Contenedoracciones : MonoBehaviour
         }
         int cont = 0;
         int selected = Random.Range(0, num);
-        while (selector.Length != 0 || cont < num)
+       /* while (selector.Length != 0 || cont < num)
         {
 
-            resultado[cont] = selector[selected];
-
-
-        }
+            //resultado[cont] = selector[selected];
+            cont++;
+            selected = Random.Range(0, num);
+        }*/
         string[] prueba = { "nosoynull" };
         Debug.Log(prueba);
         return prueba;

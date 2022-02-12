@@ -42,9 +42,10 @@ public class Npc : MonoBehaviour
         aspecto = GetComponent<SpriteRenderer>();
         Contenedoracciones c = contenedoracciones.GetComponent<Contenedoracciones>();
         Debug.Log(paparsearstructs);
+        Debug.Log(c);
         // Debug.Log(c.Cosasmalasrandom("furro", 2));//danull
-        c.Cosasmalasrandom("furro", 2);
-       // paparsearstructs= c.Cosasmalasrandom("furro", 2);
+       // c.Cosasmalasrandom("furro", 1);
+       paparsearstructs= c.Cosasmalasrandom("furro", 1);
 
         for (int i = 0; i < paparsearstructs.Length; i++)
         {
