@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int caosglobal = 0;
-    private int maxcaos = 32;
+    private int maxCaos = 32;
     private int maxcat = 8;
     private int numclientesprocesados=0;//cada x random viene uno especial
     private int numdia=0;
     int[] cantidadestiposnpcs = new int[5];
     public enum tiposnpcs {normal,profedsi,furro,capitalista,satanico };
-    
+    Scene[] finalesneutrales = new Scene[5];
+    Scene badending;
     //Singleton
     void Awake()
     {
@@ -40,6 +41,36 @@ public class GameManager : MonoBehaviour
     public static GameManager GetInstance()
     {
         return instance;
+    }
+    void acoplaClientes(tiposnpcs tipo)
+    {
+
+        cantidadestiposnpcs[(int)tipo]++;
+        numclientesprocesados++;
+        if (cantidadestiposnpcs[(int)tipo] >= maxcat)
+        {
+            Scene fin = finalesneutrales[(int)tipo];
+           setEnding(fin);
+        }
+    
+    }
+    void modificaCaos(int c)
+    {
+
+        caosglobal += c;
+        if (caosglobal >= maxCaos)
+        {
+            setEnding(badending);
+        }
+    
+    }
+    void avanzaDia()
+    {
+        numdia++;
+    }
+    void setEnding(Scene final)
+    { 
+      //cambio de escena qeu todavia no hay escenas xd
     }
 
 }
