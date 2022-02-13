@@ -258,7 +258,7 @@ public class GameManager : MonoBehaviour
         switch (i)
         {
             case (0):
-                return "endOfGame";
+                return "EndingBueno";
                 break;
             case (1):
                 return "EndingFurro";
