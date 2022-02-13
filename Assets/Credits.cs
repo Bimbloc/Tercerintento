@@ -2,23 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
-    RectTransform recto;
-    public Vector2 velocidad;
+    RectTransform rectTransform;
+    public Vector3 speed;
 
-    void Start()
+    private void Start()
     {
-        recto = GetComponent<RectTransform>();
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        //recto.anchoredPosition.y += velocidad * Time.deltaTime;
+        rectTransform = GetComponent<RectTransform>(); 
     }
 
-    public Vector2 veloc;
+    private void Update()
+    {
+        rectTransform.localPosition += speed * Time.deltaTime;
+    }
 
+    public void Decelerar()
+    {
+        speed.y -= 10;
+    }
+
+    public void IrAlMenu()
+    {
+        SceneManager.LoadScene("Nico 1");
+    }
 }
