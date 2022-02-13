@@ -105,8 +105,9 @@ public class GameManager : MonoBehaviour
         }
 
         if (b) finales[finalNow] += incrementoNow;
-                    
+
         generatorNPC.GetComponent<SpawnerNPC>().Clear();
+
         Destroy(nowNPC);
 
         clienteActual++;
@@ -131,12 +132,12 @@ public class GameManager : MonoBehaviour
         if (diaActual[clienteActual] == "")
         {           
             esEspecial = false;
-            Invoke("nuevoCliente", 2.0f);
+            Invoke("nuevoCliente", 5.0f);
         }
         else
         {
             esEspecial = true;
-            Invoke("clienteEspecial", 2.0f);
+            Invoke("clienteEspecial", 5.0f);
         }
             
     }

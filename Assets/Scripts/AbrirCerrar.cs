@@ -19,15 +19,21 @@ public class AbrirCerrar : MonoBehaviour
 
     public void Abrir()
     {
+        if (!anim.GetBool("Abierto"))
+        {
+            audioSource.clip = abrir;
+            audioSource.Play();
+        }
         anim.SetBool("Abierto", true);
-        audioSource.clip = abrir;
-        audioSource.Play();
     }
 
     public void Cerrar()
     {
+        if (anim.GetBool("Abierto"))
+        {
+            audioSource.clip = cerrar;
+            audioSource.Play();
+        }
         anim.SetBool("Abierto", false);
-        audioSource.clip = cerrar;
-        audioSource.Play();
     }
 }

@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2386d2bac5f02bb4a92e8aa49d9e02b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6561a110be890ad42b80cc036957a5ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,23 +100,4 @@ MonoBehaviour:
   - Furro
   - Capitalista
   - Satanico
-  Normal:
-  - Normie1
-  - Normie2
-  - Normie3
-  - Normie4
-  Furro:
-  - Furro1
-  - Furro2
-  - Furro3
-  - Furro4
-  Capitalista:
-  - Capitalista1
-  - Capitalista2
-  - Capitalista3
-  - Capitalista4
-  Satanico:
-  - Sat1
-  - Sat2
-  - Sat3
-  - Sat4
+  maxDialogosTipo: 4

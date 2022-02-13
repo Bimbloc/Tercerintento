@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     float textSpeed = 0.2f; //velocidad con la que se typean las letras
 
+    public AbrirCerrar puerta, trampilla;
+
     struct sentece
     {
         public int obj;
@@ -217,5 +219,17 @@ public class DialogueManager : MonoBehaviour
         mainButton.SetActive(false);
         heavenButton.SetActive(false);
         hellButton.SetActive(false);
+
+        Invoke(b ? "CierraPuerta" : "CierraTrampilla", b ? 5 : 3);
+    }
+
+    void CierraPuerta()
+    {
+        puerta.Cerrar();
+    }
+
+    void CierraTrampilla()
+    {
+        trampilla.Cerrar();
     }
 }

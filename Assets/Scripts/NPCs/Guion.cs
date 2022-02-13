@@ -9,8 +9,8 @@ public class Guion : MonoBehaviour
     string filePath1 = "favores";
     string filePath2 = "pecados";
 
-    public TextMeshProUGUI[] favores;
-    public TextMeshProUGUI[] pecados;
+    public TextMeshPro[] favores;
+    public TextMeshPro[] pecados;
 
     Npc.Cosabuena[] guionBueno;
     Npc.Cosamala[] guionMalo;
@@ -52,7 +52,7 @@ public class Guion : MonoBehaviour
 
     public Npc.Cosabuena[] Cosabuenarandom()
     {
-        Npc.Cosabuena[] result = new Npc.Cosabuena[Random.Range(0, 4)];
+        Npc.Cosabuena[] result = new Npc.Cosabuena[Random.Range(1, 4)];
         int i = 0;
 
         while (i < result.Length)
@@ -75,7 +75,7 @@ public class Guion : MonoBehaviour
 
     public Npc.Cosamala[] Cosamalarandom()
     {
-        Npc.Cosamala[] result = new Npc.Cosamala[Random.Range(0, 4)];
+        Npc.Cosamala[] result = new Npc.Cosamala[Random.Range(1, 4)];
         int i = 0;
 
         while (i < result.Length)
