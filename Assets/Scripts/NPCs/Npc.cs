@@ -43,6 +43,7 @@ public class Npc : MonoBehaviour
         tipo = Random.Range(0, tipos.Length);
         path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, 6);
         d = dialogo;
+        Debug.Log(path);
         Invoke("StartDialoge", 2.0f);
 
 
