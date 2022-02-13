@@ -31,7 +31,9 @@ public class Contenedorsprites : MonoBehaviour
 
     public Sprite generaAspectoRandom()
     {
-        return aspectogeneral[Random.Range(0, aspectogeneral.Length)];
+        int n = Random.Range(0, aspectogeneral.Length);
+        Debug.Log(n);
+        return aspectogeneral[n];
     }
 
     public Sprite getEspecialASpect(string path)
