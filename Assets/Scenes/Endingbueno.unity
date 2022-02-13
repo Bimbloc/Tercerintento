@@ -804,9 +804,6 @@ RectTransform:
 <<<<<<< HEAD
   - {fileID: 1773887541}
 =======
-  - {fileID: 2026217405}
-  - {fileID: 381151120}
->>>>>>> c7769462c056ad3fb0e23679d22ea5a8c523b4a6
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -818,8 +815,6 @@ RectTransform:
 <<<<<<< HEAD
 --- !u!1 &1773887540
 =======
---- !u!1 &2026217404
->>>>>>> c7769462c056ad3fb0e23679d22ea5a8c523b4a6
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
