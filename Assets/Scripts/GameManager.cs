@@ -118,7 +118,11 @@ public class GameManager : MonoBehaviour
         {
             generaCliente();
         }
-        else Invoke("a", 3.0f);
+        else
+        {
+            generatorNPC.GetComponent<SpawnerNPC>().VieneEspecial();
+            Invoke("a", 5.0f);
+        }
     }
 
     void a()

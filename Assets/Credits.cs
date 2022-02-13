@@ -16,7 +16,7 @@ public class Credits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //recto.anchoredPosition.y += velocidad * Time.deltaTime;
+        //recto.anchoredPosition.y += velocidad * Time.deltaTime;
     }
 
     public Vector2 veloc;
