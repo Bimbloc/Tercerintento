@@ -29,5 +29,3 @@
 20_Le dice salud a la gente después de que estornuden
 80_Le gustan los dinosaurios
 100_Es Dwayne Johnson.
-La roca.
-Es Dwayne Johnson la roca.

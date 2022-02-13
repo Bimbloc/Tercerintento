@@ -20,7 +20,6 @@ public class Npc : MonoBehaviour
     Cosamala[] cosasmalas;
     Cosabuena[] cosasbuenas;
 
-    int caostotal;
 
     private int CalculaKarma()
     {
@@ -53,6 +52,8 @@ public class Npc : MonoBehaviour
 
         int caos = CalculaKarma();
         GameManager.GetInstance().infoNPC(Mathf.Abs(caos), caos >= 0, this.gameObject);
+
+        GameManager.GetInstance().AddFinal(tipo, 1);
     }
 
     public void setSpecialNPC(MonoBehaviour contenedorsprites, MonoBehaviour guion, MonoBehaviour dialogo,
