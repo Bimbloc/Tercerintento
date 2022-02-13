@@ -311,6 +311,7 @@ public class GameManager : MonoBehaviour
 
     public void loseScene()
     {
-        changeScene("Endingmale");
+        //changeScene("Endingmale");
+        changeScene("EndingBueno");
     }
 }

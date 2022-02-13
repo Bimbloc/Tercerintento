@@ -7,5 +7,6 @@ public class BackTuMenu : MonoBehaviour
     public void sexo()
     {
         GameManager.GetInstance().GoToMenu();
+        Debug.Log("hola");
     }
 }
