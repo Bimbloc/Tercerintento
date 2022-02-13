@@ -8,7 +8,9 @@ public class UIEndOfDay : MonoBehaviour
     public GameObject nextDayButton;
     public GameObject loseButton;
 
-    public TextMeshProUGUI[] text;
+    public GameObject libro;
+
+    public TextMeshPro[] text;
 
     private void Start()
     {
@@ -19,17 +21,19 @@ public class UIEndOfDay : MonoBehaviour
 
         if (array[i] > 0)
         {
-            text[i].text = "Día " + array[i] + " Completado";
+            text[i].text = "Día " + array[i];
             nextDayButton.SetActive(true);
             loseButton.SetActive(false);
         }
             
         else
         {
-            text[i].text = "Derrota: Jesucristo te Castigará";
+            text[i].text = "Derrota";
             nextDayButton.SetActive(false);
             loseButton.SetActive(true);
         }
+
+        libro.GetComponent<AbrirCerrar>().Abrir();
     }
 
     public void NextDayButton()

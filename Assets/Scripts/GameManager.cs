@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void startGame()
     {
-        changeScene("Rocio");
+        changeScene("Javier");
         resetGame();
     }
 
@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
 
         if (dia < 7)
         {
-            changeScene("Rocio");
+            changeScene("Javier");
             generaCliente();
         }
         else
