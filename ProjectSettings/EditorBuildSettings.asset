@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingFurro.unity
     guid: f9a52436fe5b1b44ea474d9d46dcfdbd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Endingbueno.unity
     guid: 7b92f1ab19f3d724b9008d57c6d1ae9e
   - enabled: 1
@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: 90552c9d63a29d6489f3b2109a2782d7
+  - enabled: 1
+    path: Assets/Scenes/BuenoEnding.unity
+    guid: 23406809592c5bf43a4b82229be35856
   m_configObjects: {}
