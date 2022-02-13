@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour
         switch (i)
         {
             case (0):
-                return "endOfGame";
+                return "EndingBueno";
                 break;
             case (1):
                 return "EndingFurro";
@@ -289,5 +289,16 @@ public class GameManager : MonoBehaviour
     public GameObject GetNowNPC()
     {
         return nowNPC;
+    }
+
+    public void GoToMenu()
+    {    
+        changeScene("Nico");
+        DestroyImmediate(this.gameObject, true);
+    }
+
+    public void loseScene()
+    {
+        changeScene("Endingmale");
     }
 }
