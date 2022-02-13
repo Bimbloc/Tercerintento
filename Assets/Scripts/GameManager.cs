@@ -118,7 +118,12 @@ public class GameManager : MonoBehaviour
         {
             generaCliente();
         }
-        else changeScene("endOfDay");
+        else Invoke("a", 3.0f);
+    }
+
+    void a()
+    {
+        changeScene("endOfDay");
     }
 
 

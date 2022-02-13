@@ -13,7 +13,7 @@ public class SpawnerNPC : MonoBehaviour
     public GameObject npc;
 
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         GameManager.GetInstance().setNPCGenerator(this.gameObject);
     }
