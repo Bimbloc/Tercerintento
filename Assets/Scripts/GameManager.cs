@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void startGame()
     {
-        changeScene("Rocio");
+        changeScene("Javier");
         resetGame();
     }
 
@@ -185,12 +185,14 @@ public class GameManager : MonoBehaviour
 
         if (dia < 7)
         {
-            changeScene("Rocio");
+            changeScene("Javier");
             generaCliente();
         }
         else
         {
-            changeScene("endOfGame");
+            // changeScene("endOfGame");
+            pasaAlfinal();
+
         }
 
 
@@ -256,16 +258,16 @@ public class GameManager : MonoBehaviour
         switch (i)
         {
             case (0):
-                return "Normal";
+                return "endOfGame";
                 break;
             case (1):
-                return "Furro";
+                return "EndingFurro";
                 break;
             case (2):
-                return "Capitalista";
+                return "EndingCapitalista";
                 break;
             case (3):
-                return "Satanico";
+                return "EndingSatanico";
                 break;
             default:
                 break;
@@ -273,5 +275,13 @@ public class GameManager : MonoBehaviour
 
         return "";
 
+    }
+    void pasaAlfinal()
+    {
+        string finalito;
+        finalito = determinarFinal();
+        changeScene(finalito);
+    
+    
     }
 }
