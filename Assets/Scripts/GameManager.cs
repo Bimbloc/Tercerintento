@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
         generatorNPC.GetComponent<SpawnerNPC>().Clear();
 
-        Destroy(nowNPC);
+        Destroy(nowNPC, 5);
 
         clienteActual++;
 
@@ -283,5 +283,10 @@ public class GameManager : MonoBehaviour
         changeScene(finalito);
     
     
+    }
+
+    public GameObject GetNowNPC()
+    {
+        return nowNPC;
     }
 }

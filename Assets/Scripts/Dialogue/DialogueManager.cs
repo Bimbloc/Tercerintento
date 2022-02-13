@@ -143,6 +143,10 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in nowWritting.text) //por cada letra en la frase
         {
             dialogueText.text += c; //se van sumando letras al texto
+
+            if(dialogueText.text == nowWritting.text)
+                GameManager.GetInstance().GetNowNPC().GetComponent<Animator>().SetBool("Hablando", false);
+
             yield return new WaitForSecondsRealtime(textSpeed); //se espera en tiempo real para pasar a escribir la siguiente letra
         }
     }
@@ -158,6 +162,8 @@ public class DialogueManager : MonoBehaviour
 
             nowWritting = sentences[i];
             dialogueText.text = ""; //la caja de diálogo se pone sin texto
+
+            GameManager.GetInstance().GetNowNPC().GetComponent<Animator>().SetBool("Hablando", true);
 
             StartCoroutine(TypeSentence()); //empieza a escribir la nueva frase
         }
@@ -231,5 +237,15 @@ public class DialogueManager : MonoBehaviour
     void CierraTrampilla()
     {
         trampilla.Cerrar();
+    }
+
+    public void AscenderNPC()
+    {
+        GameManager.GetInstance().GetNowNPC().GetComponent<Animator>().SetBool("Cielo", true);
+    }
+
+    public void CaerNPC()
+    {
+        GameManager.GetInstance().GetNowNPC().GetComponent<Animator>().SetBool("Infierno", true);
     }
 }
