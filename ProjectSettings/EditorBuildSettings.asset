@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Javier.unity
     guid: 4a41f0883025d624484936238669f489
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 90552c9d63a29d6489f3b2109a2782d7
   m_configObjects: {}
