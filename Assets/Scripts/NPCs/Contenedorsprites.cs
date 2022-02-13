@@ -5,7 +5,7 @@ using UnityEngine;
 public class Contenedorsprites : MonoBehaviour
 {
     // Start is called before the first frame update
-    Sprite[] aspectogeneral = new Sprite[18];
+    Sprite[] aspectogeneral = new Sprite[15];
 
     void Start()
     {
@@ -13,20 +13,17 @@ public class Contenedorsprites : MonoBehaviour
         aspectogeneral[1] = Resources.Load<Sprite>("Sprites/npc2");
         aspectogeneral[2] = Resources.Load<Sprite>("Sprites/npc3");
         aspectogeneral[3] = Resources.Load<Sprite>("Sprites/npc4");
-        aspectogeneral[4] = Resources.Load<Sprite>("Sprites/npc5");
-        aspectogeneral[5] = Resources.Load<Sprite>("Sprites/npc6");
-        aspectogeneral[6] = Resources.Load<Sprite>("Sprites/npc7");
-        aspectogeneral[7] = Resources.Load<Sprite>("Sprites/npc8");
-        aspectogeneral[8] = Resources.Load<Sprite>("Sprites/npc9");
-        aspectogeneral[9] = Resources.Load<Sprite>("Sprites/npc10");
-        aspectogeneral[10] = Resources.Load<Sprite>("Sprites/npc11");
-        aspectogeneral[11] = Resources.Load<Sprite>("Sprites/npc12");
-        aspectogeneral[12] = Resources.Load<Sprite>("Sprites/npc13");
-        aspectogeneral[13] = Resources.Load<Sprite>("Sprites/npc14");
-        aspectogeneral[14] = Resources.Load<Sprite>("Sprites/npc15");
-        aspectogeneral[15] = Resources.Load<Sprite>("Sprites/npc16");
-        aspectogeneral[16] = Resources.Load<Sprite>("Sprites/Abuela4");
-        aspectogeneral[17] = Resources.Load<Sprite>("Sprites/Abuela5");
+        aspectogeneral[4] = Resources.Load<Sprite>("Sprites/npc7");
+        aspectogeneral[5] = Resources.Load<Sprite>("Sprites/npc8");
+        aspectogeneral[6] = Resources.Load<Sprite>("Sprites/npc9");
+        aspectogeneral[7] = Resources.Load<Sprite>("Sprites/npc10");
+        aspectogeneral[8] = Resources.Load<Sprite>("Sprites/npc11");
+        aspectogeneral[9] = Resources.Load<Sprite>("Sprites/npc12");
+        aspectogeneral[10] = Resources.Load<Sprite>("Sprites/npc13");
+        aspectogeneral[11] = Resources.Load<Sprite>("Sprites/npc14");
+        aspectogeneral[12] = Resources.Load<Sprite>("Sprites/npc15");
+        aspectogeneral[13] = Resources.Load<Sprite>("Sprites/npc16");
+        aspectogeneral[14] = Resources.Load<Sprite>("Sprites/Abuela5");
     }
 
     public Sprite generaAspectoRandom()
