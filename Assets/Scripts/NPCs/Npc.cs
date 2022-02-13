@@ -41,7 +41,7 @@ public class Npc : MonoBehaviour
     public void setData(MonoBehaviour contenedorsprites, MonoBehaviour guion, MonoBehaviour dialogo)
     {
         tipo = Random.Range(0, tipos.Length);
-        path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, tipos.Length);
+        path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, 6);
         d = dialogo;
         Invoke("StartDialoge", 2.0f);
 

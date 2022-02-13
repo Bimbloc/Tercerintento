@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour
         switch (i)
         {
             case (0):
-                return "EndingBueno";
+                return "BuenoEnding";
                 break;
             case (1):
                 return "EndingFurro";
@@ -315,7 +315,6 @@ public class GameManager : MonoBehaviour
 
     public void loseScene()
     {
-        //changeScene("Endingmale");
-        changeScene("EndingFurro");
+        changeScene("Endingmale");
     }
 }

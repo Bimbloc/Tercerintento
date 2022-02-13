@@ -1,0 +1,8 @@
+4
+2
+1_-1_Tienes que ser una bestia, esa es la única manera de que te respeten.
+-1_2_Eeeeh… ¿Okay supongo?_4_Tienes razón comienzas una pelea con la roca.
+2_-2_No, chaval tienes que dejar que tus acciones hablen por ti.
+-2_3_Paso_4_Tienes razón *comienzas una pelea con la roca*
+3_0_Qué decepción de ser...
+4_0_No seré derrotado.
