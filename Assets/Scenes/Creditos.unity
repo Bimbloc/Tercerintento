@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.75986224, g: 0.7982142, b: 0.8647252, a: 1}
+  m_IndirectSpecularColor: {r: 0.7597806, g: 0.79817647, b: 0.8646012, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -809,7 +809,7 @@ MonoBehaviour:
     2022 \npor los maravillosos desarrolladores:\n\n\n\nBeatriz Alcaide Garc\xEDa\n\nJavier
     Cano Salcedo\n\nSergio Colet Garc\xEDa\n\nV\xEDctor Manuel Estremera Herranz\n\nLidia
     Gonz\xE1lez Mart\xEDn\n\nLaura Mart\xEDnez Tom\xE1s\n\nRoc\xEDo S\xE1nchez Horcajuelo\n\nNicol\xE1s
-    Trefftz Hern\xE1ndez\n\n\n\n\n\nY de parte de todo el equipo enviamos tagradecimientos
+    Trefftz Fern\xE1ndez\n\n\n\n\n\nY de parte de todo el equipo enviamos tagradecimientos
     especiales a:\n\n\n\n\n\n\n\n\n\nJC: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDe locos bro,
     has completado el juego. <3\n\n\n\n\n\n\n\n\n\n\nABUELA TRAFICANTE: \n\n\n\n\n\n\n\n\n\n\n\n\n\xBFUn
     pastelito mozo? Llevan mucho \u201Camor\u201D\r\n\n\n\n\n\n\n\n\n\n\n\nNOVIO:

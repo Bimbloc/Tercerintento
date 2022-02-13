@@ -1,11 +1,13 @@
-7
+9
 2
 1_-1_AI-LA-RA-LA-LA, AI-LA-RA-LA-LA-AH
 -1_2_NON HAI FRONTEIRAS._4_MAMÁ MAMÁ MAMÁ, PAREMOS LA CIUDAD.
 2_3_Canta ti, cantarei eu, co xeito das nosas nais.
 3_-2_Festexarémos a vida da xente que está a bailar.
--2_4_YO SIEMPRE ESTOY READY PA ROMPER CADERAS ROMPER CORAZONES._5_Da xente que está a bailar, da xente que está a bailar.
+-2_4_YO SIEMPRE ESTOY READY PA ROMPER CADERAS ROMPER CORAZONES._8_Da xente que está a bailar, da xente que está a bailar.
 4_5_*Te miran mal*
 5_6_Fomos elixidos polo pobo español para representar a este país.
 6_7_Se non es capaz de entendelo, non merece a nosa presenza.
 7_0_*Se van*
+8_9_NO HAY FRONTERAS.
+9_0_*Tanxugueiras te ven digno de la TanxuPandereta y te la entregan*
