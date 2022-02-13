@@ -289,4 +289,15 @@ public class GameManager : MonoBehaviour
     {
         return nowNPC;
     }
+
+    public void GoToMenu()
+    {    
+        changeScene("Nico");
+        DestroyImmediate(this.gameObject, true);
+    }
+
+    public void loseScene()
+    {
+        changeScene("Endingmale");
+    }
 }

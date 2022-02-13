@@ -40,4 +40,9 @@ public class UIEndOfDay : MonoBehaviour
     {
         GameManager.GetInstance().SiguienteDia();
     }
+
+    public void BackToMenu()
+    {
+        GameManager.GetInstance().loseScene();
+    }
 }
