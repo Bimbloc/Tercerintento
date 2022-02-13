@@ -20,6 +20,10 @@ public class Npc : MonoBehaviour
     Cosamala[] cosasmalas;
     Cosabuena[] cosasbuenas;
 
+    string path;
+
+    MonoBehaviour d;
+
 
     private int CalculaKarma()
     {
@@ -37,9 +41,9 @@ public class Npc : MonoBehaviour
     public void setData(MonoBehaviour contenedorsprites, MonoBehaviour guion, MonoBehaviour dialogo)
     {
         tipo = Random.Range(0, tipos.Length);
-        string path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, tipos.Length);      
-        dialogo.GetComponent<DialogueManager>().startDialogue(path);
-        Debug.Log(path);
+        path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, tipos.Length);
+        d = dialogo;
+        Invoke("StartDialoge", 2.0f);
 
 
         GetComponent<SpriteRenderer>().sprite = 
@@ -59,10 +63,20 @@ public class Npc : MonoBehaviour
     public void setSpecialNPC(MonoBehaviour contenedorsprites, MonoBehaviour guion, MonoBehaviour dialogo,
         string dialogePath, string spritePath)
     {
-        dialogo.GetComponent<DialogueManager>().startDialogue(dialogePath);
+        path = dialogePath;
+        d = dialogo;
+
+        Invoke("StartDialoge", 2.0f);
+
+        
         GetComponent<SpriteRenderer>().sprite =
             contenedorsprites.GetComponent<Contenedorsprites>().getEspecialASpect(spritePath);
 
         GameManager.GetInstance().infoNPC(0, true, this.gameObject);
+    }
+
+    void StartDialoge()
+    {
+        d.GetComponent<DialogueManager>().startDialogue(path);
     }
 }

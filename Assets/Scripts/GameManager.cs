@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     bool esEspecial;
 
+    int time;
+
     private void Start()
     {
         resetGame();
@@ -132,12 +134,14 @@ public class GameManager : MonoBehaviour
         if (diaActual[clienteActual] == "")
         {           
             esEspecial = false;
-            Invoke("nuevoCliente", 5.0f);
+            Invoke("nuevoCliente", time);
         }
         else
         {
             esEspecial = true;
-            Invoke("clienteEspecial", 5.0f);
+
+            Invoke("clienteEspecial", time);
+            generatorNPC.GetComponent<SpawnerNPC>().VieneEspecial();
         }
             
     }
@@ -186,7 +190,9 @@ public class GameManager : MonoBehaviour
         if (dia < 7)
         {
             changeScene("Javier");
+            time = 1;
             generaCliente();
+            time = 5;
         }
         else
         {
@@ -208,7 +214,9 @@ public class GameManager : MonoBehaviour
         dia = 1;
         setDay(dia1);
         clienteActual = 0;
+        time = 1;
         generaCliente();
+        time = 5;
     }
 
     private void reset()
@@ -292,7 +300,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMenu()
     {    
-        changeScene("Nico");
+        changeScene("Nico 1");
         DestroyImmediate(this.gameObject, true);
     }
 

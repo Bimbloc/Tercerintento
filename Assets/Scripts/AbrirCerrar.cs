@@ -11,7 +11,7 @@ public class AbrirCerrar : MonoBehaviour
 
     AudioSource audioSource;
 
-    void Start()
+    void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
         audioSource = gameObject.GetComponent<AudioSource>();
