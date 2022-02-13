@@ -191,6 +191,7 @@ public class GameManager : MonoBehaviour
         else
         {
             changeScene("endOfGame");
+
         }
 
 
@@ -259,13 +260,13 @@ public class GameManager : MonoBehaviour
                 return "Normal";
                 break;
             case (1):
-                return "Furro";
+                return "EndingFurro";
                 break;
             case (2):
-                return "Capitalista";
+                return "EndingCapitalista";
                 break;
             case (3):
-                return "Satanico";
+                return "EndingSatanico";
                 break;
             default:
                 break;
@@ -273,5 +274,13 @@ public class GameManager : MonoBehaviour
 
         return "";
 
+    }
+    void pasaAlfinal()
+    {
+        string finalito;
+        finalito = determinarFinal();
+        changeScene(finalito);
+    
+    
     }
 }
