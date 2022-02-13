@@ -13,7 +13,7 @@ public class SpawnerNPC : MonoBehaviour
     public GameObject npc;
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         GameManager.GetInstance().setNPCGenerator(this.gameObject);
     }
@@ -30,6 +30,11 @@ public class SpawnerNPC : MonoBehaviour
         libro.Cerrar();
         GameObject go = Instantiate<GameObject>(npc, transform.position, transform.rotation);
         go.GetComponent<Npc>().setSpecialNPC(contenedorSprites, guion, dialogo, dp, tp);
+    }
+
+    public void VieneEspecial()
+    {
+        libro.Cerrar();
     }
 
     public void Clear()
