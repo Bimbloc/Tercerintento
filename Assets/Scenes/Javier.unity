@@ -584,7 +584,7 @@ Transform:
   m_LocalScale: {x: 0.21101, y: 0.21101, z: 0.21101}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 20, z: 0}
 --- !u!1001 &207672496
 PrefabInstance:
@@ -820,7 +820,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &250533726
 PrefabInstance:
@@ -1901,7 +1901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &531323874
 PrefabInstance:
@@ -2932,7 +2932,7 @@ RectTransform:
   - {fileID: 579720213}
   - {fileID: 307441222}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3154,7 +3154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &868745526
 MonoBehaviour:
@@ -3552,7 +3552,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1090880269
 GameObject:
@@ -4370,6 +4370,10 @@ PrefabInstance:
       propertyPath: libro
       value: 
       objectReference: {fileID: 919132147987821151}
+    - target: {fileID: 6672122320328799269, guid: eaa1c665cf5f7f64fabebb8b7cde9d49, type: 3}
+      propertyPath: dia1.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6672122320328799269, guid: eaa1c665cf5f7f64fabebb8b7cde9d49, type: 3}
       propertyPath: dia1.Array.data[0]
       value: 
@@ -6810,7 +6814,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1912584228 stripped
 ParticleSystem:

@@ -6,27 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/endOfDay.unity
-    guid: 9935e1b250e5c6d4494e95f3c786dfc2
-  - enabled: 1
-    path: Assets/Scenes/Rocio.unity
-    guid: c8ea5a9b5732c58439e63967bfec41a1
-  - enabled: 1
-    path: Assets/Scenes/endOfGame.unity
-    guid: 07c497a2ceaaca7469db66c6f5a0ada8
+    path: Assets/Scenes/Nico 1.unity
+    guid: 53222930657b862419ceead52fb3d229
   - enabled: 1
     path: Assets/Scenes/Javier.unity
     guid: 4a41f0883025d624484936238669f489
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/Endingbueno.unity
-    guid: 7b92f1ab19f3d724b9008d57c6d1ae9e
-  - enabled: 1
-    path: Assets/Scenes/EndingCapitalista.unity
-    guid: 6c6f8ddf454d2514c8c89fad0194d817
-  - enabled: 1
-    path: Assets/Scenes/EndingFurro.unity
-    guid: f9a52436fe5b1b44ea474d9d46dcfdbd
+    path: Assets/Scenes/endOfDay.unity
+    guid: 9935e1b250e5c6d4494e95f3c786dfc2
   - enabled: 1
     path: Assets/Scenes/EndingSatanico.unity
     guid: 8acfb5ca3f61eff4ca9b49381b12012a
@@ -34,10 +21,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Endingmale.unity
     guid: c3710de6a8db7de418466766962a2eba
   - enabled: 1
-    path: Assets/Scenes/Nico.unity
-    guid: b92343ceeb426724e875fc1ac2b50282
-=======
+    path: Assets/Scenes/EndingFurro.unity
+    guid: f9a52436fe5b1b44ea474d9d46dcfdbd
+  - enabled: 1
+    path: Assets/Scenes/Endingbueno.unity
+    guid: 7b92f1ab19f3d724b9008d57c6d1ae9e
+  - enabled: 1
+    path: Assets/Scenes/EndingCapitalista.unity
+    guid: 6c6f8ddf454d2514c8c89fad0194d817
+  - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: 90552c9d63a29d6489f3b2109a2782d7
->>>>>>> d6d62c2b25d96b2d79b29a22f8fec6e9247ccfdf
   m_configObjects: {}
