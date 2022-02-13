@@ -190,7 +190,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            changeScene("endOfGame");
+            // changeScene("endOfGame");
+            pasaAlfinal();
 
         }
 
@@ -257,7 +258,7 @@ public class GameManager : MonoBehaviour
         switch (i)
         {
             case (0):
-                return "Normal";
+                return "endOfGame";
                 break;
             case (1):
                 return "EndingFurro";
