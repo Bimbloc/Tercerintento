@@ -31,6 +31,18 @@ public class GameManager : MonoBehaviour
     string[] diaActual;
     int clienteActual;
 
+    //"Normal", "Furro", "Capitalista", "Satanico"
+    [SerializeField] int[] finales;
+    int finalNow;
+    int incrementoNow;
+
+    bool esEspecial;
+
+    private void Start()
+    {
+        resetGame();
+    }
+
     void Awake()
     {
         if (instance == null)
@@ -42,12 +54,10 @@ public class GameManager : MonoBehaviour
         { Destroy(this.gameObject); }
     }
 
-    void Start()
+    public void startGame()
     {
-        dia = 1;
-        setDay(dia1);
-        clienteActual = 0;
-        Invoke("nuevoCliente", 2.0f);
+        changeScene("Rocio");
+        resetGame();
     }
 
     private static GameManager instance;
@@ -72,25 +82,30 @@ public class GameManager : MonoBehaviour
 
     public void compruebaJuicio(bool b)
     {
-        if (karmaNow == b)
+        if (!esEspecial)
         {
-            caosTotal += caosNow;
+            if (karmaNow == b)
+            {
+                caosTotal += caosNow;
 
-            if (karmaNow)
-                santosAlCielo++;
+                if (karmaNow)
+                    santosAlCielo++;
+                else
+                    pecadoresAlInfierno++;
+            }
             else
-                pecadoresAlInfierno++;
-        }
-        else
-        {
-            caosTotal -= caosNow;
+            {
+                caosTotal -= caosNow;
 
-            if (karmaNow)
-                santosAlInfierno++;
-            else
-                pecadoresAlInfierno++;
+                if (karmaNow)
+                    santosAlInfierno++;
+                else
+                    pecadoresAlCielo++;
+            }
         }
-            
+
+        if (b) finales[finalNow] += incrementoNow;
+                    
         generatorNPC.GetComponent<SpawnerNPC>().Clear();
         Destroy(nowNPC);
 
@@ -98,10 +113,7 @@ public class GameManager : MonoBehaviour
 
         if (clienteActual != diaActual.Length)
         {
-            if (diaActual[clienteActual] == "")
-                Invoke("nuevoCliente", 2.0f);
-            else
-                Invoke("clienteEspecial", 2.0f);
+            generaCliente();
         }
         else changeScene("endOfDay");
     }
@@ -109,13 +121,31 @@ public class GameManager : MonoBehaviour
 
     void nuevoCliente()
     {
+        Debug.Log("nuevo cliente");
         generatorNPC.GetComponent<SpawnerNPC>().NewNPC();
+    }
+
+    void generaCliente()
+    {
+       
+        if (diaActual[clienteActual] == "")
+        {           
+            esEspecial = false;
+            Invoke("nuevoCliente", 2.0f);
+        }
+        else
+        {
+            esEspecial = true;
+            Invoke("clienteEspecial", 2.0f);
+        }
+            
     }
 
     void clienteEspecial()
     {
-        string s = diaActual[clienteActual];
-        generatorNPC.GetComponent<SpawnerNPC>().NewSpecialNPC("Especiales/" + s, s);
+        string[] array = diaActual[clienteActual].Split('_');
+        AddFinal(int.Parse(array[1]), 20);
+        generatorNPC.GetComponent<SpawnerNPC>().NewSpecialNPC("Especiales/" + array[0], array[0]);
     }
 
     public int[] endOfDayData()
@@ -133,7 +163,7 @@ public class GameManager : MonoBehaviour
 
         switch (dia)
         {
-            case(2):
+            case (2):
                 setDay(dia2);
                 break;
             case (3):
@@ -152,9 +182,30 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        changeScene("Rocio");
+        if (dia < 7)
+        {
+            changeScene("Rocio");
+            generaCliente();
+        }
+        else
+        {
+            changeScene("endOfGame");
+        }
 
-        Invoke("nuevoCliente", 2.0f);
+
+        
+    }
+
+    void resetGame()
+    {
+
+        reset();
+
+        finales = new int[4];
+        dia = 1;
+        setDay(dia1);
+        clienteActual = 0;
+        generaCliente();
     }
 
     private void reset()
@@ -177,6 +228,49 @@ public class GameManager : MonoBehaviour
 
     public void setNPCGenerator(GameObject go)
     {
+        Debug.Log("npcGenerator seteado");
         generatorNPC = go;
+    }
+
+    public void AddFinal(int i, int cant)
+    {
+        finalNow = i;
+        incrementoNow = cant;
+    }
+
+    public string determinarFinal()
+    {
+        int i = 0;
+        int max = 0;
+
+        for (int j = 0; j < finales.Length; j++)
+        {
+            if (finales[j] > max)
+            {
+                max = finales[j];
+                i = j;
+            }
+        }
+
+        switch (i)
+        {
+            case (0):
+                return "Normal";
+                break;
+            case (1):
+                return "Furro";
+                break;
+            case (2):
+                return "Capitalista";
+                break;
+            case (3):
+                return "Satanico";
+                break;
+            default:
+                break;
+        }
+
+        return "";
+
     }
 }
