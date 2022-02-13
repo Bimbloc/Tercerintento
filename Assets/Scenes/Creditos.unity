@@ -392,7 +392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -10098}
+  m_AnchoredPosition: {x: -36, y: -10328}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89940176
@@ -583,7 +583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -7669}
+  m_AnchoredPosition: {x: -36, y: -7899}
   m_SizeDelta: {x: 1282.1, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258334485
@@ -809,19 +809,19 @@ MonoBehaviour:
     Manuel Estremera Herranz\n\nLidia Gonz\xE1lez Mart\xEDn\n\nLaura Mart\xEDnez
     Tom\xE1s\n\nRoc\xEDo S\xE1nchez Horcajuelo\n\nNicol\xE1s Trefftz Hern\xE1ndez\n\n\n\n\n\nY
     de parte de todo el equipo enviamos tagradecimientos especiales a:\n\n\n\n\n\n\n\n\n\nJC:
-    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"De locos bro, has completado el juego. <3\"\n\n\n\n\n\n\n\n\n\n\nABUELA
-    TRAFICANTE: \n\n\n\n\n\n\n\n\n\n\n\n\n\"\xBFUn pastelito mozo? Llevan mucho \u201Camor\u201D\r\"\n\n\n\n\n\n\n\n\n\n\n\nNOVIO:
-    \n\n\n\n\n\n\n\n\n\n\n\n\"\xA1Croqueta! \xA1Croquetas por todos lados!\r\"\n\n\n\n\n\n\n\n\n\n\n\nNOVIA:
-    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"La Rosa de Guadalupe y la b\xFAsqueda de la croqueta
-    suprema\r\"\n\n\n\n\n\n\n\n\n\n\n\nWILLYREX: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"NFTs,
-    golems xd\r\"\n\n\n\n\n\n\n\n\n\n\n\nTANXU: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"\xA1Tanxu
-    a Eurovisi\xF3n! \xA1HA SIDO TONGO!\r\"\n\n\n\n\n\n\n\n\n\n\n\nMUJER DRAMA: \n\n\n\n\n\n\n\n\n\n\n\n\n\"\xBFD\xF3nde
-    est\xE1s X AE A-XII? \xA1Kill V. Maim!\r\"\n\n\n\n\n\n\n\n\n\n\n\nJEFF:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"Trabaja
-    18 horas diarias y alcanzar\xE1s el \xE9xito. Mentalidad de tibur\xF3n.\r\"\n\n\n\n\n\n\n\n\n\n\n\nEL
-    GATO NO DE GUILLE: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"miau\"\n\n\n\n\n\n\n\n\n\n\n\nLA
-    ROCA: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"\xA1Recuerda colaborar con las
-    asociaciones de la FDI!\"\n\n\n\n\n\n\n\n\n\n\nCLARITA:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"S\xE9
-    generoso como mi abuela con la paga\"\n"
+    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDe locos bro, has completado el juego. <3\n\n\n\n\n\n\n\n\n\n\nABUELA
+    TRAFICANTE: \n\n\n\n\n\n\n\n\n\n\n\n\n\xBFUn pastelito mozo? Llevan mucho \u201Camor\u201D\r\n\n\n\n\n\n\n\n\n\n\n\nNOVIO:
+    \n\n\n\n\n\n\n\n\n\n\n\n\xA1Croqueta! \xA1Croquetas por todos lados!\r\n\n\n\n\n\n\n\n\n\n\n\nNOVIA:
+    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLa Rosa de Guadalupe y la b\xFAsqueda de la croqueta
+    suprema\r\n\n\n\n\n\n\n\n\n\n\n\nWILLYREX: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNFTs,
+    golems xd\r\n\n\n\n\n\n\n\n\n\n\n\nTANXU: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\xA1Tanxu
+    a Eurovisi\xF3n! \xA1HA SIDO TONGO!\r\n\n\n\n\n\n\n\n\n\n\n\nMUJER DRAMA: \n\n\n\n\n\n\n\n\n\n\n\n\n\xBFD\xF3nde
+    est\xE1s X AE A-XII? \xA1Kill V. Maim!\r\n\n\n\n\n\n\n\n\n\n\n\nJEFF:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTrabaja
+    18 horas diarias y alcanzar\xE1s el \xE9xito. Mentalidad de tibur\xF3n.\r\n\n\n\n\n\n\n\n\n\n\n\nEL
+    GATO NO DE GUILLE: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmiau\n\n\n\n\n\n\n\n\n\n\n\nLA
+    ROCA: \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\xA1Recuerda colaborar con las asociaciones
+    de la FDI!\n\n\n\n\n\n\n\n\n\n\nCLARITA:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nS\xE9
+    generoso como mi abuela con la paga\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1028,7 +1028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -1734}
+  m_AnchoredPosition: {x: -36, y: -1964}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &525732070
@@ -1311,7 +1311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -4010}
+  m_AnchoredPosition: {x: -36, y: -4240}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881972439
@@ -1386,7 +1386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -6447}
+  m_AnchoredPosition: {x: -36, y: -6677}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105587043
@@ -1461,7 +1461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -5190}
+  m_AnchoredPosition: {x: -36, y: -5420}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1172476878
@@ -1669,7 +1669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -13087.669}
+  m_AnchoredPosition: {x: -36, y: -13317.669}
   m_SizeDelta: {x: 631.2, y: 779.2285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227039942
@@ -2211,7 +2211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -14438}
+  m_AnchoredPosition: {x: -36, y: -14668}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873725257
@@ -2361,7 +2361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -2859}
+  m_AnchoredPosition: {x: -36, y: -3089}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943822954
@@ -2436,7 +2436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -11539.688}
+  m_AnchoredPosition: {x: -36, y: -11769.688}
   m_SizeDelta: {x: 642.5, y: 971.6484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1949967437
@@ -2511,7 +2511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -8848}
+  m_AnchoredPosition: {x: -36, y: -9078}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2006176058
