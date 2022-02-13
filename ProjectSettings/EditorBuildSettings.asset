@@ -18,6 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Javier.unity
     guid: 4a41f0883025d624484936238669f489
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Endingbueno.unity
     guid: 7b92f1ab19f3d724b9008d57c6d1ae9e
   - enabled: 1
@@ -35,4 +36,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nico.unity
     guid: b92343ceeb426724e875fc1ac2b50282
+=======
+    path: Assets/Scenes/Creditos.unity
+    guid: 90552c9d63a29d6489f3b2109a2782d7
+>>>>>>> d6d62c2b25d96b2d79b29a22f8fec6e9247ccfdf
   m_configObjects: {}

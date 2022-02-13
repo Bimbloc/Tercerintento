@@ -28,4 +28,4 @@
 10_Limpia el teclado del ordenador
 20_Le dice salud a la gente después de que estornuden
 80_Le gustan los dinosaurios
-100_Es Dwayne Johnson.
+100_Es fan de Dwayne Johnson.

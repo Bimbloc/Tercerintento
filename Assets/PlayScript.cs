@@ -26,4 +26,9 @@ public class PlayScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void laHistoriaInterminable()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
 }
