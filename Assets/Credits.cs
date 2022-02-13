@@ -18,5 +18,5 @@ public class Credits : MonoBehaviour
         
     }
 
-    public Vector2 veloc
+    public Vector2 veloc;
 }
