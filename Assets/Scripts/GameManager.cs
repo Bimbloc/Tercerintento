@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
         {
             esEspecial = true;
             Invoke("clienteEspecial", 5.0f);
+            generatorNPC.GetComponent<SpawnerNPC>().VieneEspecial();
         }
             
     }
