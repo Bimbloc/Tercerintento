@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class SpawnerNPC : MonoBehaviour
 {
     public MonoBehaviour guion;
     public MonoBehaviour contenedorSprites;
-    public MonoBehaviour dialogo;
+    public MonoBehaviour dialogo; //referencia al canvas
 
-    public AbrirCerrar libro;
+    public AbrirCerrar libro; //para abrir cerrar el libro
 
-    public GameObject npc;
+    public GameObject npc; //prefab
 
     // Start is called before the first frame update
     private void Start()
@@ -20,6 +21,9 @@ public class SpawnerNPC : MonoBehaviour
 
     public void NewNPC()
     {
+        //SendEvent("NPCAppeared", Time.time * 1000);
+        Debug.Log("NPCAppeared: " + Time.time * 1000);
+
         libro.Abrir();
         GameObject go = Instantiate<GameObject>(npc, transform.position, transform.rotation);
         go.GetComponent<Npc>().setData(contenedorSprites, guion, dialogo);

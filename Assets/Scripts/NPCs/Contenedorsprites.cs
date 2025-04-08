@@ -29,7 +29,8 @@ public class Contenedorsprites : MonoBehaviour
     public Sprite generaAspectoRandom()
     {
         int n = Random.Range(0, aspectogeneral.Length);
-        Debug.Log(n);
+        //SendEvent("NPCSpriteID", aspectogeneral[n]);
+        Debug.Log("NPCSpriteID: " + aspectogeneral[n]);
         return aspectogeneral[n];
     }
 

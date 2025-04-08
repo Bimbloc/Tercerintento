@@ -44,6 +44,9 @@ public class Npc : MonoBehaviour
         path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, 6);
         d = dialogo;
         Debug.Log(path);
+        //SendEvent("Sentence", path);
+        Debug.Log("Sentence: " + path);
+
         Invoke("StartDialoge", 2.0f);
 
 
@@ -56,6 +59,8 @@ public class Npc : MonoBehaviour
         cosasbuenas = g.Cosabuenarandom();
 
         int caos = CalculaKarma();
+        //SendEvent("Sinner", (caos >= 0));
+        Debug.Log("Sinner: " + (caos >= 0));
         GameManager.GetInstance().infoNPC(Mathf.Abs(caos), caos >= 0, this.gameObject);
 
         GameManager.GetInstance().AddFinal(tipo, 1);

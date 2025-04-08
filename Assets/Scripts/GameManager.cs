@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         resetGame();
+        //SendEvent("DayStarted", Time.time * 1000);
+        Debug.Log("DayStarted "+ Time.time * 1000);
     }
 
     void Awake()
@@ -127,6 +129,10 @@ public class GameManager : MonoBehaviour
 
     void a()
     {
+        //SendEvent("DayEnded", Time.time * 1000);
+        //SendEvent("DayOrder", caosNow);
+        Debug.Log("DayEnded " + Time.time * 1000);
+        Debug.Log("DayOrder " + caosNow);
         changeScene("endOfDay");
     }
 
