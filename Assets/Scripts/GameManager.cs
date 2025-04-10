@@ -43,7 +43,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         resetGame();
-        //SendEvent("DayStarted", Time.time * 1000);
+        //SendEvent("DayStartedTime", Time.time * 1000);
+        //SendEvent("DayStartedNumber", dia);
         Debug.Log("DayStarted "+ Time.time * 1000);
     }
 
@@ -130,6 +131,7 @@ public class GameManager : MonoBehaviour
     void a()
     {
         //SendEvent("DayEnded", Time.time * 1000);
+        //SendEvent("DayEndedTime", Time.time * 1000);
         //SendEvent("DayOrder", caosNow);
         Debug.Log("DayEnded " + Time.time * 1000);
         Debug.Log("DayOrder " + caosNow);
@@ -277,7 +279,7 @@ public class GameManager : MonoBehaviour
                 i = j;
             }
         }
-
+        //SendEvent("FinalObtenido", i);
         switch (i)
         {
             case (0):
@@ -321,6 +323,7 @@ public class GameManager : MonoBehaviour
 
     public void loseScene()
     {
+        //SendEvent("FinalObtenido", 4);
         changeScene("Endingmale");
     }
 }

@@ -57,7 +57,9 @@ public class Guion : MonoBehaviour
 
         while (i < result.Length)
         {
-            Npc.Cosabuena c = guionBueno[Random.Range(0, guionBueno.Length)];
+            int random = Random.Range(0, guionBueno.Length);
+            Npc.Cosabuena c = guionBueno[random];
+            //SendEvent("Favor", random);
             int j = 0;
             while (j < i && c.texto != result[j].texto)
                 j++;
@@ -80,7 +82,9 @@ public class Guion : MonoBehaviour
 
         while (i < result.Length)
         {
-            Npc.Cosamala c = guionMalo[Random.Range(0, guionMalo.Length)];
+            int random = Random.Range(0, guionMalo.Length);
+            Npc.Cosamala c = guionMalo[random];
+            //SendEvent("Pecado", random);
             int j = 0;
             while (j < i && c.texto != result[j].texto)
                 j++;

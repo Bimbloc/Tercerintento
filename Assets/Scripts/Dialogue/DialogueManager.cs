@@ -220,6 +220,8 @@ public class DialogueManager : MonoBehaviour
 
     public void GoToHeaven(bool b)
     {
+        //SendEvent("JudgementTime", Time.time * 1000);
+        //SendEvent("Judgement", b);
         GameManager.GetInstance().compruebaJuicio(b);
 
         mainButton.SetActive(false);
