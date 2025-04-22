@@ -43,8 +43,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         resetGame();
-        //SendEvent("DayStartedTime", Time.time * 1000);
-        //SendEvent("DayStartedNumber", dia);
+        Tracker.Instance.TrackEvent("DayStartedTime", (int)(Time.time * 1000));
+        Tracker.Instance.TrackEvent("DayStartedNumber", dia);
         Debug.Log("DayStarted "+ Time.time * 1000);
     }
 
@@ -130,9 +130,8 @@ public class GameManager : MonoBehaviour
 
     void a()
     {
-        //SendEvent("DayEnded", Time.time * 1000);
-        //SendEvent("DayEndedTime", Time.time * 1000);
-        //SendEvent("DayOrder", caosNow);
+        Tracker.Instance.TrackEvent("DayOrder", caosNow);
+        Tracker.Instance.TrackEvent("DayEndedTime", (int)(Time.time * 1000));
         Debug.Log("DayEnded " + Time.time * 1000);
         Debug.Log("DayOrder " + caosNow);
         changeScene("endOfDay");
