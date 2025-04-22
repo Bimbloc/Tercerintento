@@ -7,4 +7,5 @@ public interface IPersistence
     void Send(TrackerEvent trackerEvent);
 
     void Flush();
+    void SetFormat(TraceFormats newformat);
 }
