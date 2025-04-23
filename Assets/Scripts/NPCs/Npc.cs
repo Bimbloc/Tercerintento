@@ -41,10 +41,12 @@ public class Npc : MonoBehaviour
     public void setData(MonoBehaviour contenedorsprites, MonoBehaviour guion, MonoBehaviour dialogo)
     {
         tipo = Random.Range(0, tipos.Length);
-        path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + Random.Range(0, 6);
+        int frase = Random.Range(0, 6);
+        path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + frase;
         d = dialogo;
         Debug.Log(path);
-        //Tracker.Instance.TrackEvent("Sentence", path);
+        Tracker.Instance.TrackEvent("NPCType", tipo);
+        Tracker.Instance.TrackEvent("Sentence", frase);
         Debug.Log("Sentence: " + path);
 
         Invoke("StartDialoge", 2.0f);

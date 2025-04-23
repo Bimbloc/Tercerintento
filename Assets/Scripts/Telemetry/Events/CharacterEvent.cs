@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterEvent : ITrackerEvent {
-    int id;
+    int type;
     int sentence;
     int sprite;
     int sinner;
@@ -12,7 +12,7 @@ public class CharacterEvent : ITrackerEvent {
     List<int> favores;
     List<int> pecados;
     public CharacterEvent(CharacterAsset asset) {
-        id = asset.getID();
+        type = asset.getType();
         sentence = asset.getSentence();
         sprite = asset.getSprite();
         sinner = asset.getSinner();
@@ -26,7 +26,7 @@ public class CharacterEvent : ITrackerEvent {
     {
         Dictionary<string, object> valuePairs = new Dictionary<string, object>();
 
-        valuePairs.Add("id", id);
+        valuePairs.Add("type", type);
         valuePairs.Add("sentence", sentence);
         valuePairs.Add("sprite", sprite);
         valuePairs.Add("sinner", sinner);

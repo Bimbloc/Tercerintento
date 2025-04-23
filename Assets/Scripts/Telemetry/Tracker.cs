@@ -72,6 +72,12 @@ public class Tracker : MonoBehaviour
                     return;
                 character.setSprite(param);
                 break;
+            case "NPCType":
+                character = (CharacterAsset)activeTrackers["Character"];
+                if (character == null)
+                    return;
+                character.setType(param);
+                break;
             case "Sentence":
                 character = (CharacterAsset)activeTrackers["Character"];
                 if (character == null)
