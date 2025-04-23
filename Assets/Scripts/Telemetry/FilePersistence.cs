@@ -8,7 +8,7 @@ public class FilePersistence : IPersistence
 {
     const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    const int RANDOM_NAME_LENGTH = 8;
+    const int RANDOM_NAME_LENGTH = 10;
 
     private ISerializer serializer;
 
@@ -16,20 +16,30 @@ public class FilePersistence : IPersistence
 
     private static System.Random random = new System.Random();
 
+    private TraceFormats currentFormat; 
+
     public void Flush()
     {
-        File.WriteAllText(generateRandomString(RANDOM_NAME_LENGTH), currentData);
+        string extension = ""; 
+        switch (currentFormat)
+        {
+            case TraceFormats.json:
+                extension = ".json";
+                break;
+        }
+        File.WriteAllText(generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
         currentData = "";
     }
 
-    public void Send(ITrackerEvent trackerEvent)
+    public void Send(TrackerEvent trackerEvent)
     {
         currentData += serializer.Serialize(trackerEvent);
     }
 
-    public void SetFormat(TraceFormats newformat)
+    public void SetFormat(TraceFormats newFormat)
     {
-        switch (newformat)
+        currentFormat = newFormat;
+        switch (newFormat)
         {
             case TraceFormats.json:
                 serializer = new JsonSerializer();

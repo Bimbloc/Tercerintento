@@ -42,6 +42,7 @@ public class Tracker : MonoBehaviour
         switch (persistenceType) {
             case PersistenceType.File:
                 persistenceObject = new FilePersistence();
+                persistenceObject.SetFormat(TraceFormats.json);
                 break;
             case PersistenceType.Server:
                 Debug.LogError("Server not implemented");

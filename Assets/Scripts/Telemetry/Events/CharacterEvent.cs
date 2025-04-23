@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterEvent : ITrackerEvent {
+public class CharacterEvent : TrackerEvent {
     int type;
     int sentence;
     int sprite;
@@ -11,7 +11,7 @@ public class CharacterEvent : ITrackerEvent {
     int judgement;
     List<int> favores;
     List<int> pecados;
-    public CharacterEvent(CharacterAsset asset) {
+    public CharacterEvent(CharacterAsset asset) : base("character") {
         type = asset.getType();
         sentence = asset.getSentence();
         sprite = asset.getSprite();
@@ -22,7 +22,7 @@ public class CharacterEvent : ITrackerEvent {
         pecados = asset.getPecados();
     }
 
-    public Dictionary<string, object> getParams()
+    public override Dictionary<string, object> GetParams()
     {
         Dictionary<string, object> valuePairs = new Dictionary<string, object>();
 

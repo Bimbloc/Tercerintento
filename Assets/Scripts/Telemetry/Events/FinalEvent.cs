@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinalEvent : ITrackerEvent {
+public class FinalEvent : TrackerEvent {
     int _final;
-    public FinalEvent(int final) {
+    public FinalEvent(int final) : base ("final"){
         _final = final;
     }
 
-    public Dictionary<string, object> getParams()
+    public override Dictionary<string, object> GetParams()
     {
         Dictionary<string, object> valuePairs = new Dictionary<string, object>();
 

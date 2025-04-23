@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartGameEvent : ITrackerEvent {
+public class StartGameEvent : TrackerEvent {
     int _time;
-    public StartGameEvent(int time) {
+    public StartGameEvent(int time) : base("startgame") {
         _time = time;
     }
-    public Dictionary<string, object> getParams() {
+    public override Dictionary<string, object> GetParams() {
         Dictionary<string, object> valuePairs = new Dictionary<string, object>();
 
         valuePairs.Add("time", _time);
