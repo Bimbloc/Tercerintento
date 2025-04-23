@@ -15,25 +15,30 @@ public class Tracker : MonoBehaviour
         if (Instance == null) {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            Init();
         }
         else {
             Destroy(gameObject);
         }
 
     }
-
-    private void Init()
-    {
-
+    private void OnDestroy() {
+        End();
     }
 
-    private void End()
-    {
+    private void Init() {
+        TrackEvent("StartGame", (int)(Time.time * 1000));
+    }
 
+    private void End() {
+        TrackEvent("EndGame", (int)(Time.time * 1000));
     }
 
     public void TrackEvent(string key, int param = 0) {
         switch (key) {
+            case "StartGame":
+                persistenceObject.Send(new StartGameEvent(param));
+                break;
             case "DayStartedTime":
                 activeTrackers["Day"] = new DayAsset(param);
                 break;
@@ -108,6 +113,11 @@ public class Tracker : MonoBehaviour
                 break;
             case "FinalObtenido":
                 persistenceObject.Send(new FinalEvent(param));
+                persistenceObject.Flush();
+                break;
+            case "EndGame":
+                persistenceObject.Send(new EndGameEvent(param));
+                persistenceObject.Flush();
                 break;
 
         }

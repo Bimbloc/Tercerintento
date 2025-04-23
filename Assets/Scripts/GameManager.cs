@@ -278,7 +278,7 @@ public class GameManager : MonoBehaviour
                 i = j;
             }
         }
-        //SendEvent("FinalObtenido", i);
+        Tracker.Instance.TrackEvent("FinalObtenido", i);
         switch (i)
         {
             case (0):
@@ -322,7 +322,7 @@ public class GameManager : MonoBehaviour
 
     public void loseScene()
     {
-        //SendEvent("FinalObtenido", 4);
+        Tracker.Instance.TrackEvent("FinalObtenido", 4);
         changeScene("Endingmale");
     }
 }
