@@ -1,26 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Tracker : MonoBehaviour
 {
+    enum PersistenceType
+    {
+        File,
+        Server
+    }
+
     public static Tracker Instance { get; private set; }
 
-    [SerializeField] private IPersistence persistenceObject;
+    private IPersistence persistenceObject;
 
     private Dictionary<string, ITrackerAsset> activeTrackers = new Dictionary<string, ITrackerAsset>();
-    private void Awake()
+
+    [SerializeField] private PersistenceType persistenceType;
+
+    void Awake()
     {
-        if (Instance == null) {
+        if (Instance == null)
+        {
             Instance = this;
             DontDestroyOnLoad(gameObject);
             Init();
         }
-        else {
+        else
+        {
             Destroy(gameObject);
         }
-
+    }
+    void Start()
+    {
+        switch (persistenceType)
+        {
+            case PersistenceType.File:
+                persistenceObject = new FilePersistence();
+                break;
+            case PersistenceType.Server:
+                Debug.LogError("Server not implemented");
+                break;
+        }
     }
     private void OnDestroy() {
         End();
