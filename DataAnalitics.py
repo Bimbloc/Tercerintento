@@ -9,8 +9,7 @@ folder_path = './data'
 
 #Pregunta 1 
 #Puntuaciones del libro ordebadas cronologicamente 
-orderRatings = []
-
+orderRatings = np.zeros(6)
 #pregnta 2
 
 #lista ordenada cronoligamente de decisiones correctas o erroneas
@@ -24,11 +23,12 @@ wrongGuessFavors =np.zeros(30)#30 enteros , contamos cuantos fallos Hay asociado
 wrongGuessSins =np.zeros(30)##30 enteros , contamos cuantos fallos Hay asociados a cada pecado
 
 #pregunta 3
-dayLoses = np.zeros(5)#Contamos cuantas veces pierde en cada dia 
+dayLoses = np.zeros(6)#Contamos cuantas veces pierde en cada dia 
 
 #pregunta 4 
 
 averageChoiceTime=[]#Tiempos medios de decision de cada dia ordenados cronologicamente
+averageChoiceTime = np.zeros(6)
 
 #pregunta 5
 
@@ -52,8 +52,8 @@ for file_name in os.listdir(folder_path):
                 
                 for obj in data : 
                      if("day") in obj :
-                          orderRatings.append(obj["day"]["order"])
-                          averageChoiceTime.append(obj["day"]["time"])
+                          orderRatings[obj["day"]["number"]-1] += obj["day"]["order"]
+                          averageChoiceTime[obj["day"]["number"]-1] += obj["day"]["time"]
                      if("character") in obj :
                           playerChoices.append(obj["character"]["judgement"])     
                           if(obj["character"]["sinner"]== obj["character"]["judgement"]): # acierto
@@ -75,7 +75,7 @@ for file_name in os.listdir(folder_path):
                                  totalSinAppearance[p] +=1
                      if("dayLoses" in obj):
                           dayLoses = obj["dayLoses"]
-                          
+
 #Con los datos de cada partida obtenemos graficas
 plt.title("Niveles de Orden")
 days = list(range(1,len(orderRatings)+1))

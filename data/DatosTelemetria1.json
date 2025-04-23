@@ -1,0 +1,587 @@
+[{"startgame":{
+  "time": 0
+}},
+{"character":{
+  "type": 1,
+  "sentence": 2,
+  "sprite": 1,
+  "sinner": 1,
+  "time": 16582,
+  "judgement": 1,
+  "favores": [
+    28
+  ],
+  "pecados": [
+    27,
+    15
+  ]
+}},
+{"character":{
+  "type": 2,
+  "sentence": 1,
+  "sprite": 0,
+  "sinner": 1,
+  "time": 30634,
+  "judgement": 1,
+  "favores": [
+    7,
+    8,
+    0
+  ],
+  "pecados": [
+    5,
+    6,
+    15
+  ]
+}},
+{"character":{
+  "type": 1,
+  "sentence": 3,
+  "sprite": 7,
+  "sinner": 1,
+  "time": 5056,
+  "judgement": 1,
+  "favores": [
+    3,
+    16,
+    19
+  ],
+  "pecados": [
+    5
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 3,
+  "sprite": 14,
+  "sinner": 1,
+  "time": 23545,
+  "judgement": 1,
+  "favores": [
+    0,
+    27
+  ],
+  "pecados": [
+    19
+  ]
+}},
+{"character":{
+  "type": 2,
+  "sentence": 2,
+  "sprite": 9,
+  "sinner": 1,
+  "time": 8502,
+  "judgement": 1,
+  "favores": [
+    28,
+    3,
+    13
+  ],
+  "pecados": [
+    16
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 2,
+  "sprite": 10,
+  "sinner": 0,
+  "time": 15766,
+  "judgement": 0,
+  "favores": [
+    26,
+    29
+  ],
+  "pecados": [
+    4,
+    12,
+    15
+  ]
+}},
+{"day":{
+  "time": 142120,
+  "order": 510,
+  "number": 1
+}},
+{"character":{
+  "type": 0,
+  "sentence": 0,
+  "sprite": 3,
+  "sinner": 1,
+  "time": 16520,
+  "judgement": 1,
+  "favores": [
+    10,
+    23
+  ],
+  "pecados": [
+    8
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 2,
+  "sprite": 14,
+  "sinner": 0,
+  "time": 6671,
+  "judgement": 0,
+  "favores": [
+    13
+  ],
+  "pecados": [
+    15,
+    6,
+    4
+  ]
+}},
+{"character":{
+  "type": 0,
+  "sentence": 1,
+  "sprite": 6,
+  "sinner": 0,
+  "time": 28585,
+  "judgement": 0,
+  "favores": [
+    4
+  ],
+  "pecados": [
+    2,
+    14,
+    29
+  ]
+}},
+{"character":{
+  "type": 2,
+  "sentence": 3,
+  "sprite": 8,
+  "sinner": 1,
+  "time": 8747,
+  "judgement": 1,
+  "favores": [
+    20,
+    9,
+    1
+  ],
+  "pecados": [
+    25,
+    28
+  ]
+}},
+{"character":{
+  "type": 1,
+  "sentence": 2,
+  "sprite": 2,
+  "sinner": 0,
+  "time": 12979,
+  "judgement": 0,
+  "favores": [
+    24
+  ],
+  "pecados": [
+    3,
+    20,
+    24
+  ]
+}},
+{"character":{
+  "type": 0,
+  "sentence": 3,
+  "sprite": 14,
+  "sinner": 1,
+  "time": 45921,
+  "judgement": 0,
+  "favores": [
+    21,
+    6,
+    25
+  ],
+  "pecados": [
+    0,
+    3,
+    23
+  ]
+}},
+{"day":{
+  "time": 184993,
+  "order": 410,
+  "number": 2
+}},
+{"character":{
+  "type": 3,
+  "sentence": 5,
+  "sprite": 13,
+  "sinner": 1,
+  "time": 8908,
+  "judgement": 1,
+  "favores": [
+    16,
+    28
+  ],
+  "pecados": [
+    19
+  ]
+}},
+{"character":{
+  "type": 2,
+  "sentence": 2,
+  "sprite": 9,
+  "sinner": 0,
+  "time": 5470,
+  "judgement": 0,
+  "favores": [
+    25
+  ],
+  "pecados": [
+    11,
+    8,
+    17
+  ]
+}},
+{"character":{
+  "type": 1,
+  "sentence": 5,
+  "sprite": 2,
+  "sinner": 0,
+  "time": 8088,
+  "judgement": 1,
+  "favores": [
+    29,
+    18
+  ],
+  "pecados": [
+    4,
+    4,
+    18
+  ]
+}},
+{"character":{
+  "type": 0,
+  "sentence": 3,
+  "sprite": 8,
+  "sinner": 0,
+  "time": 17522,
+  "judgement": 0,
+  "favores": [
+    12
+  ],
+  "pecados": [
+    20,
+    29
+  ]
+}},
+{"day":{
+  "time": 95686,
+  "order": 450,
+  "number": 3
+}},
+{"character":{
+  "type": 0,
+  "sentence": 1,
+  "sprite": 8,
+  "sinner": 1,
+  "time": 22785,
+  "judgement": 1,
+  "favores": [
+    18,
+    22,
+    29
+  ],
+  "pecados": [
+    15,
+    24,
+    7
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 0,
+  "sprite": 5,
+  "sinner": 0,
+  "time": 25038,
+  "judgement": 0,
+  "favores": [
+    27,
+    15,
+    18
+  ],
+  "pecados": [
+    12,
+    25
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 3,
+  "sprite": 10,
+  "sinner": 0,
+  "time": 32229,
+  "judgement": 0,
+  "favores": [
+    27,
+    8,
+    12
+  ],
+  "pecados": [
+    24,
+    26
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 0,
+  "sprite": 2,
+  "sinner": 1,
+  "time": 14717,
+  "judgement": 1,
+  "favores": [
+    20,
+    3
+  ],
+  "pecados": [
+    5,
+    14
+  ]
+}},
+{"day":{
+  "time": 158885,
+  "order": 230,
+  "number": 4
+}},
+{"character":{
+  "type": 1,
+  "sentence": 3,
+  "sprite": 3,
+  "sinner": 1,
+  "time": 24324,
+  "judgement": 1,
+  "favores": [
+    1
+  ],
+  "pecados": [
+    27,
+    10
+  ]
+}},
+{"character":{
+  "type": 2,
+  "sentence": 1,
+  "sprite": 11,
+  "sinner": 0,
+  "time": 6083,
+  "judgement": 0,
+  "favores": [
+    19
+  ],
+  "pecados": [
+    26,
+    5
+  ]
+}},
+{"character":{
+  "type": 1,
+  "sentence": 5,
+  "sprite": 11,
+  "sinner": 0,
+  "time": 4594,
+  "judgement": 0,
+  "favores": [
+    19
+  ],
+  "pecados": [
+    11,
+    17,
+    21
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 3,
+  "sprite": 4,
+  "sinner": 1,
+  "time": 18250,
+  "judgement": 0,
+  "favores": [
+    1
+  ],
+  "pecados": [
+    12
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 5,
+  "sprite": 11,
+  "sinner": 0,
+  "time": 32830,
+  "judgement": 0,
+  "favores": [
+    15,
+    14
+  ],
+  "pecados": [
+    18,
+    25
+  ]
+}},
+{"character":{
+  "type": 1,
+  "sentence": 5,
+  "sprite": 3,
+  "sinner": 1,
+  "time": 5371,
+  "judgement": 1,
+  "favores": [
+    28,
+    21,
+    28,
+    24
+  ],
+  "pecados": [
+    12,
+    15
+  ]
+}},
+{"day":{
+  "time": 164025,
+  "order": 410,
+  "number": 5
+}},
+{"character":{
+  "type": 3,
+  "sentence": 3,
+  "sprite": 1,
+  "sinner": 0,
+  "time": 8917,
+  "judgement": 0,
+  "favores": [
+    11,
+    26
+  ],
+  "pecados": [
+    11,
+    12
+  ]
+}},
+{"character":{
+  "type": 2,
+  "sentence": 4,
+  "sprite": 7,
+  "sinner": 0,
+  "time": 5947,
+  "judgement": 1,
+  "favores": [
+    18,
+    17
+  ],
+  "pecados": [
+    4,
+    23,
+    6
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 0,
+  "sprite": 5,
+  "sinner": 0,
+  "time": 13255,
+  "judgement": 0,
+  "favores": [
+    28
+  ],
+  "pecados": [
+    20,
+    3,
+    19
+  ]
+}},
+{"character":{
+  "type": 1,
+  "sentence": 2,
+  "sprite": 11,
+  "sinner": 0,
+  "time": 32713,
+  "judgement": 0,
+  "favores": [
+    22
+  ],
+  "pecados": [
+    11
+  ]
+}},
+{"character":{
+  "type": 0,
+  "sentence": 4,
+  "sprite": 13,
+  "sinner": 0,
+  "time": 13850,
+  "judgement": 0,
+  "favores": [
+    25,
+    29
+  ],
+  "pecados": [
+    11,
+    25,
+    21
+  ]
+}},
+{"character":{
+  "type": 3,
+  "sentence": 1,
+  "sprite": 9,
+  "sinner": 0,
+  "time": 4615,
+  "judgement": 0,
+  "favores": [
+    22
+  ],
+  "pecados": [
+    28,
+    17
+  ]
+}},
+{"character":{
+  "type": 0,
+  "sentence": 1,
+  "sprite": 9,
+  "sinner": 0,
+  "time": 5274,
+  "judgement": 0,
+  "favores": [
+    7
+  ],
+  "pecados": [
+    26,
+    29,
+    14
+  ]
+}},
+{"character":{
+  "type": 0,
+  "sentence": 4,
+  "sprite": 3,
+  "sinner": 1,
+  "time": 5967,
+  "judgement": 1,
+  "favores": [
+    22,
+    6,
+    3
+  ],
+  "pecados": [
+    22
+  ]
+}},
+{"day":{
+  "time": 165437,
+  "order": 850,
+  "number": 6
+}},
+{"final":{
+  "final": 2
+}},
+{"endgame":{
+  "time": 954502
+}}
+]
