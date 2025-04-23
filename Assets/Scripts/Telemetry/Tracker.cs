@@ -140,7 +140,6 @@ public class Tracker : MonoBehaviour
                 break;
             case "FinalObtenido":
                 persistenceObject.Send(new FinalEvent(param));
-                persistenceObject.Flush();
                 break;
             case "EndGame":
                 persistenceObject.Send(new EndGameEvent(param));
