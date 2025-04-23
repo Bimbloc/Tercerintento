@@ -16,7 +16,7 @@ orderRatings = []
 #lista ordenada cronoligamente de decisiones correctas o erroneas
 playerChoices =[] #[Y,N,Y,Y,N]
 #jugement 1 == cielo 
-#sinner 1 == infierno 
+#sinner 1 == cielo
 #jugement != sinner es un acierto
 correctGuessFavor = np.zeros(30) ##30 enteros , contamos cuantos acierto s Hay asociados a cada favor
 correctGuessSin =np.zeros(30)#30 enteros , contamos cuantos aciertos Hay asociados a cada pecado
@@ -32,8 +32,8 @@ averageChoiceTime=[]#Tiempos medios de decision de cada dia ordenados cronologic
 
 #pregunta 5
 
-characterTypes = [np.zeros(6),np.zeros(6),np.zeros(6),np.zeros(6)]#Frases de cada tio de personaje 
-
+characterSentences = [np.zeros(6),np.zeros(6),np.zeros(6),np.zeros(6)]#Frases de cada tio de personaje 
+characterTypes = np.zeros(4)
 #pregunta 6
 #Sumamos apariciones en aciertos y en fallos 
 totalFavorApearance = np.zeros(30)
@@ -52,21 +52,29 @@ for file_name in os.listdir(folder_path):
                 
                 for obj in data : 
                      if("day") in obj :
-                          orderRatings.append(obj["day"]["orden"])
+                          orderRatings.append(obj["day"]["order"])
                           averageChoiceTime.append(obj["day"]["time"])
                      if("character") in obj :
                           playerChoices.append(obj["character"]["judgement"])     
-                          if(obj["character"]["sinner"]!= obj["character"]["judgement"]): # acierto
-                             correctGuessFavor.append()
-                             correctGuessSin.append()
-                             characterTypes[obj["character"]["type"]][obj["character"]["sentence"]] +=1  
-                             totalFavorApearance[obj["character"]["favores"]] +=1
+                          if(obj["character"]["sinner"]== obj["character"]["judgement"]): # acierto
+                             for f in obj["character"]["favores"]:
+                                correctGuessFavor[f]+=1
+                                totalFavorApearance[f] +=1
+                             for p in obj["character"]["pecados"]:
+                                correctGuessSin[p]+=1
+                                totalSinAppearance[p] +=1 
+                             characterSentences[obj["character"]["type"]][obj["character"]["sentence"]] +=1  
+                             characterTypes[obj["character"]["type"]]+=1
                              totalSinAppearance[obj["character"]["pecados"]] +=1                                          
                           else:
-                               wrongGuessFavors.append()
-                               wrongGuessSins.append()
+                               for f in obj["character"]["favores"]:
+                                wrongGuessFavors[f]+=1
+                                totalFavorApearance[f] +=1
+                               for p in obj["character"]["pecados"]:
+                                 wrongGuessSins[p]+=1
+                                 totalSinAppearance[p] +=1
                      if("dayLoses" in obj):
                           dayLoses = obj["dayLoses"]
 
-                       
+            print("aaargh")          
                 
