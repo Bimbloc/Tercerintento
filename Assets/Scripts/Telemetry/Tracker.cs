@@ -34,7 +34,7 @@ public class Tracker : MonoBehaviour
         }
     }
 
-    private void OnDestroy() {
+    void OnApplicationQuit() {
         End();
     }
 
