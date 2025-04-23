@@ -43,9 +43,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         resetGame();
-        Tracker.Instance.TrackEvent("DayStartedTime", (int)(Time.time * 1000));
-        Tracker.Instance.TrackEvent("DayStartedNumber", dia);
-        Debug.Log("DayStarted "+ Time.time * 1000);
     }
 
     void Awake()
@@ -248,6 +245,9 @@ public class GameManager : MonoBehaviour
 
     void setDay(string[] day)
     {
+        Tracker.Instance.TrackEvent("DayStartedTime", (int)(Time.time * 1000));
+        Tracker.Instance.TrackEvent("DayStartedNumber", dia);
+        Debug.Log("DayStarted "+ Time.time * 1000);
         diaActual = new string[day.Length];
         for (int i = 0; i < day.Length; i++)
             diaActual[i] = day[i];
