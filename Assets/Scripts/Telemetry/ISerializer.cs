@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISerializer
 {
-    public string Serialize(TrackerEvent trackerEvent);
+    public string Serialize(ITrackerEvent trackerEvent);
 }

@@ -2,5 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TrackerEvent {
+public interface ITrackerEvent {
+    Dictionary<string, object> getParams();
 }

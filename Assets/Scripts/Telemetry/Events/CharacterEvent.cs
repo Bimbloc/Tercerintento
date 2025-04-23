@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterEvent : TrackerEvent {
+public class CharacterEvent : ITrackerEvent {
     int id;
     int sentence;
     int sprite;
@@ -20,5 +20,21 @@ public class CharacterEvent : TrackerEvent {
         judgement = asset.getJudgement();
         favores = asset.getFavores();
         pecados = asset.getPecados();
+    }
+
+    public Dictionary<string, object> getParams()
+    {
+        Dictionary<string, object> valuePairs = new Dictionary<string, object>();
+
+        valuePairs.Add("id", id);
+        valuePairs.Add("sentence", sentence);
+        valuePairs.Add("sprite", sprite);
+        valuePairs.Add("sinner", sinner);
+        valuePairs.Add("time", time);
+        valuePairs.Add("judgement", judgement);
+        valuePairs.Add("favores", favores);
+        valuePairs.Add("pecados", pecados);
+
+        return valuePairs;
     }
 }

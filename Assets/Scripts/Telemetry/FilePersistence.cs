@@ -22,7 +22,7 @@ public class FilePersistence : IPersistence
         currentData = "";
     }
 
-    public void Send(TrackerEvent trackerEvent)
+    public void Send(ITrackerEvent trackerEvent)
     {
         currentData += serializer.Serialize(trackerEvent);
     }
@@ -39,7 +39,6 @@ public class FilePersistence : IPersistence
 
     private string generateRandomString(int length)
     {
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         return new string(Enumerable.Repeat(chars, length)
             .Select(s => s[random.Next(s.Length)]).ToArray());
     }

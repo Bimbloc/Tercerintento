@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IPersistence
 {
-    void Send(TrackerEvent trackerEvent);
+    void Send(ITrackerEvent trackerEvent);
 
     void Flush();
     void SetFormat(TraceFormats newformat);
