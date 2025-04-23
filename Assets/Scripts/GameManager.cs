@@ -127,10 +127,10 @@ public class GameManager : MonoBehaviour
 
     void a()
     {
-        Tracker.Instance.TrackEvent("DayOrder", caosNow);
+        Tracker.Instance.TrackEvent("DayOrder", caosTotal);
         Tracker.Instance.TrackEvent("DayEndedTime", (int)(Time.time * 1000));
         Debug.Log("DayEnded " + Time.time * 1000);
-        Debug.Log("DayOrder " + caosNow);
+        Debug.Log("DayOrder " + caosTotal);
         changeScene("endOfDay");
     }
 
