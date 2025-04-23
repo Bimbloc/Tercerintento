@@ -75,6 +75,62 @@ for file_name in os.listdir(folder_path):
                                  totalSinAppearance[p] +=1
                      if("dayLoses" in obj):
                           dayLoses = obj["dayLoses"]
+        #Con los datos de cada partida obtenemos graficas
+            plt.title("Niveles de Orden")
+            days = list(range(1,len(orderRatings)+1))
+            plt.xticks(days)
+            plt.bar(days,orderRatings)
+            plt.show()
 
-            print("aaargh")          
+            numvars = np.arange(0,30)
+            plt.title("Pecados Aciertos")
+            plt.xticks(numvars)
+            plt.bar(numvars,correctGuessSin)
+            plt.show()
+            plt.title("Pecados Fallos")
+            plt.xticks(numvars)
+            plt.bar(numvars,wrongGuessSins)
+            plt.show()
+            plt.title("Favores Aciertos")
+            plt.xticks(numvars)
+            plt.bar(numvars,correctGuessFavor)
+            plt.show()
+            plt.title("Favores Fallos")
+            plt.xticks(numvars)
+            plt.bar(numvars,wrongGuessFavors)
+            plt.show()
+
+            plt.title("Derrotas por dia")
+            plt.xticks(np.arange( 1,len(dayLoses)+1))
+            plt.bar(np.arange(1,len(dayLoses)+1),dayLoses)
+            plt.show()
+
+            plt.title("Tiempo por dia")
+            plt.xticks(days)
+            plt.bar(days,averageChoiceTime)
+            plt.show()
+
+            plt.title("Personajes por tipo")
+            plt.xticks(np.arange(0,len(characterTypes)))
+            plt.bar(np.arange(0,len(characterTypes)),characterTypes)
+            plt.show()
+
+            charCounter = 0
+            for char in characterSentences:
+                plt.title("Frases Tipo " + str(charCounter))
+                plt.xticks(np.arange(0,len(char)))
+                plt.bar(np.arange(0,len(char)),char)
+                plt.show()
+                charCounter+=1
+
+            plt.title("Favores totales")
+            plt.xticks(numvars)
+            plt.bar(numvars,totalFavorApearance)
+            plt.show()
+
+            plt.title("Pecados Total")
+            plt.xticks(numvars)
+            plt.bar(numvars,totalSinAppearance)
+            plt.show()    
+                  
                 
