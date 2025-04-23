@@ -24,7 +24,7 @@ wrongGuessSins =np.zeros(30)##30 enteros , contamos cuantos fallos Hay asociados
 
 #pregunta 3
 dayLoses = np.zeros(6)#Contamos cuantas veces pierde en cada dia 
-
+lastDay = 0
 #pregunta 4 
 
 averageChoiceTime=[]#Tiempos medios de decision de cada dia ordenados cronologicamente
@@ -54,6 +54,7 @@ for file_name in os.listdir(folder_path):
                      if("day") in obj :
                           orderRatings[obj["day"]["number"]-1] += obj["day"]["order"]
                           averageChoiceTime[obj["day"]["number"]-1] += obj["day"]["time"]
+                          lastDay = obj["day"]["number"]-1
                      if("character") in obj :
                           playerChoices.append(obj["character"]["judgement"])     
                           if(obj["character"]["sinner"]== obj["character"]["judgement"]): # acierto
@@ -73,8 +74,9 @@ for file_name in os.listdir(folder_path):
                                for p in obj["character"]["pecados"]:
                                  wrongGuessSins[p]+=1
                                  totalSinAppearance[p] +=1
-                     if("dayLoses" in obj):
-                          dayLoses = obj["dayLoses"]
+                     if ("final" in obj):
+                        if (obj["final"]["final"] == 4):
+                           dayLoses[lastDay] += 1
 
 #Con los datos de cada partida obtenemos graficas
 plt.title("Niveles de Orden")
