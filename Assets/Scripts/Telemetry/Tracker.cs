@@ -12,7 +12,7 @@ public class Tracker : MonoBehaviour
         Server
     }
 
-    public static Tracker Instance { get; private set; }
+    public static Tracker Instance { get; private set; } = null;
 
     private IPersistence persistenceObject;
 
@@ -33,10 +33,13 @@ public class Tracker : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
-    {
-        switch (persistenceType)
-        {
+
+    private void OnDestroy() {
+        End();
+    }
+
+    private void Init() {
+        switch (persistenceType) {
             case PersistenceType.File:
                 persistenceObject = new FilePersistence();
                 break;
@@ -44,12 +47,6 @@ public class Tracker : MonoBehaviour
                 Debug.LogError("Server not implemented");
                 break;
         }
-    }
-    private void OnDestroy() {
-        End();
-    }
-
-    private void Init() {
         TrackEvent("StartGame", (int)(Time.time * 1000));
     }
 
