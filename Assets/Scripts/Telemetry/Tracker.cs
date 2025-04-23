@@ -64,21 +64,21 @@ public class Tracker : MonoBehaviour
                 activeTrackers["Day"] = new DayAsset(param);
                 break;
             case "DayStartedNumber":
-                DayAsset asset = (DayAsset)activeTrackers["Day"];
-                if (asset == null)
+                if (!activeTrackers.ContainsKey("Day"))
                     return;
+                DayAsset asset = (DayAsset)activeTrackers["Day"];
                 asset.setNumber(param);
                 break;
             case "DayOrder":
-                asset = (DayAsset)activeTrackers["Day"];
-                if (asset == null)
+                if (!activeTrackers.ContainsKey("Day"))
                     return;
+                asset = (DayAsset)activeTrackers["Day"];
                 asset.setOrder(param);
                 break;
             case "DayEndedTime":
-                asset = (DayAsset)activeTrackers["Day"];
-                if (asset == null)
+                if (!activeTrackers.ContainsKey("Day"))
                     return;
+                asset = (DayAsset)activeTrackers["Day"];
                 asset.setEndTime(param);
                 persistenceObject.Send(new DayEvent(asset));
                 activeTrackers.Remove("Day");
@@ -88,52 +88,52 @@ public class Tracker : MonoBehaviour
                 activeTrackers["Character"] = new CharacterAsset(param);
                 break;
             case "NPCSpriteID":
-                CharacterAsset character = (CharacterAsset)activeTrackers["Character"];
-                if (character == null)
+                if (!activeTrackers.ContainsKey("Character"))
                     return;
+                CharacterAsset character = (CharacterAsset)activeTrackers["Character"];
                 character.setSprite(param);
                 break;
             case "NPCType":
-                character = (CharacterAsset)activeTrackers["Character"];
-                if (character == null)
+                if (!activeTrackers.ContainsKey("Character"))
                     return;
+                character = (CharacterAsset)activeTrackers["Character"];
                 character.setType(param);
                 break;
             case "Sentence":
-                character = (CharacterAsset)activeTrackers["Character"];
-                if (character == null)
+                if (!activeTrackers.ContainsKey("Character"))
                     return;
+                character = (CharacterAsset)activeTrackers["Character"];
                 character.setSentence(param);
                 break;
             case "Sinner":
-                character = (CharacterAsset)activeTrackers["Character"];
-                if (character == null)
+                if (!activeTrackers.ContainsKey("Character"))
                     return;
+                character = (CharacterAsset)activeTrackers["Character"];
                 character.setSinner(param);
                 break;
 
             case "Favor":
-                character = (CharacterAsset)activeTrackers["Character"];
-                if (character == null)
+                if (!activeTrackers.ContainsKey("Character"))
                     return;
+                character = (CharacterAsset)activeTrackers["Character"];
                 character.addFavor(param);
                 break;
             case "Pecado":
-                character = (CharacterAsset)activeTrackers["Character"];
-                if (character == null)
+                if (!activeTrackers.ContainsKey("Character"))
                     return;
+                character = (CharacterAsset)activeTrackers["Character"];
                 character.addPecado(param);
                 break;
             case "Judgement":
-                character = (CharacterAsset)activeTrackers["Character"];
-                if (character == null)
+                if (!activeTrackers.ContainsKey("Character"))
                     return;
+                character = (CharacterAsset)activeTrackers["Character"];
                 character.setJudgement(param);
                 break;
             case "JudgementTime":
-                character = (CharacterAsset)activeTrackers["Character"];
-                if (character == null)
+                if (!activeTrackers.ContainsKey("Character"))
                     return;
+                character = (CharacterAsset)activeTrackers["Character"];
                 character.setEndTime(param);
                 persistenceObject.Send(new CharacterEvent(character));
                 activeTrackers.Remove("Character");
