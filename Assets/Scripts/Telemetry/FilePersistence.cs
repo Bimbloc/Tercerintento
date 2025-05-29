@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using System;
 
 public class FilePersistence : IPersistence
 {
@@ -27,7 +26,17 @@ public class FilePersistence : IPersistence
                 extension = ".json";
                 break;
         }
-        File.WriteAllText(generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
+
+        try
+        {
+            File.WriteAllText(Application.dataPath.Substring(0, Application.dataPath.LastIndexOf('/')) 
+                + "/Data/" + generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
+
         currentData = "";
     }
 
