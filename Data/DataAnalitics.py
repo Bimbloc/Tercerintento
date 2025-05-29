@@ -88,6 +88,7 @@ plt.bar(days,orderRatings,color=colors)
 plt.savefig(folder_path + "/Pregunta1NivelesOrden.png")
 
 numvars = np.arange(0,30)
+plt.cla()
 plt.title("Pecados Aciertos")
 plt.xlabel("ID del pecado")
 plt.ylabel("Número de aciertos")
@@ -96,6 +97,7 @@ plt.xticks(numvars)
 plt.bar(numvars,correctGuessSin,color=colors)
 plt.savefig(folder_path + "/Pregunta2PecadosAciertos.png")
 
+plt.cla()
 plt.title("Pecados Fallos")
 plt.xlabel("ID del pecado")
 plt.ylabel("Número de fallos")
@@ -104,7 +106,9 @@ plt.xticks(numvars)
 plt.bar(numvars,wrongGuessSins,color=colors)
 plt.savefig(folder_path + "/Pregunta2PecadosFallos.png")
 
+plt.cla()
 colors = [{t<=correctGuessFavor.min()*1.15: 'red',correctGuessFavor.min()*1.15 <t<=correctGuessFavor.max()/1.25: 'orange', t>correctGuessFavor.max()/1.25: 'green'}[True] for t in correctGuessFavor ]
+
 plt.title("Favores Aciertos")
 plt.xlabel("ID del favor")
 plt.ylabel("Número de Aciertos")
@@ -113,6 +117,7 @@ plt.bar(numvars,correctGuessFavor,color=colors)
 plt.savefig(folder_path + "/Pregunta2FavoresAciertos.png")
 
 colors = [{t<=wrongGuessFavors.min()*1.15: 'red',wrongGuessFavors.min()*1.15 <t<=wrongGuessFavors.max()/1.25: 'orange', t>wrongGuessFavors.max()/1.25: 'green'}[True] for t in wrongGuessFavors ]
+plt.cla()
 plt.title("Favores Fallos")
 plt.xlabel("ID del favor")
 plt.ylabel("Número de fallos")
@@ -121,6 +126,7 @@ plt.bar(numvars,wrongGuessFavors,color=colors)
 plt.savefig(folder_path + "/Pregunta2FavoresFallos.png")
 
 colors = [{t<=dayLoses.min()*1.15: 'red',dayLoses.min()*1.15 <t<=dayLoses.max()/1.25: 'orange', t>dayLoses.max()/1.25: 'green'}[True] for t in dayLoses ]
+plt.cla()
 plt.title("Derrotas por dia")
 plt.xlabel("Día")
 plt.ylabel("Número de derrotas")
@@ -128,6 +134,7 @@ plt.xticks(np.arange( 1,len(dayLoses)+1))
 plt.bar(np.arange(1,len(dayLoses)+1),dayLoses,color=colors)
 plt.savefig(folder_path + "/Pregunta3Derrotas.png")
 
+plt.cla()
 plt.title("Tiempo por dia")
 colors = [{t<=averageChoiceTime.min()*1.15: 'red',averageChoiceTime.min()*1.15 <t<=averageChoiceTime.max()/1.25: 'orange', t>averageChoiceTime.max()/1.25: 'green'}[True] for t in averageChoiceTime ]
 plt.xticks(days)
@@ -138,6 +145,7 @@ plt.ticklabel_format(axis='y',style='sci',scilimits=(2,2))
 plt.bar(days,averageChoiceTime,color=colors)
 plt.savefig(folder_path + "/Pregunta4TiempoPorDia.png")
 
+plt.cla()
 plt.title("Personajes por tipo")
 colors = [{t<=characterTypes.min()*1.15: 'red',characterTypes.min()*1.15 <t<=characterTypes.max()/1.25: 'orange', t>characterTypes.max()/1.25: 'green'}[True] for t in characterTypes ]
 plt.xlabel("Tipo de personaje")
@@ -148,6 +156,7 @@ plt.savefig(folder_path + "/Pregunta5TiposPersonaje.png")
 
 charCounter = 0
 for char in characterSentences:
+      plt.cla()
       plt.title("Frases Tipo " + str(charCounter))
       colors = [{t<=char.min()*1.15: 'red',char.min()*1.15 <t<=char.max()/1.25: 'orange', t>char.max()/1.25: 'green'}[True] for t in char ]
       plt.xlabel("ID de la frase")
@@ -157,6 +166,7 @@ for char in characterSentences:
       plt.savefig(folder_path + "/Pregunta5FrasesTipo" + str(charCounter) + ".png")
       charCounter+=1
 
+plt.cla()
 plt.title("Favores totales")
 colors = [{t<=totalFavorApearance.min()*1.15: 'red',totalFavorApearance.min()*1.15 <t<=totalFavorApearance.max()/1.25: 'orange', t>totalFavorApearance.max()/1.25: 'green'}[True] for t in totalFavorApearance ]
 plt.xlabel("ID del favor")
@@ -165,6 +175,7 @@ plt.xticks(numvars)
 plt.bar(numvars,totalFavorApearance,color=colors)
 plt.savefig(folder_path + "/Pregunta6AparicionFavores.png")
 
+plt.cla()
 plt.title("Pecados Total")
 colors = [{t<=totalSinAppearance.min()*1.15: 'red',totalSinAppearance.min()*1.15 <t<=totalSinAppearance.max()/1.25: 'orange', t>totalSinAppearance.max()/1.25: 'green'}[True] for t in totalSinAppearance ]
 plt.xlabel("ID del pecado")
