@@ -1,0 +1,5 @@
+Dependencias de DataAnalytics.py:
+	- json
+	- os
+	- matplotlib.pyplot
+	- numpy
