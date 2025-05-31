@@ -6,20 +6,20 @@ using UnityEngine;
 
 public class JsonSerializer : ISerializer
 {
-    public string Serialize(TrackerEvent trackerEvent)
+    public override string Serialize(TrackerEvent trackerEvent)
     {
         string data = "";
 
-        if (trackerEvent.GetName() == "startgame")
+        if (trackerEvent.GetEventType() == EventType.GameStart)
         {
             data += "[";
         }
 
-        Dictionary<string, object> values = trackerEvent.GetParams();
-        data +="{\"" + trackerEvent.GetName() +"\":";
+        Dictionary<string, object> values = trackerEvent.GetEventParams().ToDictionary();
+        data +="{\"" + trackerEvent.GetEventType().ToString() +"\":";
         data += JsonConvert.SerializeObject(values, Formatting.Indented);
         
-        if(trackerEvent.GetName() == "endgame")
+        if(trackerEvent.GetEventType() == EventType.GameEnd)
         {
             data += "}\n";
             data += "]\n";

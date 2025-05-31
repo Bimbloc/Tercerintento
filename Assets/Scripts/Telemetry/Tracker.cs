@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Tracker : MonoBehaviour
@@ -58,7 +56,7 @@ public class Tracker : MonoBehaviour
     public void TrackEvent(string key, int param = 0) {
         switch (key) {
             case "StartGame":
-                persistenceObject.Send(new StartGameEvent(param));
+                //persistenceObject.Send(new StartGameEvent(param));
                 break;
             case "DayStartedTime":
                 activeTrackers["Day"] = new DayAsset(param);
@@ -80,7 +78,7 @@ public class Tracker : MonoBehaviour
                     return;
                 asset = (DayAsset)activeTrackers["Day"];
                 asset.setEndTime(param);
-                persistenceObject.Send(new DayEvent(asset));
+                //persistenceObject.Send(new DayEvent(asset));
                 activeTrackers.Remove("Day");
                 break;
 
@@ -135,14 +133,14 @@ public class Tracker : MonoBehaviour
                     return;
                 character = (CharacterAsset)activeTrackers["Character"];
                 character.setEndTime(param);
-                persistenceObject.Send(new CharacterEvent(character));
+                //persistenceObject.Send(new CharacterEvent(character));
                 activeTrackers.Remove("Character");
                 break;
             case "FinalObtenido":
-                persistenceObject.Send(new FinalEvent(param));
+                //persistenceObject.Send(new FinalEvent(param));
                 break;
             case "EndGame":
-                persistenceObject.Send(new EndGameEvent(param));
+                //persistenceObject.Send(new EndGameEvent(param));
                 persistenceObject.Flush();
                 break;
 

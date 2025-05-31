@@ -17,7 +17,7 @@ public class FilePersistence : IPersistence
 
     private TraceFormats currentFormat; 
 
-    public void Flush()
+    public override void Flush()
     {
         string extension = ""; 
         switch (currentFormat)
@@ -40,12 +40,12 @@ public class FilePersistence : IPersistence
         currentData = "";
     }
 
-    public void Send(TrackerEvent trackerEvent)
-    {
-        currentData += serializer.Serialize(trackerEvent);
-    }
+    //public override void Send(TrackerEvent trackerEvent)
+    //{
+    //    currentData += serializer.Serialize(trackerEvent);
+    //}
 
-    public void SetFormat(TraceFormats newFormat)
+    public override void SetFormat(TraceFormats newFormat)
     {
         currentFormat = newFormat;
         switch (newFormat)
