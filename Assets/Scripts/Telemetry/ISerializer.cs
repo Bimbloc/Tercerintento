@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ISerializer : ScriptableObject {
-    
-    protected TraceFormats currentFormat;
-
+    string extension;
+    public ISerializer(string extension) {
+        this.extension = extension;
+    }
     public abstract string Serialize(TrackerEvent trackerEvent);
-    public abstract string GetExtension();
-    public abstract void SetFormat(TraceFormats format);
+    public string GetExtension() {
+        return extension;
+    }
 }

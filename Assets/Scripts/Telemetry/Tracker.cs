@@ -2,21 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tracker : MonoBehaviour
-{
-    enum PersistenceType
-    {
-        File,
-        Server
-    }
-
+public class Tracker : MonoBehaviour {
     public static Tracker Instance { get; private set; } = null;
 
-    private IPersistence persistenceObject;
+    [SerializeField] private IPersistence persistenceObject;
 
     private Dictionary<string, ITrackerAsset> activeTrackers = new Dictionary<string, ITrackerAsset>();
-
-    [SerializeField] private PersistenceType persistenceType;
 
     void Awake()
     {
@@ -37,15 +28,6 @@ public class Tracker : MonoBehaviour
     }
 
     private void Init() {
-        switch (persistenceType) {
-            case PersistenceType.File:
-                persistenceObject = new FilePersistence();
-                persistenceObject.SetFormat(TraceFormats.json);
-                break;
-            case PersistenceType.Server:
-                Debug.LogError("Server not implemented");
-                break;
-        }
         TrackEvent("StartGame", (int)(Time.time * 1000));
     }
 

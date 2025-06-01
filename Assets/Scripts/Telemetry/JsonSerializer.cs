@@ -5,8 +5,12 @@ using System.Transactions;
 using Newtonsoft.Json;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "JsonSerializer", menuName = "ScriptableObjects/ISerializer/JsonSerializer")]
 public class JsonSerializer : ISerializer
 {
+    public JsonSerializer() : 
+        base(".json") {
+    }
 
     public override string Serialize(TrackerEvent trackerEvent)
     {
@@ -31,23 +35,5 @@ public class JsonSerializer : ISerializer
             data += "},\n";
         }
         return data;
-    }
-
-    public override void SetFormat(TraceFormats format)
-    {
-        currentFormat = format;
-    }
-
-    public override string GetExtension()
-    {
-        string extension = "";
-        switch (currentFormat)
-        {
-            case TraceFormats.json:
-                extension = ".json";
-                break;
-        }
-
-        return extension;
     }
 }

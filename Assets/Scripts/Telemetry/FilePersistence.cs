@@ -3,13 +3,12 @@ using System.IO;
 using System.Linq;
 using System;
 
+[CreateAssetMenu(fileName = "FilePersistence", menuName = "ScriptableObjects/IPersistance/FilePersistence")]
 public class FilePersistence : IPersistence
 {
     const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     const int RANDOM_NAME_LENGTH = 10;
-
-    private ISerializer serializer;
 
     private string currentData = "";
 
@@ -29,22 +28,6 @@ public class FilePersistence : IPersistence
         }
 
         currentData = "";
-    }
-
-    //public override void Send(TrackerEvent trackerEvent)
-    //{
-    //    currentData += serializer.Serialize(trackerEvent);
-    //}
-
-    public override void SetFormat(TraceFormats newFormat)
-    {
-        switch (newFormat)
-        {
-            case TraceFormats.json:
-                serializer = new JsonSerializer();
-                serializer.SetFormat(TraceFormats.json);
-                break;
-        }
     }
 
     private string generateRandomString(int length)
