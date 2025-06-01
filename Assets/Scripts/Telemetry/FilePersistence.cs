@@ -15,22 +15,13 @@ public class FilePersistence : IPersistence
 
     private static System.Random random = new System.Random();
 
-    private TraceFormats currentFormat; 
-
     public override void Flush()
     {
-        string extension = ""; 
-        switch (currentFormat)
-        {
-            case TraceFormats.json:
-                extension = ".json";
-                break;
-        }
+        string extension = serializer.GetExtension();
 
         try
         {
-            File.WriteAllText(Application.dataPath.Substring(0, Application.dataPath.LastIndexOf('/')) 
-                + "/Data/TelemetryData/" + generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
+            File.WriteAllText(Application.persistentDataPath + generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
         }
         catch (Exception e)
         {
@@ -47,11 +38,11 @@ public class FilePersistence : IPersistence
 
     public override void SetFormat(TraceFormats newFormat)
     {
-        currentFormat = newFormat;
         switch (newFormat)
         {
             case TraceFormats.json:
                 serializer = new JsonSerializer();
+                serializer.SetFormat(TraceFormats.json);
                 break;
         }
     }
