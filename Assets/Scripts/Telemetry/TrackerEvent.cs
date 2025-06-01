@@ -25,16 +25,16 @@ public class TrackerEvent {
     }
 }
 
-struct GameStartParams : EventParams {
-    float timestamp;
+public struct GameStartParams : EventParams {
+    public float timestamp;
     public Dictionary<string, object> ToDictionary() {
         return new Dictionary<string, object> {
             { "timestamp", timestamp } 
         };
     }
 };
-struct GameEndParams : EventParams {
-    float timestamp;
+public struct GameEndParams : EventParams {
+    public float timestamp;
     public Dictionary<string, object> ToDictionary() {
         return new Dictionary<string, object> {
             { "timestamp", timestamp }

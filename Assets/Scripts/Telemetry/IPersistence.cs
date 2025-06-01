@@ -5,6 +5,9 @@ using UnityEngine;
 public abstract class IPersistence : ScriptableObject {
     [SerializeField] protected ISerializer serializer;
     protected EventQueue queue;
+    public IPersistence() {
+        queue = new EventQueue();
+    }
     public void Send(TrackerEvent trackerEvent) {
         queue.AddEvent(trackerEvent);
     }

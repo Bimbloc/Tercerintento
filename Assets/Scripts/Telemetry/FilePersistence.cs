@@ -14,16 +14,17 @@ public class FilePersistence : IPersistence
 
     private static System.Random random = new System.Random();
 
-    public override void Flush()
-    {
+    public override void Flush() {
         string extension = serializer.GetExtension();
 
-        try
-        {
-            File.WriteAllText(Application.persistentDataPath + generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
+        while (queue.HasEvents()) {
+            currentData += serializer.Serialize(queue.HandleEvent());
         }
-        catch (Exception e)
-        {
+
+        try {
+            File.WriteAllText(Application.persistentDataPath + "/" + generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
+        }
+        catch (Exception e) {
             Debug.LogException(e);
         }
 

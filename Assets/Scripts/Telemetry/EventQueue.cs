@@ -3,19 +3,9 @@ using System.Collections.Generic;
 using System.Xml.Schema;
 using UnityEngine;
 
-public class EventQueue
-{
-    private static EventQueue instance;
+public class EventQueue {
     private Queue<TrackerEvent> queue;
-    public static EventQueue Instance()
-    {
-        if (instance == null) {
-            instance = new EventQueue();
-        }
-
-        return instance;
-    }
-    private EventQueue()
+    public EventQueue()
     {
         queue = new Queue<TrackerEvent>();
     }

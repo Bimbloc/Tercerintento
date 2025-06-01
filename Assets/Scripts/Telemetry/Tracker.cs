@@ -39,6 +39,9 @@ public class Tracker : MonoBehaviour {
         switch (key) {
             case "StartGame":
                 //persistenceObject.Send(new StartGameEvent(param));
+                var startParams = new GameStartParams();
+                startParams.timestamp = Time.time;
+                persistenceObject.Send(new TrackerEvent(EventType.GameStart, startParams));
                 break;
             case "DayStartedTime":
                 activeTrackers["Day"] = new DayAsset(param);
@@ -123,6 +126,9 @@ public class Tracker : MonoBehaviour {
                 break;
             case "EndGame":
                 //persistenceObject.Send(new EndGameEvent(param));
+                var endParams = new GameEndParams();
+                endParams.timestamp = Time.time;
+                persistenceObject.Send(new TrackerEvent(EventType.GameEnd, endParams));
                 persistenceObject.Flush();
                 break;
 
