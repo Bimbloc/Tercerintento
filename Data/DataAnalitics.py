@@ -26,6 +26,13 @@ wrongGuessSins = np.zeros(30) #30 enteros , contamos cuantos fallos Hay asociado
 #pregunta 3
 dayLoses = np.zeros(6) #Contamos cuantas veces pierde en cada dia 
 lastDay = 0
+currentDay=-1
+
+firstAttemptPoints = np.zeros(6)#puntuacion media de niveveles superados en suprimer intento
+firstTryCount=np.zeros(6)
+retryAttemptPoints = np.zeros(6)#puntuacion media al reintentar los niveles
+retryCount= np.zeros(6)
+currentOrder=0
 
 #pregunta 4 
 averageChoiceTime=[] #Tiempos medios de decision de cada dia ordenados cronologicamente
@@ -53,9 +60,19 @@ for file_name in os.listdir(folder_path):
                 
                 for obj in data : 
                      if("day") in obj :
+                          currentOrder =obj["day"]["order"]      
                           orderRatings[obj["day"]["number"]-1] += obj["day"]["order"]
                           averageChoiceTime[obj["day"]["number"]-1] += obj["day"]["time"]
                           lastDay = obj["day"]["number"]-1
+                          if(currentOrder<0):#hemos perdido
+                             currentDay =obj["day"]["number"]-1
+                          elif(currentDay!=lastDay):#ganamos a la primera 
+                               firstAttemptPoints[lastDay] +=currentOrder
+                               firstTryCount[lastDay]+=1 
+                          elif(currentDay==lastDay):#ganamos tras un reintento     
+                                 retryAttemptPoints[lastDay] +=currentOrder
+                                 retryCount[lastDay]+=1
+
                      if("character") in obj :
                           playerChoices.append(obj["character"]["judgement"])     
                           if(obj["character"]["sinner"]== obj["character"]["judgement"]): # acierto
@@ -78,6 +95,14 @@ for file_name in os.listdir(folder_path):
                      if ("final" in obj):
                         if (obj["final"]["final"] == 4):
                            dayLoses[lastDay] += 1
+                           currentDay = -1 
+                        ##else:
+                          #  if(currentDay == lastDay +1):#supero un nivel tras repetirlo
+                           #     retryAttemptPoints[lastDay] +=currentOrder
+                           #     retryCount[lastDay]+=1
+                           # else:#superas el nivel en tu primer intento
+                            #    firstAttemptPoints[lastDay] +=currentDay
+                            #    firstTryCount[lastDay]+=1    
 
 #Con los datos de cada partida obtenemos graficas
 plt.title("Niveles de Orden")
@@ -135,6 +160,23 @@ plt.ylabel("Número de derrotas")
 plt.xticks(np.arange( 1,len(dayLoses)+1))
 plt.bar(np.arange(1,len(dayLoses)+1),dayLoses,color=colors)
 plt.savefig(image_path + "/Pregunta3Derrotas.png")
+
+plt.cla()
+plt.title("Diferencia de Puntuación tras reintentos")
+plt.xlabel("Día")
+plt.ylabel("Puntuación Media (orden)")
+#podria haber 0 attempts en un dia y no deberiamos dividir
+for i in range(0,len(firstTryCount)):
+    if (firstTryCount[i] !=0):
+       firstAttemptPoints[i]=(firstAttemptPoints[i]/firstTryCount[i])
+    if (retryCount[i]!=0):
+        retryAttemptPoints[i] = (retryAttemptPoints[i]/retryCount[i])   
+        
+plt.xticks(np.arange( 1,len(dayLoses)+1))
+plt.plot(np.arange(1,len(dayLoses)+1),retryAttemptPoints,label="retry")
+plt.plot(np.arange(1,len(dayLoses)+1),firstAttemptPoints,label="first Attempt")
+plt.legend()
+plt.show()
 
 plt.cla()
 plt.title("Tiempo por dia")
