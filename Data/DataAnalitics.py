@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ##  Leer todos los archivos
-folder_path = os.path.dirname(os.path.realpath(__file__))
+image_path = os.path.dirname(os.path.realpath(__file__))
+folder_path = os.path.expanduser("~")
+folder_path += '\\AppData\\LocalLow\\TerretaGames\\Burocracia Celestial\\Data'
 
 #Pregunta 1 
 #Puntuaciones del libro ordebadas cronologicamente 
@@ -38,10 +40,10 @@ characterTypes = np.zeros(4)
 totalFavorApearance = np.zeros(30)
 totalSinAppearance = np.zeros(30)
     
-for file_name in os.listdir(folder_path + '/TelemetryData'):
+for file_name in os.listdir(folder_path):
         
         if file_name.endswith('.json'):  #Process only JSON files
-            file_path = os.path.join(folder_path + '/TelemetryData', file_name)
+            file_path = os.path.join(folder_path, file_name)
 
             print(f"Processing file: {file_name}")
 
@@ -85,7 +87,7 @@ plt.xlabel("Día")
 plt.ylabel("Nivel de orden")
 colors = [{t<=orderRatings.min()*1.15: 'red',orderRatings.min()*1.15 <t<=orderRatings.max()/1.25: 'orange', t>orderRatings.max()/1.25: 'green'}[True] for t in orderRatings ]
 plt.bar(days,orderRatings,color=colors)
-plt.savefig(folder_path + "/Pregunta1NivelesOrden.png")
+plt.savefig(image_path + "/Pregunta1NivelesOrden.png")
 
 numvars = np.arange(0,30)
 plt.cla()
@@ -95,7 +97,7 @@ plt.ylabel("Número de aciertos")
 colors = [{t<=correctGuessSin.min()*1.15: 'red',correctGuessSin.min()*1.15 <t<=correctGuessSin.max()/1.25: 'orange', t>correctGuessSin.max()/1.25: 'green'}[True] for t in correctGuessSin ]
 plt.xticks(numvars)
 plt.bar(numvars,correctGuessSin,color=colors)
-plt.savefig(folder_path + "/Pregunta2PecadosAciertos.png")
+plt.savefig(image_path + "/Pregunta2PecadosAciertos.png")
 
 plt.cla()
 plt.title("Pecados Fallos")
@@ -104,7 +106,7 @@ plt.ylabel("Número de fallos")
 colors = [{t<=wrongGuessSins.min()*1.15: 'red',wrongGuessSins.min()*1.15 <t<=wrongGuessSins.max()/1.25: 'orange', t>wrongGuessSins.max()/1.25: 'green'}[True] for t in wrongGuessSins ]
 plt.xticks(numvars)
 plt.bar(numvars,wrongGuessSins,color=colors)
-plt.savefig(folder_path + "/Pregunta2PecadosFallos.png")
+plt.savefig(image_path + "/Pregunta2PecadosFallos.png")
 
 plt.cla()
 colors = [{t<=correctGuessFavor.min()*1.15: 'red',correctGuessFavor.min()*1.15 <t<=correctGuessFavor.max()/1.25: 'orange', t>correctGuessFavor.max()/1.25: 'green'}[True] for t in correctGuessFavor ]
@@ -114,7 +116,7 @@ plt.xlabel("ID del favor")
 plt.ylabel("Número de Aciertos")
 plt.xticks(numvars)
 plt.bar(numvars,correctGuessFavor,color=colors)
-plt.savefig(folder_path + "/Pregunta2FavoresAciertos.png")
+plt.savefig(image_path + "/Pregunta2FavoresAciertos.png")
 
 colors = [{t<=wrongGuessFavors.min()*1.15: 'red',wrongGuessFavors.min()*1.15 <t<=wrongGuessFavors.max()/1.25: 'orange', t>wrongGuessFavors.max()/1.25: 'green'}[True] for t in wrongGuessFavors ]
 plt.cla()
@@ -123,16 +125,16 @@ plt.xlabel("ID del favor")
 plt.ylabel("Número de fallos")
 plt.xticks(numvars)
 plt.bar(numvars,wrongGuessFavors,color=colors)
-plt.savefig(folder_path + "/Pregunta2FavoresFallos.png")
+plt.savefig(image_path + "/Pregunta2FavoresFallos.png")
 
-colors = [{t<=dayLoses.min()*1.15: 'red',dayLoses.min()*1.15 <t<=dayLoses.max()/1.25: 'orange', t>dayLoses.max()/1.25: 'green'}[True] for t in dayLoses ]
+colors = [{t<=dayLoses.min()*1.15: 'green',dayLoses.min()*1.15 <t<=dayLoses.max()/1.25: 'orange', t>dayLoses.max()/1.25: 'red'}[True] for t in dayLoses ]
 plt.cla()
 plt.title("Derrotas por dia")
 plt.xlabel("Día")
 plt.ylabel("Número de derrotas")
 plt.xticks(np.arange( 1,len(dayLoses)+1))
 plt.bar(np.arange(1,len(dayLoses)+1),dayLoses,color=colors)
-plt.savefig(folder_path + "/Pregunta3Derrotas.png")
+plt.savefig(image_path + "/Pregunta3Derrotas.png")
 
 plt.cla()
 plt.title("Tiempo por dia")
@@ -143,7 +145,7 @@ plt.ylabel("Tiempo medio de decisión (ms)")
 plt.ylim(averageChoiceTime.min()/1.5,averageChoiceTime.max())
 plt.ticklabel_format(axis='y',style='sci',scilimits=(2,2))
 plt.bar(days,averageChoiceTime,color=colors)
-plt.savefig(folder_path + "/Pregunta4TiempoPorDia.png")
+plt.savefig(image_path + "/Pregunta4TiempoPorDia.png")
 
 plt.cla()
 plt.title("Personajes por tipo")
@@ -152,7 +154,7 @@ plt.xlabel("Tipo de personaje")
 plt.ylabel("Número de personajes generados")
 plt.xticks(np.arange(0,len(characterTypes)))
 plt.bar(np.arange(0,len(characterTypes)),characterTypes,color=colors)
-plt.savefig(folder_path + "/Pregunta5TiposPersonaje.png")
+plt.savefig(image_path + "/Pregunta5TiposPersonaje.png")
 
 charCounter = 0
 for char in characterSentences:
@@ -163,7 +165,7 @@ for char in characterSentences:
       plt.ylabel("Número de apariciones")
       plt.xticks(np.arange(0,len(char)))
       plt.bar(np.arange(0,len(char)),char,color=colors)
-      plt.savefig(folder_path + "/Pregunta5FrasesTipo" + str(charCounter) + ".png")
+      plt.savefig(image_path + "/Pregunta5FrasesTipo" + str(charCounter) + ".png")
       charCounter+=1
 
 plt.cla()
@@ -173,7 +175,7 @@ plt.xlabel("ID del favor")
 plt.ylabel("Número de apariciones")
 plt.xticks(numvars)
 plt.bar(numvars,totalFavorApearance,color=colors)
-plt.savefig(folder_path + "/Pregunta6AparicionFavores.png")
+plt.savefig(image_path + "/Pregunta6AparicionFavores.png")
 
 plt.cla()
 plt.title("Pecados Total")
@@ -182,6 +184,5 @@ plt.xlabel("ID del pecado")
 plt.ylabel("Número de apariciones")
 plt.xticks(numvars)
 plt.bar(numvars,totalSinAppearance,color=colors)
-plt.savefig(folder_path + "/Pregunta6AparicionPecados.png")
-                  
-                
+plt.savefig(image_path + "/Pregunta6AparicionPecados.png")
+
