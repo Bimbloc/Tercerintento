@@ -19,7 +19,7 @@ public class UIEndOfDay : MonoBehaviour
         for (i = 0; i < text.Length - 1; i++)
             text[i].text = "" + array[i];
 
-        if (array[i] > 0)
+        if (GameManager.GetInstance().caosTotal > 0)
         {
             text[i].text = "Día " + array[i];
             nextDayButton.SetActive(true);
@@ -31,8 +31,9 @@ public class UIEndOfDay : MonoBehaviour
             text[i].text = "Derrota";
             nextDayButton.SetActive(false);
             loseButton.SetActive(true);
+            if (GameManager.GetInstance().caosTotal < 0) GameManager.GetInstance().dia--;
         }
-
+     
         libro.GetComponent<AbrirCerrar>().Abrir();
     }
 

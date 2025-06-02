@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     GameObject generatorNPC;
 
-    [SerializeField] int caosTotal = 0;
+    public int caosTotal = 0;
 
     GameObject nowNPC;
     bool karmaNow;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     int santosAlCielo;
     int santosAlInfierno;
 
-    int dia;
+    public int dia;
 
     public string[] dia1;
     public string[] dia2;
@@ -70,9 +70,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void changeScene(string sceneName)
+    public void changeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+
     }
 
     public void infoNPC(int c, bool b, GameObject NPC)
@@ -168,7 +169,7 @@ public class GameManager : MonoBehaviour
 
     public int[] endOfDayData()
     {
-        if (caosTotal < 0) dia = 0;
+       // if (caosTotal < 0) dia-- ;
         int[] array = { pecadoresAlCielo, pecadoresAlInfierno, santosAlCielo, santosAlInfierno, caosTotal, dia };
         return array;
     }
@@ -324,5 +325,14 @@ public class GameManager : MonoBehaviour
     {
         Tracker.Instance.TrackEvent("FinalObtenido", 4);
         changeScene("Endingmale");
+        Debug.Log("PERDISTE");
     }
+
+    public void setCaos(int c)
+    {
+        caosNow = c;
+        caosTotal = c;
+    }
+
+
 }
