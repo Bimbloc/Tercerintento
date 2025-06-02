@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPersistence
-{
-    void Send(TrackerEvent trackerEvent);
-
-    void Flush();
-    void SetFormat(TraceFormats newformat);
+public abstract class IPersistence : ScriptableObject {
+    [SerializeField] protected ISerializer serializer;
+    protected EventQueue queue;
+    public IPersistence() {
+        queue = new EventQueue();
+    }
+    public void Send(TrackerEvent trackerEvent) {
+        queue.AddEvent(trackerEvent);
+    }
+    public abstract void Flush();
 }
