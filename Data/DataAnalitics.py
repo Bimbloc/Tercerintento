@@ -2,9 +2,16 @@ import json
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import datetime
 
 ##  Leer todos los archivos
-image_path = os.path.dirname(os.path.realpath(__file__))
+script_path = os.path.dirname(os.path.realpath(__file__))
+timestamp = datetime.datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+graphics_path = os.path.join(script_path, "graphics")
+os.makedirs(graphics_path, exist_ok=True)
+image_path = os.path.join(graphics_path, f"{timestamp}")
+print(image_path)
+os.makedirs(image_path, exist_ok=True)
 folder_path = os.path.expanduser("~")
 folder_path += '\\AppData\\LocalLow\\TerretaGames\\Burocracia Celestial\\Data'
 
@@ -59,13 +66,13 @@ for file_name in os.listdir(folder_path):
                 data = json.load(file)
                 
                 for obj in data : 
-                     if("day") in obj :
-                          currentOrder =obj["day"]["order"]      
-                          orderRatings[obj["day"]["number"]-1] += obj["day"]["order"]
-                          averageChoiceTime[obj["day"]["number"]-1] += obj["day"]["time"]
-                          lastDay = obj["day"]["number"]-1
+                     if("Day") in obj :
+                          currentOrder =obj["Day"]["order"]      
+                          orderRatings[obj["Day"]["number"]-1] += obj["Day"]["order"]
+                          averageChoiceTime[obj["Day"]["number"]-1] += obj["Day"]["time"]
+                          lastDay = obj["Day"]["number"]-1
                           if(currentOrder<0):#hemos perdido
-                             currentDay =obj["day"]["number"]-1
+                             currentDay =obj["Day"]["number"]-1
                           elif(currentDay!=lastDay):#ganamos a la primera 
                                firstAttemptPoints[lastDay] +=currentOrder
                                firstTryCount[lastDay]+=1 
@@ -73,27 +80,27 @@ for file_name in os.listdir(folder_path):
                                  retryAttemptPoints[lastDay] +=currentOrder
                                  retryCount[lastDay]+=1
 
-                     if("character") in obj :
-                          playerChoices.append(obj["character"]["judgement"])     
-                          if(obj["character"]["sinner"]== obj["character"]["judgement"]): # acierto
-                             for f in obj["character"]["favores"]:
+                     if("Character") in obj :
+                          playerChoices.append(obj["Character"]["judgement"])     
+                          if(obj["Character"]["sinner"]== obj["Character"]["judgement"]): # acierto
+                             for f in obj["Character"]["favors"]:
                                 correctGuessFavor[f]+=1
                                 totalFavorApearance[f] +=1
-                             for p in obj["character"]["pecados"]:
+                             for p in obj["Character"]["sins"]:
                                 correctGuessSin[p]+=1
                                 totalSinAppearance[p] +=1 
-                             characterSentences[obj["character"]["type"]][obj["character"]["sentence"]] +=1  
-                             characterTypes[obj["character"]["type"]]+=1
-                             totalSinAppearance[obj["character"]["pecados"]] +=1                                          
+                             characterSentences[obj["Character"]["type"]][obj["Character"]["sentence"]] +=1  
+                             characterTypes[obj["Character"]["type"]]+=1
+                             totalSinAppearance[obj["Character"]["sins"]] +=1                                          
                           else:
-                               for f in obj["character"]["favores"]:
+                               for f in obj["Character"]["favors"]:
                                 wrongGuessFavors[f]+=1
                                 totalFavorApearance[f] +=1
-                               for p in obj["character"]["pecados"]:
+                               for p in obj["Character"]["sins"]:
                                  wrongGuessSins[p]+=1
                                  totalSinAppearance[p] +=1
-                     if ("final" in obj):
-                        if (obj["final"]["final"] == 4):
+                     if ("Ending" in obj):
+                        if (obj["Ending"]["ending"] == 4):
                            dayLoses[lastDay] += 1
                            currentDay = -1 
                         ##else:
@@ -176,7 +183,7 @@ plt.xticks(np.arange( 1,len(dayLoses)+1))
 plt.plot(np.arange(1,len(dayLoses)+1),retryAttemptPoints,label="retry")
 plt.plot(np.arange(1,len(dayLoses)+1),firstAttemptPoints,label="first Attempt")
 plt.legend()
-plt.show()
+plt.savefig(image_path + "/Pregunta3DiferenciaPuntuacionReintentos.png")
 
 plt.cla()
 plt.title("Tiempo por dia")

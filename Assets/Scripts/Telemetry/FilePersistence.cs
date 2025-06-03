@@ -22,7 +22,12 @@ public class FilePersistence : IPersistence
         }
 
         try {
-            File.WriteAllText(Application.persistentDataPath + "/" + generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
+            string dataFolder = Path.Combine(Application.persistentDataPath, "Data");
+            if (!Directory.Exists(dataFolder))
+            {
+                Directory.CreateDirectory(dataFolder);
+            }
+            File.WriteAllText(dataFolder + "/" + generateRandomString(RANDOM_NAME_LENGTH) + extension, currentData);
         }
         catch (Exception e) {
             Debug.LogException(e);

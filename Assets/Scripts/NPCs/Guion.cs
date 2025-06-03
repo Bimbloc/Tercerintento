@@ -59,7 +59,7 @@ public class Guion : MonoBehaviour
         {
             int random = Random.Range(0, guionBueno.Length);
             Npc.Cosabuena c = guionBueno[random];
-            Tracker.Instance.TrackEvent("Favor", random);
+            CharacterTracker.Instance.addFavor(random);
             int j = 0;
             while (j < i && c.texto != result[j].texto)
                 j++;
@@ -84,7 +84,7 @@ public class Guion : MonoBehaviour
         {
             int random = Random.Range(0, guionMalo.Length);
             Npc.Cosamala c = guionMalo[random];
-            Tracker.Instance.TrackEvent("Pecado", random);
+            CharacterTracker.Instance.addSin(random);
             int j = 0;
             while (j < i && c.texto != result[j].texto)
                 j++;

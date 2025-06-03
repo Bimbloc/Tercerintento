@@ -128,8 +128,7 @@ public class GameManager : MonoBehaviour
 
     void a()
     {
-        Tracker.Instance.TrackEvent("DayOrder", caosTotal);
-        Tracker.Instance.TrackEvent("DayEndedTime", (int)(Time.time * 1000));
+        DayTracker.Instance.endDay(caosTotal);
         Debug.Log("DayEnded " + Time.time * 1000);
         Debug.Log("DayOrder " + caosTotal);
         changeScene("endOfDay");
@@ -246,8 +245,7 @@ public class GameManager : MonoBehaviour
 
     void setDay(string[] day)
     {
-        Tracker.Instance.TrackEvent("DayStartedTime", (int)(Time.time * 1000));
-        Tracker.Instance.TrackEvent("DayStartedNumber", dia);
+        DayTracker.Instance.startDay(dia);
         Debug.Log("DayStarted "+ Time.time * 1000);
         diaActual = new string[day.Length];
         for (int i = 0; i < day.Length; i++)
@@ -279,7 +277,7 @@ public class GameManager : MonoBehaviour
                 i = j;
             }
         }
-        Tracker.Instance.TrackEvent("FinalObtenido", i);
+        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.Ending, new EndingParams() { ending = i}));
         switch (i)
         {
             case (0):
@@ -323,7 +321,7 @@ public class GameManager : MonoBehaviour
 
     public void loseScene()
     {
-        Tracker.Instance.TrackEvent("FinalObtenido", 4);
+        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.Ending, new EndingParams() { ending = 4 }));
         changeScene("Endingmale");
         Debug.Log("PERDISTE");
     }

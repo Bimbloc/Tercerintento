@@ -45,8 +45,7 @@ public class Npc : MonoBehaviour
         path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + frase;
         d = dialogo;
         Debug.Log(path);
-        Tracker.Instance.TrackEvent("NPCType", tipo);
-        Tracker.Instance.TrackEvent("Sentence", frase);
+        CharacterTracker.Instance.setCharacterType(tipo, frase);
         Debug.Log("Sentence: " + path);
 
         Invoke("StartDialoge", 2.0f);
@@ -61,7 +60,7 @@ public class Npc : MonoBehaviour
         cosasbuenas = g.Cosabuenarandom();
 
         int caos = CalculaKarma();
-        Tracker.Instance.TrackEvent("Sinner", (caos >= 0) ? 1 : 0);
+        CharacterTracker.Instance.isSinner((caos >= 0) ? 1 : 0);
         Debug.Log("Sinner: " + (caos >= 0));
         GameManager.GetInstance().infoNPC(Mathf.Abs(caos), caos >= 0, this.gameObject);
 

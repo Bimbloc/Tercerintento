@@ -21,9 +21,6 @@ public class SpawnerNPC : MonoBehaviour
 
     public void NewNPC()
     {
-        Tracker.Instance.TrackEvent("NPCAppeared", (int)(Time.time * 1000));
-        Debug.Log("NPCAppeared: " + Time.time * 1000);
-
         libro.Abrir();
         GameObject go = Instantiate<GameObject>(npc, transform.position, transform.rotation);
         go.GetComponent<Npc>().setData(contenedorSprites, guion, dialogo);

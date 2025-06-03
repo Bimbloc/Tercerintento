@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum EventType {
-    GameStart, GameEnd
+    GameStart, Day, Character, Ending, GameEnd
 };
 
 public interface EventParams {
@@ -26,18 +26,72 @@ public class TrackerEvent {
 }
 
 public struct GameStartParams : EventParams {
-    public float timestamp;
+    public int time;
     public Dictionary<string, object> ToDictionary() {
         return new Dictionary<string, object> {
-            { "timestamp", timestamp } 
+            { "time", time } 
         };
     }
 };
-public struct GameEndParams : EventParams {
-    public float timestamp;
-    public Dictionary<string, object> ToDictionary() {
+
+public struct DayParams : EventParams
+{
+    public int time;
+    public int number;
+    public int order;
+    public Dictionary<string, object> ToDictionary()
+    {
         return new Dictionary<string, object> {
-            { "timestamp", timestamp }
+            { "time", time },
+            { "number", number },
+            { "order", order }
+        };
+    }
+};
+
+public struct CharacterParams : EventParams
+{
+    public int time;
+    public int sprite;
+    public int type;
+    public int sentence;
+    public int sinner;
+    public List<int> favors;
+    public List<int> sins;
+    public int judgement;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
+            { "time", time },
+            { "sprite", sprite },
+            { "type", type },
+            { "sentence", sentence },
+            { "sinner", sinner },
+            { "favors", favors },
+            { "sins", sins },
+            { "judgement", judgement }
+        };
+    }
+};
+
+public struct EndingParams : EventParams
+{
+    public int ending;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
+            { "ending", ending }
+        };
+    }
+};
+
+public struct GameEndParams : EventParams
+{
+    public int time;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
+            { "time", time }
         };
     }
 };

@@ -28,110 +28,17 @@ public class Tracker : MonoBehaviour {
     }
 
     private void Init() {
-        TrackEvent("StartGame", (int)(Time.time * 1000));
+        // Evento de Inicio de Juego
+        TrackEvent(new TrackerEvent(EventType.GameStart, new GameStartParams() { time = (int)(Time.time * 1000) }));
     }
 
     private void End() {
-        TrackEvent("EndGame", (int)(Time.time * 1000));
+        // Evento de Final de Juego
+        TrackEvent(new TrackerEvent(EventType.GameEnd, new GameEndParams() { time = (int)(Time.time * 1000) }));
+        persistenceObject.Flush();
     }
 
-    public void TrackEvent(string key, int param = 0) {
-        switch (key) {
-            case "StartGame":
-                //persistenceObject.Send(new StartGameEvent(param));
-                var startParams = new GameStartParams();
-                startParams.timestamp = Time.time;
-                persistenceObject.Send(new TrackerEvent(EventType.GameStart, startParams));
-                break;
-            case "DayStartedTime":
-                activeTrackers["Day"] = new DayAsset(param);
-                break;
-            case "DayStartedNumber":
-                if (!activeTrackers.ContainsKey("Day"))
-                    return;
-                DayAsset asset = (DayAsset)activeTrackers["Day"];
-                asset.setNumber(param);
-                break;
-            case "DayOrder":
-                if (!activeTrackers.ContainsKey("Day"))
-                    return;
-                asset = (DayAsset)activeTrackers["Day"];
-                asset.setOrder(param);
-                break;
-            case "DayEndedTime":
-                if (!activeTrackers.ContainsKey("Day"))
-                    return;
-                asset = (DayAsset)activeTrackers["Day"];
-                asset.setEndTime(param);
-                //persistenceObject.Send(new DayEvent(asset));
-                activeTrackers.Remove("Day");
-                break;
-
-            case "NPCAppeared":
-                activeTrackers["Character"] = new CharacterAsset(param);
-                break;
-            case "NPCSpriteID":
-                if (!activeTrackers.ContainsKey("Character"))
-                    return;
-                CharacterAsset character = (CharacterAsset)activeTrackers["Character"];
-                character.setSprite(param);
-                break;
-            case "NPCType":
-                if (!activeTrackers.ContainsKey("Character"))
-                    return;
-                character = (CharacterAsset)activeTrackers["Character"];
-                character.setType(param);
-                break;
-            case "Sentence":
-                if (!activeTrackers.ContainsKey("Character"))
-                    return;
-                character = (CharacterAsset)activeTrackers["Character"];
-                character.setSentence(param);
-                break;
-            case "Sinner":
-                if (!activeTrackers.ContainsKey("Character"))
-                    return;
-                character = (CharacterAsset)activeTrackers["Character"];
-                character.setSinner(param);
-                break;
-
-            case "Favor":
-                if (!activeTrackers.ContainsKey("Character"))
-                    return;
-                character = (CharacterAsset)activeTrackers["Character"];
-                character.addFavor(param);
-                break;
-            case "Pecado":
-                if (!activeTrackers.ContainsKey("Character"))
-                    return;
-                character = (CharacterAsset)activeTrackers["Character"];
-                character.addPecado(param);
-                break;
-            case "Judgement":
-                if (!activeTrackers.ContainsKey("Character"))
-                    return;
-                character = (CharacterAsset)activeTrackers["Character"];
-                character.setJudgement(param);
-                break;
-            case "JudgementTime":
-                if (!activeTrackers.ContainsKey("Character"))
-                    return;
-                character = (CharacterAsset)activeTrackers["Character"];
-                character.setEndTime(param);
-                //persistenceObject.Send(new CharacterEvent(character));
-                activeTrackers.Remove("Character");
-                break;
-            case "FinalObtenido":
-                //persistenceObject.Send(new FinalEvent(param));
-                break;
-            case "EndGame":
-                //persistenceObject.Send(new EndGameEvent(param));
-                var endParams = new GameEndParams();
-                endParams.timestamp = Time.time;
-                persistenceObject.Send(new TrackerEvent(EventType.GameEnd, endParams));
-                persistenceObject.Flush();
-                break;
-
-        }
+    public void TrackEvent(TrackerEvent trackedEvent) {
+        persistenceObject.Send(trackedEvent);
     }
 }
