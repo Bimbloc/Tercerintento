@@ -71,15 +71,14 @@ for file_name in os.listdir(folder_path):
                           orderRatings[obj["Day"]["number"]-1] += obj["Day"]["order"]
                           averageChoiceTime[obj["Day"]["number"]-1] += obj["Day"]["time"]
                           lastDay = obj["Day"]["number"]-1
-                          if(currentOrder<0):#hemos perdido
-                             currentDay =obj["Day"]["number"]-1
-                          elif(currentDay!=lastDay):#ganamos a la primera 
+                          if(currentDay!=lastDay):#ganamos a la primera 
                                firstAttemptPoints[lastDay] +=currentOrder
                                firstTryCount[lastDay]+=1 
-                          elif(currentDay==lastDay):#ganamos tras un reintento     
+                          if(currentDay==lastDay):#ganamos tras un reintento     
                                  retryAttemptPoints[lastDay] +=currentOrder
                                  retryCount[lastDay]+=1
-
+                          if(currentOrder<0):#hemos perdido
+                             currentDay =obj["Day"]["number"]-1
                      if("Character") in obj :
                           playerChoices.append(obj["Character"]["judgement"])     
                           if(obj["Character"]["sinner"]== obj["Character"]["judgement"]): # acierto
@@ -102,7 +101,7 @@ for file_name in os.listdir(folder_path):
                      if ("Ending" in obj):
                         if (obj["Ending"]["ending"] == 4):
                            dayLoses[lastDay] += 1
-                           currentDay = -1 
+                           ##currentDay = -1 
                         ##else:
                           #  if(currentDay == lastDay +1):#supero un nivel tras repetirlo
                            #     retryAttemptPoints[lastDay] +=currentOrder

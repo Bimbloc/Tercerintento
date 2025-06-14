@@ -1,0 +1,624 @@
+[{"GameStart":{
+  "time": 0
+}},
+{"Character":{
+  "time": 7000,
+  "sprite": 3,
+  "type": 0,
+  "sentence": 3,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 4000,
+  "sprite": 9,
+  "type": 0,
+  "sentence": 4,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 5000,
+  "sprite": 11,
+  "type": 3,
+  "sentence": 5,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 15000,
+  "sprite": 11,
+  "type": 3,
+  "sentence": 5,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 14000,
+  "sprite": 0,
+  "type": 2,
+  "sentence": 4,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Day":{
+  "time": 61000,
+  "number": 1,
+  "order": 370
+}},
+{"Character":{
+  "time": 11000,
+  "sprite": 6,
+  "type": 3,
+  "sentence": 5,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 26000,
+  "sprite": 6,
+  "type": 3,
+  "sentence": 5,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 6000,
+  "sprite": 5,
+  "type": 2,
+  "sentence": 1,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 17000,
+  "sprite": 5,
+  "type": 2,
+  "sentence": 1,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 8000,
+  "sprite": 1,
+  "type": 3,
+  "sentence": 2,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Day":{
+  "time": 67000,
+  "number": 2,
+  "order": 250
+}},
+{"Character":{
+  "time": 5000,
+  "sprite": 0,
+  "type": 3,
+  "sentence": 1,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 18000,
+  "sprite": 0,
+  "type": 3,
+  "sentence": 1,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 5000,
+  "sprite": 10,
+  "type": 0,
+  "sentence": 0,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 15000,
+  "sprite": 10,
+  "type": 0,
+  "sentence": 0,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 10000,
+  "sprite": 14,
+  "type": 2,
+  "sentence": 4,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Day":{
+  "time": 59000,
+  "number": 3,
+  "order": -40
+}},
+{"Ending":{
+  "ending": 4
+}},
+{"Character":{
+  "time": 6000,
+  "sprite": 2,
+  "type": 3,
+  "sentence": 2,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 17000,
+  "sprite": 2,
+  "type": 3,
+  "sentence": 2,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 9000,
+  "sprite": 1,
+  "type": 2,
+  "sentence": 5,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 18000,
+  "sprite": 1,
+  "type": 2,
+  "sentence": 5,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 5000,
+  "sprite": 1,
+  "type": 3,
+  "sentence": 4,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Day":{
+  "time": 56000,
+  "number": 3,
+  "order": 170
+}},
+{"Character":{
+  "time": 4000,
+  "sprite": 5,
+  "type": 0,
+  "sentence": 0,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 16000,
+  "sprite": 5,
+  "type": 0,
+  "sentence": 0,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 7000,
+  "sprite": 9,
+  "type": 2,
+  "sentence": 2,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 22000,
+  "sprite": 9,
+  "type": 2,
+  "sentence": 2,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 8000,
+  "sprite": 3,
+  "type": 2,
+  "sentence": 3,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Day":{
+  "time": 62000,
+  "number": 4,
+  "order": 290
+}},
+{"Character":{
+  "time": 8000,
+  "sprite": 1,
+  "type": 1,
+  "sentence": 2,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 25000,
+  "sprite": 1,
+  "type": 1,
+  "sentence": 2,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 6000,
+  "sprite": 0,
+  "type": 0,
+  "sentence": 3,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 40000,
+  "sprite": 0,
+  "type": 0,
+  "sentence": 3,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 1
+}},
+{"Character":{
+  "time": 4000,
+  "sprite": 13,
+  "type": 2,
+  "sentence": 0,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Day":{
+  "time": 85000,
+  "number": 5,
+  "order": 260
+}},
+{"Character":{
+  "time": 8000,
+  "sprite": 0,
+  "type": 3,
+  "sentence": 0,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 5000,
+  "sprite": 2,
+  "type": 3,
+  "sentence": 3,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 19000,
+  "sprite": 2,
+  "type": 3,
+  "sentence": 3,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 5000,
+  "sprite": 1,
+  "type": 0,
+  "sentence": 1,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 17000,
+  "sprite": 1,
+  "type": 0,
+  "sentence": 1,
+  "sinner": 1,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Character":{
+  "time": 8000,
+  "sprite": 9,
+  "type": 3,
+  "sentence": 3,
+  "sinner": 0,
+  "favors": [
+    21,
+    7,
+    3
+  ],
+  "sins": [
+    5
+  ],
+  "judgement": 0
+}},
+{"Day":{
+  "time": 73000,
+  "number": 6,
+  "order": 50
+}},
+{"Ending":{
+  "ending": 3
+}},
+{"GameEnd":{
+  "time": 692853
+}}
+]
