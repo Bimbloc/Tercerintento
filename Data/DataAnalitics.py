@@ -32,6 +32,7 @@ wrongGuessSins = np.zeros(30) #30 enteros , contamos cuantos fallos Hay asociado
 
 #pregunta 3
 dayLoses = np.zeros(6) #Contamos cuantas veces pierde en cada dia 
+dayWins = np.zeros(6) #Contamos cuantas veces gana en cada dia
 lastDay = 0
 currentDay=-1
 
@@ -42,8 +43,10 @@ retryCount= np.zeros(6)
 currentOrder=0
 
 #pregunta 4 
-averageChoiceTime=[] #Tiempos medios de decision de cada dia ordenados cronologicamente
-averageChoiceTime = np.zeros(6)
+averageChoiceTime = np.zeros(6)#Tiempos medios de decision de cada dia
+lastChoiceTime = 0
+averageDayTime=[]  
+averageDayTime = np.zeros(6) #Tiempos medios de duración de cada dia 
 
 #pregunta 5
 characterSentences = [np.zeros(6),np.zeros(6),np.zeros(6),np.zeros(6)] #Frases de cada tio de personaje 
@@ -69,7 +72,7 @@ for file_name in os.listdir(folder_path):
                      if("Day") in obj :
                           currentOrder =obj["Day"]["order"]      
                           orderRatings[obj["Day"]["number"]-1] += obj["Day"]["order"]
-                          averageChoiceTime[obj["Day"]["number"]-1] += obj["Day"]["time"]
+                          averageDayTime[obj["Day"]["number"]-1] += obj["Day"]["time"]
                           lastDay = obj["Day"]["number"]-1
                           if(currentDay!=lastDay):#ganamos a la primera 
                                firstAttemptPoints[lastDay] +=currentOrder
@@ -79,8 +82,11 @@ for file_name in os.listdir(folder_path):
                                  retryCount[lastDay]+=1
                           if(currentOrder<0):#hemos perdido
                              currentDay =obj["Day"]["number"]-1
+                          else:
+                               dayWins[lastDay]+=1 
                      if("Character") in obj :
                           playerChoices.append(obj["Character"]["judgement"])     
+                          averageChoiceTime[lastDay]+= (obj["Character"]["time"]-lastChoiceTime)
                           if(obj["Character"]["sinner"]== obj["Character"]["judgement"]): # acierto
                              for f in obj["Character"]["favors"]:
                                 correctGuessFavor[f]+=1
@@ -110,15 +116,40 @@ for file_name in os.listdir(folder_path):
                             #    firstAttemptPoints[lastDay] +=currentDay
                             #    firstTryCount[lastDay]+=1    
 
-#Con los datos de cada partida obtenemos graficas
-plt.title("Niveles de Orden")
+#Con los datos de todas las  partida obtenemos las siguientes  graficas
+
+plt.title("Niveles Medios de Orden")
 days = list(range(1,len(orderRatings)+1))
 plt.xticks(days)
 plt.xlabel("Día")
-plt.ylabel("Nivel de orden")
+plt.ylabel("Nivel medio de orden")
 colors = [{t<=orderRatings.min()*1.15: 'red',orderRatings.min()*1.15 <t<=orderRatings.max()/1.25: 'orange', t>orderRatings.max()/1.25: 'green'}[True] for t in orderRatings ]
+#Obtenemos la media de las puntuaciones 
+orderCounter= 0 
+for i in range(0,len(orderRatings)):
+    orderRatings[i]= (orderRatings[i]/(dayWins[i]+dayLoses[i]))
 plt.bar(days,orderRatings,color=colors)
 plt.savefig(image_path + "/Pregunta1NivelesOrden.png")
+
+
+colors = [{t<=dayLoses.min()*1.15: 'green',dayLoses.min()*1.15 <t<=dayLoses.max()/1.25: 'orange', t>dayLoses.max()/1.25: 'red'}[True] for t in dayLoses ]
+plt.cla()
+plt.title("Derrotas por dia")
+plt.xlabel("Día")
+plt.ylabel("Número de derrotas")
+plt.xticks(np.arange( 1,len(dayLoses)+1))
+plt.bar(np.arange(1,len(dayLoses)+1),dayLoses,color=colors)
+plt.savefig(image_path + "/Pregunta1DerrotasDia.png")
+
+colors = [{t<=dayWins.min()*1.15: 'red',dayWins.min()*1.15 <t<=dayWins.max()/1.25: 'orange', t>dayWins.max()/1.25: 'green'}[True] for t in dayWins ]
+plt.cla()
+plt.title("Victorias por dia")
+plt.xlabel("Día")
+plt.ylabel("Número de Victorias")
+plt.xticks(np.arange( 1,len(dayWins)+1))
+plt.bar(np.arange(1,len(dayWins)+1),dayWins,color=colors)
+plt.savefig(image_path + "/Pregunta1VictoriasDia.png")
+
 
 numvars = np.arange(0,30)
 plt.cla()
@@ -158,14 +189,7 @@ plt.xticks(numvars)
 plt.bar(numvars,wrongGuessFavors,color=colors)
 plt.savefig(image_path + "/Pregunta2FavoresFallos.png")
 
-colors = [{t<=dayLoses.min()*1.15: 'green',dayLoses.min()*1.15 <t<=dayLoses.max()/1.25: 'orange', t>dayLoses.max()/1.25: 'red'}[True] for t in dayLoses ]
-plt.cla()
-plt.title("Derrotas por dia")
-plt.xlabel("Día")
-plt.ylabel("Número de derrotas")
-plt.xticks(np.arange( 1,len(dayLoses)+1))
-plt.bar(np.arange(1,len(dayLoses)+1),dayLoses,color=colors)
-plt.savefig(image_path + "/Pregunta3Derrotas.png")
+
 
 plt.cla()
 plt.title("Diferencia de Puntuación tras reintentos")
@@ -185,15 +209,34 @@ plt.legend()
 plt.savefig(image_path + "/Pregunta3DiferenciaPuntuacionReintentos.png")
 
 plt.cla()
-plt.title("Tiempo por dia")
-colors = [{t<=averageChoiceTime.min()*1.15: 'red',averageChoiceTime.min()*1.15 <t<=averageChoiceTime.max()/1.25: 'orange', t>averageChoiceTime.max()/1.25: 'green'}[True] for t in averageChoiceTime ]
+plt.title("Tiempo medio por dia")
+colors = [{t<=averageDayTime.min()*1.15: 'green',averageDayTime.min()*1.15 <t<=averageDayTime.max()/1.25: 'orange', t>averageDayTime.max()/1.25: 'red'}[True] for t in averageDayTime ]
 plt.xticks(days)
 plt.xlabel("Día")
-plt.ylabel("Tiempo medio de decisión (ms)")
+plt.ylabel("Duración media dia  (ms)")
+plt.ylim(averageDayTime.min()/1.5,averageDayTime.max())
+plt.ticklabel_format(axis='y',style='sci',scilimits=(2,2))
+#Calculamos la media
+for i in range(0,len(firstTryCount)):
+    averageDayTime[i]= (averageDayTime[i]/(dayWins[i]+dayLoses[i]))
+plt.bar(days,averageDayTime,color=colors)
+plt.savefig(image_path + "/Pregunta4TiempoPorDia.png")
+
+
+
+plt.cla()
+plt.title("Tiempo medio de Decisión por dia")
+colors = [{t<=averageChoiceTime.min()*1.15: 'green',averageChoiceTime.min()*1.15 <t<=averageChoiceTime.max()/1.25: 'orange', t>averageChoiceTime.max()/1.25: 'red'}[True] for t in averageChoiceTime]
+plt.xticks(days)
+plt.xlabel("Día")
+plt.ylabel("Duración media decisión  (ms)")
 plt.ylim(averageChoiceTime.min()/1.5,averageChoiceTime.max())
 plt.ticklabel_format(axis='y',style='sci',scilimits=(2,2))
+#Calculamos la media
+for i in range(0,len(firstTryCount)):
+    averageChoiceTime[i]= (averageChoiceTime[i]/(dayWins[i]+dayLoses[i]))
 plt.bar(days,averageChoiceTime,color=colors)
-plt.savefig(image_path + "/Pregunta4TiempoPorDia.png")
+plt.savefig(image_path + "/Pregunta4TiempoPorDecisión.png")
 
 plt.cla()
 plt.title("Personajes por tipo")
