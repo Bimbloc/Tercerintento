@@ -32,8 +32,8 @@ public class CharacterTracker : MonoBehaviour {
     {
         _initTime = (int)Time.time * 1000;
         _sprite = sprite;
-        _favors.Clear();
-        _sins.Clear();
+        _favors = new List<int>();
+        _sins = new List<int>();
     }
 
     public void setCharacterType(int type, int sentence) 
