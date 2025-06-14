@@ -47,7 +47,7 @@ averageChoiceTime = np.zeros(6)#Tiempos medios de decision de cada dia
 lastChoiceTime = 0
 averageDayTime=[]  
 averageDayTime = np.zeros(6) #Tiempos medios de duración de cada dia 
-
+numjugementsperday=np.zeros(6)
 #pregunta 5
 characterSentences = [np.zeros(6),np.zeros(6),np.zeros(6),np.zeros(6)] #Frases de cada tio de personaje 
 characterTypes = np.zeros(4)
@@ -87,6 +87,7 @@ for file_name in os.listdir(folder_path):
                      if("Character") in obj :
                           playerChoices.append(obj["Character"]["judgement"])     
                           averageChoiceTime[lastDay]+= (obj["Character"]["time"]-lastChoiceTime)
+                          numjugementsperday[lastDay]+=1
                           if(obj["Character"]["sinner"]== obj["Character"]["judgement"]): # acierto
                              for f in obj["Character"]["favors"]:
                                 correctGuessFavor[f]+=1
@@ -214,11 +215,11 @@ colors = [{t<=averageDayTime.min()*1.15: 'green',averageDayTime.min()*1.15 <t<=a
 plt.xticks(days)
 plt.xlabel("Día")
 plt.ylabel("Duración media dia  (ms)")
-plt.ylim(averageDayTime.min()/1.5,averageDayTime.max())
 plt.ticklabel_format(axis='y',style='sci',scilimits=(2,2))
 #Calculamos la media
-for i in range(0,len(firstTryCount)):
+for i in range(0,len(averageDayTime)):
     averageDayTime[i]= (averageDayTime[i]/(dayWins[i]+dayLoses[i]))
+plt.ylim(averageDayTime.min()/1.5,averageDayTime.max())
 plt.bar(days,averageDayTime,color=colors)
 plt.savefig(image_path + "/Pregunta4TiempoPorDia.png")
 
@@ -230,11 +231,11 @@ colors = [{t<=averageChoiceTime.min()*1.15: 'green',averageChoiceTime.min()*1.15
 plt.xticks(days)
 plt.xlabel("Día")
 plt.ylabel("Duración media decisión  (ms)")
-plt.ylim(averageChoiceTime.min()/1.5,averageChoiceTime.max())
 plt.ticklabel_format(axis='y',style='sci',scilimits=(2,2))
 #Calculamos la media
-for i in range(0,len(firstTryCount)):
-    averageChoiceTime[i]= (averageChoiceTime[i]/(dayWins[i]+dayLoses[i]))
+for i in range(0,len(averageChoiceTime)):
+    averageChoiceTime[i]= (averageChoiceTime[i]/(numjugementsperday[i]))
+plt.ylim(averageChoiceTime.min()/1.5,averageChoiceTime.max())
 plt.bar(days,averageChoiceTime,color=colors)
 plt.savefig(image_path + "/Pregunta4TiempoPorDecisión.png")
 
