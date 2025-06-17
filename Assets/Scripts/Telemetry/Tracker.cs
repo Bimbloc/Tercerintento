@@ -15,12 +15,14 @@ public class Tracker : MonoBehaviour {
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Init();
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+    private void Start() {
+        Init();
     }
 
     void OnApplicationQuit() {
@@ -28,6 +30,7 @@ public class Tracker : MonoBehaviour {
     }
 
     private void Init() {
+        persistenceObject.Init();
         // Evento de Inicio de Juego
         TrackEvent(new TrackerEvent(EventType.GameStart, new GameStartParams() { time = (int)(Time.time * 1000) }));
     }
@@ -36,9 +39,13 @@ public class Tracker : MonoBehaviour {
         // Evento de Final de Juego
         TrackEvent(new TrackerEvent(EventType.GameEnd, new GameEndParams() { time = (int)(Time.time * 1000) }));
         persistenceObject.Flush();
+        persistenceObject.End();
     }
 
     public void TrackEvent(TrackerEvent trackedEvent) {
         persistenceObject.Send(trackedEvent);
+        if (trackedEvent.GetEventType() == EventType.DayEnd) {
+            persistenceObject.Flush();
+        }
     }
 }

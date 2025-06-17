@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: JsonFilePersistence
   m_EditorClassIdentifier: 
   serializer: {fileID: 11400000, guid: 0f1fe25efd0f75f4eb74147974447ca0, type: 2}
+  maxEvents: 100

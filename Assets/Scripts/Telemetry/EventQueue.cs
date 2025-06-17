@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class EventQueue {
     private Queue<TrackerEvent> queue;
-    public EventQueue()
+    int _maxEvents;
+    public EventQueue(int maxEvents)
     {
         queue = new Queue<TrackerEvent>();
+        _maxEvents = maxEvents;
     }
 
     public void AddEvent(TrackerEvent gEvent)
     {
+        if (queue.Count >= _maxEvents) 
+            queue.Dequeue();
         queue.Enqueue(gEvent);
     }
 
