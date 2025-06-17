@@ -30,6 +30,9 @@ correctGuessSin = np.zeros(30) #30 enteros , contamos cuantos aciertos Hay asoci
 wrongGuessFavors = np.zeros(30) #30 enteros , contamos cuantos fallos Hay asociados a cada favor
 wrongGuessSins = np.zeros(30) #30 enteros , contamos cuantos fallos Hay asociados a cada pecado
 
+totalRightGueses= 0
+totalWrongGuesses=0
+
 #pregunta 3
 dayLoses = np.zeros(6) #Contamos cuantas veces pierde en cada dia 
 dayWins = np.zeros(6) #Contamos cuantas veces gana en cada dia
@@ -75,8 +78,8 @@ for file_name in os.listdir(folder_path):
                           averageDayTime[obj["Day"]["number"]-1] += obj["Day"]["time"]
                           lastDay = obj["Day"]["number"]-1
                           if(currentDay!=lastDay):#ganamos a la primera 
-                               firstAttemptPoints[lastDay] +=currentOrder
                                firstTryCount[lastDay]+=1 
+                               firstAttemptPoints[lastDay] +=currentOrder
                           if(currentDay==lastDay):#ganamos tras un reintento     
                                  retryAttemptPoints[lastDay] +=currentOrder
                                  retryCount[lastDay]+=1
@@ -89,6 +92,7 @@ for file_name in os.listdir(folder_path):
                           averageChoiceTime[lastDay]+= (obj["Character"]["time"]-lastChoiceTime)
                           numjugementsperday[lastDay]+=1
                           if(obj["Character"]["sinner"]== obj["Character"]["judgement"]): # acierto
+                             totalRightGueses+=1
                              for f in obj["Character"]["favors"]:
                                 correctGuessFavor[f]+=1
                                 totalFavorApearance[f] +=1
@@ -99,6 +103,7 @@ for file_name in os.listdir(folder_path):
                              characterTypes[obj["Character"]["type"]]+=1
                              totalSinAppearance[obj["Character"]["sins"]] +=1                                          
                           else:
+                               totalWrongGuesses+=1
                                for f in obj["Character"]["favors"]:
                                 wrongGuessFavors[f]+=1
                                 totalFavorApearance[f] +=1
@@ -154,39 +159,57 @@ plt.savefig(image_path + "/Pregunta1VictoriasDia.png")
 
 numvars = np.arange(0,30)
 plt.cla()
-plt.title("Pecados Aciertos")
+plt.title("Tasa de Aciertos Pecados")
 plt.xlabel("ID del pecado")
-plt.ylabel("Número de aciertos")
+plt.ylabel("Tasa de aciertos(%)")
 colors = [{t<=correctGuessSin.min()*1.15: 'red',correctGuessSin.min()*1.15 <t<=correctGuessSin.max()/1.25: 'orange', t>correctGuessSin.max()/1.25: 'green'}[True] for t in correctGuessSin ]
 plt.xticks(numvars)
+#hay que convertir los datos crudos en tasas
+##totalRightGueses = sum(correctGuessSin)
+for i in range(0,len(correctGuessSin)):
+    correctGuessSin[i] = (correctGuessSin[i]/totalRightGueses)*100
+
+##print(sum(correctGuessSin))    
 plt.bar(numvars,correctGuessSin,color=colors)
 plt.savefig(image_path + "/Pregunta2PecadosAciertos.png")
 
 plt.cla()
-plt.title("Pecados Fallos")
+plt.title("Tasa de Fallos Pecados")
 plt.xlabel("ID del pecado")
-plt.ylabel("Número de fallos")
+plt.ylabel("Tasa de fallos(%)")
 colors = [{t<=wrongGuessSins.min()*1.15: 'red',wrongGuessSins.min()*1.15 <t<=wrongGuessSins.max()/1.25: 'orange', t>wrongGuessSins.max()/1.25: 'green'}[True] for t in wrongGuessSins ]
 plt.xticks(numvars)
+#hay que convertir los datos crudos en tasas
+##totalWrongGueses = sum(wrongGuessSins)
+for i in range(0,len(wrongGuessSins)):
+   wrongGuessSins[i] = (wrongGuessSins[i]/totalWrongGuesses)*100
 plt.bar(numvars,wrongGuessSins,color=colors)
 plt.savefig(image_path + "/Pregunta2PecadosFallos.png")
 
 plt.cla()
 colors = [{t<=correctGuessFavor.min()*1.15: 'red',correctGuessFavor.min()*1.15 <t<=correctGuessFavor.max()/1.25: 'orange', t>correctGuessFavor.max()/1.25: 'green'}[True] for t in correctGuessFavor ]
 
-plt.title("Favores Aciertos")
+plt.title("Tasa de Aciertos Favores")
 plt.xlabel("ID del favor")
-plt.ylabel("Número de Aciertos")
+plt.ylabel("Tasa de Aciertos (%)")
 plt.xticks(numvars)
+#hay que convertir los datos crudos en tasas
+##totalRightGueses = sum(correctGuessFavor)
+for i in range(0,len(correctGuessFavor)):
+    correctGuessFavor[i] = (correctGuessFavor[i]/totalRightGueses)*100
+##print(sum(correctGuessFavor))    
 plt.bar(numvars,correctGuessFavor,color=colors)
 plt.savefig(image_path + "/Pregunta2FavoresAciertos.png")
 
 colors = [{t<=wrongGuessFavors.min()*1.15: 'red',wrongGuessFavors.min()*1.15 <t<=wrongGuessFavors.max()/1.25: 'orange', t>wrongGuessFavors.max()/1.25: 'green'}[True] for t in wrongGuessFavors ]
 plt.cla()
-plt.title("Favores Fallos")
+plt.title("Tasa de  Fallos Favores")
 plt.xlabel("ID del favor")
-plt.ylabel("Número de fallos")
+plt.ylabel("tasa de fallos(%)")
 plt.xticks(numvars)
+##totalWrongGueses = sum(wrongGuessSins)
+for i in range(0,len(wrongGuessFavors)):
+   wrongGuessFavors[i] = (wrongGuessFavors[i]/totalWrongGuesses)*100
 plt.bar(numvars,wrongGuessFavors,color=colors)
 plt.savefig(image_path + "/Pregunta2FavoresFallos.png")
 
@@ -240,22 +263,31 @@ plt.bar(days,averageChoiceTime,color=colors)
 plt.savefig(image_path + "/Pregunta4TiempoPorDecisión.png")
 
 plt.cla()
-plt.title("Personajes por tipo")
+plt.title("Tasa de aparición Personajes por tipo")
 colors = [{t<=characterTypes.min()*1.15: 'red',characterTypes.min()*1.15 <t<=characterTypes.max()/1.25: 'orange', t>characterTypes.max()/1.25: 'green'}[True] for t in characterTypes ]
 plt.xlabel("Tipo de personaje")
-plt.ylabel("Número de personajes generados")
+plt.ylabel("Tasa de personajes generados(%)")
 plt.xticks(np.arange(0,len(characterTypes)))
+#lo pasamos a tasas 
+totalCharacters = sum(characterTypes)
+for i in range(0,len(characterTypes)):
+    characterTypes[i] = (characterTypes[i]/totalCharacters)*100
 plt.bar(np.arange(0,len(characterTypes)),characterTypes,color=colors)
 plt.savefig(image_path + "/Pregunta5TiposPersonaje.png")
 
 charCounter = 0
 for char in characterSentences:
       plt.cla()
-      plt.title("Frases Tipo " + str(charCounter))
+      plt.title("Tasa de apacirion Frases Tipo " + str(charCounter))
       colors = [{t<=char.min()*1.15: 'red',char.min()*1.15 <t<=char.max()/1.25: 'orange', t>char.max()/1.25: 'green'}[True] for t in char ]
       plt.xlabel("ID de la frase")
-      plt.ylabel("Número de apariciones")
+      plt.ylabel("Tasa de apariciones (%)")
       plt.xticks(np.arange(0,len(char)))
+      #lo pasamos a tasas
+      
+      totalFrases= sum(char)
+      for i in range(0,len(char)):
+         char[i] = (char[i]/totalFrases)*100
       plt.bar(np.arange(0,len(char)),char,color=colors)
       plt.savefig(image_path + "/Pregunta5FrasesTipo" + str(charCounter) + ".png")
       charCounter+=1
