@@ -177,7 +177,7 @@ plt.cla()
 plt.title("Tasa de Fallos Pecados")
 plt.xlabel("ID del pecado")
 plt.ylabel("Tasa de fallos(%)")
-colors = [{t<=wrongGuessSins.min()*1.15: 'red',wrongGuessSins.min()*1.15 <t<=wrongGuessSins.max()/1.25: 'orange', t>wrongGuessSins.max()/1.25: 'green'}[True] for t in wrongGuessSins ]
+colors = [{t<=wrongGuessSins.min()*1.15: 'green',wrongGuessSins.min()*1.15 <t<=wrongGuessSins.max()/1.25: 'orange', t>wrongGuessSins.max()/1.25: 'red'}[True] for t in wrongGuessSins ]
 plt.xticks(numvars)
 #hay que convertir los datos crudos en tasas
 ##totalWrongGueses = sum(wrongGuessSins)
@@ -201,7 +201,7 @@ for i in range(0,len(correctGuessFavor)):
 plt.bar(numvars,correctGuessFavor,color=colors)
 plt.savefig(image_path + "/Pregunta2FavoresAciertos.png")
 
-colors = [{t<=wrongGuessFavors.min()*1.15: 'red',wrongGuessFavors.min()*1.15 <t<=wrongGuessFavors.max()/1.25: 'orange', t>wrongGuessFavors.max()/1.25: 'green'}[True] for t in wrongGuessFavors ]
+colors = [{t<=wrongGuessFavors.min()*1.15: 'green',wrongGuessFavors.min()*1.15 <t<=wrongGuessFavors.max()/1.25: 'orange', t>wrongGuessFavors.max()/1.25: 'red'}[True] for t in wrongGuessFavors ]
 plt.cla()
 plt.title("Tasa de  Fallos Favores")
 plt.xlabel("ID del favor")
