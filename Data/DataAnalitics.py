@@ -3,6 +3,10 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import datetime
+import logging
+
+##Configurar salida del log 
+logging.basicConfig(filename='DataAnalitics.log', level=logging.INFO,filemode="w")
 
 ##  Leer todos los archivos
 script_path = os.path.dirname(os.path.realpath(__file__))
@@ -14,6 +18,8 @@ print(image_path)
 os.makedirs(image_path, exist_ok=True)
 folder_path = os.path.expanduser("~")
 folder_path += '\\AppData\\LocalLow\\TerretaGames\\Burocracia Celestial\\Data'
+
+logging.info(("Carpeta de datos: " + folder_path) )
 
 #Pregunta 1 
 #Puntuaciones del libro ordebadas cronologicamente 
@@ -66,7 +72,7 @@ for file_name in os.listdir(folder_path):
             file_path = os.path.join(folder_path, file_name)
 
             print(f"Processing file: {file_name}")
-
+            logging.info(("procesando archivo "+ file_name))
             # Leer Contenidos de cada archivo
             with open(file_path, 'r') as file:
                 data = json.load(file)
