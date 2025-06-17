@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum EventType {
-    GameStart, Day, Character, Ending, GameEnd
+    GameStart, DayStart, DayEnd, NewCharacter, CharacterType, CharacterSinner, NewFavor, NewSin, CharacterJudgement, Ending, GameEnd
 };
 
 public interface EventParams {
@@ -34,41 +34,99 @@ public struct GameStartParams : EventParams {
     }
 };
 
-public struct DayParams : EventParams
+public struct DayStartParams : EventParams
 {
     public int time;
     public int number;
-    public int order;
     public Dictionary<string, object> ToDictionary()
     {
         return new Dictionary<string, object> {
             { "time", time },
             { "number", number },
+        };
+    }
+};
+
+public struct DayEndParams : EventParams
+{
+    public int time;
+    public int order;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
+            { "time", time },
             { "order", order }
         };
     }
 };
 
-public struct CharacterParams : EventParams
+public struct NewCharacterParams : EventParams
 {
     public int time;
     public int sprite;
-    public int type;
-    public int sentence;
-    public int sinner;
-    public List<int> favors;
-    public List<int> sins;
-    public int judgement;
     public Dictionary<string, object> ToDictionary()
     {
         return new Dictionary<string, object> {
             { "time", time },
             { "sprite", sprite },
+        };
+    }
+};
+
+public struct CharacterTypeParams : EventParams
+{
+    public int type;
+    public int sentence;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
             { "type", type },
             { "sentence", sentence },
+        };
+    }
+};
+
+public struct CharacterSinnerParams : EventParams
+{
+    public int sinner;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
             { "sinner", sinner },
-            { "favors", favors },
-            { "sins", sins },
+        };
+    }
+};
+
+public struct NewFavorParams : EventParams
+{
+    public int favor;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
+            { "favor", favor},
+        };
+    }
+};
+
+public struct NewSinParams : EventParams
+{
+    public int sin;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
+            { "sin", sin },
+        };
+    }
+};
+
+public struct CharacterJudgementParams : EventParams
+{
+    public int time;
+    public int judgement;
+    public Dictionary<string, object> ToDictionary()
+    {
+        return new Dictionary<string, object> {
+            { "time", time },
             { "judgement", judgement }
         };
     }

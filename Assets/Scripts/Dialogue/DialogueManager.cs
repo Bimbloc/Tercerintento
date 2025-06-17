@@ -5,6 +5,7 @@ using TMPro;
 using System.IO;
 using System;
 using UnityEngine.SceneManagement;
+using Unity.Mathematics;
 
 
 public class DialogueManager : MonoBehaviour
@@ -220,7 +221,10 @@ public class DialogueManager : MonoBehaviour
 
     public void GoToHeaven(bool b)
     {
-        CharacterTracker.Instance.setCharacterJudgement(b ? 1 : 0);
+        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.CharacterJudgement, new CharacterJudgementParams() { 
+            judgement = (b ? 1 : 0),
+            time = (int)(Time.time * 1000),
+        }));
         GameManager.GetInstance().compruebaJuicio(b);
 
         mainButton.SetActive(false);

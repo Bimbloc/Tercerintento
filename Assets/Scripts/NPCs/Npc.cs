@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 
 public class Npc : MonoBehaviour
 {
@@ -45,7 +46,12 @@ public class Npc : MonoBehaviour
         path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + frase;
         d = dialogo;
         Debug.Log(path);
-        CharacterTracker.Instance.setCharacterType(tipo, frase);
+        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.CharacterType, new CharacterTypeParams()
+        {
+            type = tipo,
+            sentence = frase,
+        }));
+
         Debug.Log("Sentence: " + path);
 
         Invoke("StartDialoge", 2.0f);
@@ -60,7 +66,11 @@ public class Npc : MonoBehaviour
         cosasbuenas = g.Cosabuenarandom();
 
         int caos = CalculaKarma();
-        CharacterTracker.Instance.isSinner((caos >= 0) ? 1 : 0);
+        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.CharacterSinner, new CharacterSinnerParams()
+        {
+            sinner = (caos >= 0) ? 1 : 0
+        }));
+
         Debug.Log("Sinner: " + (caos >= 0));
         GameManager.GetInstance().infoNPC(Mathf.Abs(caos), caos >= 0, this.gameObject);
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 
 public class Contenedorsprites : MonoBehaviour
 {
@@ -29,7 +30,11 @@ public class Contenedorsprites : MonoBehaviour
     public Sprite generaAspectoRandom()
     {
         int n = Random.Range(0, aspectogeneral.Length);
-        CharacterTracker.Instance.newCharacter(n);
+        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewCharacter, new NewCharacterParams()
+        {
+            time = (int)(Time.time * 1000),
+            sprite = n
+        }));
         Debug.Log("NPCSpriteID: " + aspectogeneral[n]);
         return aspectogeneral[n];
     }

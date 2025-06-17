@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using TMPro;
+using UnityEngine.ProBuilder.Shapes;
 
 public class Guion : MonoBehaviour
 {
@@ -59,7 +60,7 @@ public class Guion : MonoBehaviour
         {
             int random = Random.Range(0, guionBueno.Length);
             Npc.Cosabuena c = guionBueno[random];
-            CharacterTracker.Instance.addFavor(random);
+            Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewFavor, new NewFavorParams(){favor = random}));
             int j = 0;
             while (j < i && c.texto != result[j].texto)
                 j++;
@@ -84,7 +85,7 @@ public class Guion : MonoBehaviour
         {
             int random = Random.Range(0, guionMalo.Length);
             Npc.Cosamala c = guionMalo[random];
-            CharacterTracker.Instance.addSin(random);
+            Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewSin, new NewSinParams() {sin = random}));
             int j = 0;
             while (j < i && c.texto != result[j].texto)
                 j++;
