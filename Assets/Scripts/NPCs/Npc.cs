@@ -46,8 +46,9 @@ public class Npc : MonoBehaviour
         path = "NPCs/" + tipos[tipo] + "/" + tipos[tipo] + frase;
         d = dialogo;
         Debug.Log(path);
-        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.CharacterType, new CharacterTypeParams()
+        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewCharacter, new NewCharacterParams()
         {
+            time = (int)(Time.time * 1000),
             type = tipo,
             sentence = frase,
         }));

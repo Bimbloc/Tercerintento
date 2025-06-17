@@ -30,11 +30,6 @@ public class Contenedorsprites : MonoBehaviour
     public Sprite generaAspectoRandom()
     {
         int n = Random.Range(0, aspectogeneral.Length);
-        Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewCharacter, new NewCharacterParams()
-        {
-            time = (int)(Time.time * 1000),
-            sprite = n
-        }));
         Debug.Log("NPCSpriteID: " + aspectogeneral[n]);
         return aspectogeneral[n];
     }

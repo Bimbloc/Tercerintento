@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum EventType {
-    GameStart, DayStart, DayEnd, NewCharacter, CharacterType, CharacterSinner, NewFavor, NewSin, CharacterJudgement, Ending, GameEnd
+    GameStart, DayStart, DayEnd, NewCharacter, CharacterSinner, NewFavor, NewSin, CharacterJudgement, Ending, GameEnd
 };
 
 public interface EventParams {
@@ -63,27 +63,17 @@ public struct DayEndParams : EventParams
 public struct NewCharacterParams : EventParams
 {
     public int time;
-    public int sprite;
-    public Dictionary<string, object> ToDictionary()
-    {
-        return new Dictionary<string, object> {
-            { "time", time },
-            { "sprite", sprite },
-        };
-    }
-};
-
-public struct CharacterTypeParams : EventParams
-{
     public int type;
     public int sentence;
     public Dictionary<string, object> ToDictionary()
     {
         return new Dictionary<string, object> {
+            { "time", time },
             { "type", type },
             { "sentence", sentence },
         };
     }
+
 };
 
 public struct CharacterSinnerParams : EventParams
