@@ -39,6 +39,9 @@ wrongGuessSins = np.zeros(30) #30 enteros , contamos cuantos fallos Hay asociado
 totalRightGueses= 0
 totalWrongGuesses=0
 
+totalFavors=0
+totalSins= 0
+
 #pregunta 3
 dayLoses = np.zeros(6) #Contamos cuantas veces pierde en cada dia 
 dayWins = np.zeros(6) #Contamos cuantas veces gana en cada dia
@@ -102,20 +105,24 @@ for file_name in os.listdir(folder_path):
                              for f in obj["Character"]["favors"]:
                                 correctGuessFavor[f]+=1
                                 totalFavorApearance[f] +=1
+                                totalFavors+=1
                              for p in obj["Character"]["sins"]:
                                 correctGuessSin[p]+=1
-                                totalSinAppearance[p] +=1 
+                                totalSinAppearance[p] +=1
+                                totalSins+=1 
                              characterSentences[obj["Character"]["type"]][obj["Character"]["sentence"]] +=1  
                              characterTypes[obj["Character"]["type"]]+=1
-                             totalSinAppearance[obj["Character"]["sins"]] +=1                                          
+                             ##totalSinAppearance[obj["Character"]["sins"]] +=1                                          
                           else:
                                totalWrongGuesses+=1
                                for f in obj["Character"]["favors"]:
                                 wrongGuessFavors[f]+=1
                                 totalFavorApearance[f] +=1
+                                totalFavors+=1
                                for p in obj["Character"]["sins"]:
                                  wrongGuessSins[p]+=1
                                  totalSinAppearance[p] +=1
+                                 totalSins+=1
                      if ("Ending" in obj):
                         if (obj["Ending"]["ending"] == 4):
                            dayLoses[lastDay] += 1
@@ -299,20 +306,26 @@ for char in characterSentences:
       charCounter+=1
 
 plt.cla()
-plt.title("Favores totales")
+plt.title("Tasa de Favores totales")
 colors = [{t<=totalFavorApearance.min()*1.15: 'red',totalFavorApearance.min()*1.15 <t<=totalFavorApearance.max()/1.25: 'orange', t>totalFavorApearance.max()/1.25: 'green'}[True] for t in totalFavorApearance ]
 plt.xlabel("ID del favor")
-plt.ylabel("Número de apariciones")
+plt.ylabel("Tasa de apariciones (%)")
 plt.xticks(numvars)
+for i in range(0,len(totalFavorApearance)):
+    totalFavorApearance[i]= (totalFavorApearance[i]/totalFavors)*100
+print(sum(totalFavorApearance))
 plt.bar(numvars,totalFavorApearance,color=colors)
 plt.savefig(image_path + "/Pregunta6AparicionFavores.png")
 
 plt.cla()
-plt.title("Pecados Total")
+plt.title("Tasa de Pecados Totales")
 colors = [{t<=totalSinAppearance.min()*1.15: 'red',totalSinAppearance.min()*1.15 <t<=totalSinAppearance.max()/1.25: 'orange', t>totalSinAppearance.max()/1.25: 'green'}[True] for t in totalSinAppearance ]
 plt.xlabel("ID del pecado")
-plt.ylabel("Número de apariciones")
+plt.ylabel("Tasa de apariciones")
 plt.xticks(numvars)
+for i in range(0,len(totalSinAppearance)):
+    totalSinAppearance[i]= (totalSinAppearance[i]/totalSins)*100
+print(sum(totalSinAppearance))    
 plt.bar(numvars,totalSinAppearance,color=colors)
 plt.savefig(image_path + "/Pregunta6AparicionPecados.png")
 
