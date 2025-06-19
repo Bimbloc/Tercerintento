@@ -78,8 +78,48 @@ for file_name in os.listdir(folder_path):
             logging.info(("procesando archivo "+ file_name))
             # Leer Contenidos de cada archivo
             with open(file_path, 'r') as file:
-                data = json.load(file)
-                
+                data_raw = json.load(file)
+                data=[]
+                daynum=0
+                dayStartTime=0
+                sins = []
+                favors= []
+                characterType =0
+                characterSentence =0
+                sinner=0
+                characterTime=0
+                for raw in data_raw:
+                    if("DayStart") in raw:
+                       
+                       daynum=raw["DayStart"]["number"]
+                       dayStartTime = raw["DayStart"]["time"] 
+
+                    if("DayEnd") in raw:
+                        day={"time":(raw["DayEnd"]["time"]-dayStartTime),"order":raw["DayEnd"]["order"],"number":daynum}
+                        data.append({"Day":day})
+
+                    if("NewCharacter")in raw:
+                        characterType= raw["NewCharacter"]["type"]
+                        characterSentence = raw["NewCharacter"]["sentence"]
+                        characterTime = raw["NewCharacter"]["time"]
+                        sins=[]
+                        favors=[]
+                    if("CharacterSinner")in raw:
+                        sinner=raw["CharacterSinner"]["sinner"]
+
+                    if("NewSin") in raw:
+                        sins.append(raw["NewSin"]["sin"])
+
+                    if("NewFavor") in raw:
+                        favors.append(raw["NewFavor"]["favor"])
+
+                    if("CharacterJudgement") in raw:
+                        character={"time":(raw["CharacterJudgement"]["time"]-characterTime),
+                        "type":characterType,"sentence":characterSentence, "sinner":sinner,"favors":favors,"sins":sins,"judgement":raw["CharacterJudgement"]["judgement"]}
+                        data.append({"Character":character})
+
+                    if("Ending")in raw:
+                        data.append(raw)
                 for obj in data : 
                      if("Day") in obj :
                           currentOrder =obj["Day"]["order"]      
@@ -145,8 +185,13 @@ plt.ylabel("Nivel medio de orden")
 colors = [{t<=orderRatings.min()*1.15: 'red',orderRatings.min()*1.15 <t<=orderRatings.max()/1.25: 'orange', t>orderRatings.max()/1.25: 'green'}[True] for t in orderRatings ]
 #Obtenemos la media de las puntuaciones 
 orderCounter= 0 
+dayplays=0
 for i in range(0,len(orderRatings)):
-    orderRatings[i]= (orderRatings[i]/(dayWins[i]+dayLoses[i]))
+    dayplays= dayWins[i]+dayLoses[i]
+    if(dayplays>0):
+        orderRatings[i]= (orderRatings[i]/(dayWins[i]+dayLoses[i]))
+    else:
+        orderRatings[i]=0    
 plt.bar(days,orderRatings,color=colors)
 plt.savefig(image_path + "/Pregunta1NivelesOrden.png")
 
@@ -253,8 +298,13 @@ plt.xlabel("Día")
 plt.ylabel("Duración media dia  (ms)")
 plt.ticklabel_format(axis='y',style='sci',scilimits=(2,2))
 #Calculamos la media
+dayplays=0
 for i in range(0,len(averageDayTime)):
-    averageDayTime[i]= (averageDayTime[i]/(dayWins[i]+dayLoses[i]))
+    dayplays = dayLoses[i] + dayWins[i]
+    if(dayplays>0):
+        averageDayTime[i]= (averageDayTime[i]/(dayWins[i]+dayLoses[i]))
+    else:
+        averageDayTime[i]=0    
 plt.ylim(averageDayTime.min()/1.5,averageDayTime.max())
 plt.bar(days,averageDayTime,color=colors)
 plt.savefig(image_path + "/Pregunta4TiempoPorDia.png")
@@ -270,7 +320,11 @@ plt.ylabel("Duración media decisión  (ms)")
 plt.ticklabel_format(axis='y',style='sci',scilimits=(2,2))
 #Calculamos la media
 for i in range(0,len(averageChoiceTime)):
-    averageChoiceTime[i]= (averageChoiceTime[i]/(numjugementsperday[i]))
+    if(numjugementsperday[i]>0):
+        averageChoiceTime[i]= (averageChoiceTime[i]/(numjugementsperday[i]))
+    else:
+        averageChoiceTime[i]=0
+
 plt.ylim(averageChoiceTime.min()/1.5,averageChoiceTime.max())
 plt.bar(days,averageChoiceTime,color=colors)
 plt.savefig(image_path + "/Pregunta4TiempoPorDecisión.png")
