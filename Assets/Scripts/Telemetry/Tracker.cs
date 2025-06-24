@@ -2,42 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tracker : MonoBehaviour {
+public class Tracker {
     public static Tracker Instance { get; private set; } = null;
 
-    [SerializeField] private IPersistence persistenceObject;
+    private IPersistence persistenceObject;
 
-    private Dictionary<string, ITrackerAsset> activeTrackers = new Dictionary<string, ITrackerAsset>();
-
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
+    public static void Init(IPersistence persistence) {
+        if (Instance == null) {
+            Instance = new Tracker();
+            Instance.persistenceObject = persistence;
         }
     }
-    private void Start() {
-        Init();
-    }
 
-    void OnApplicationQuit() {
-        End();
-    }
-
-    private void Init() {
+    public void Start() {
         persistenceObject.Init();
-        // Evento de Inicio de Juego
-        TrackEvent(new TrackerEvent(EventType.GameStart, new EventParams()));
     }
 
-    private void End() {
-        // Evento de Final de Juego
-        TrackEvent(new TrackerEvent(EventType.GameEnd, new EventParams()));
+    public void End() {
         persistenceObject.Flush();
         persistenceObject.End();
     }
