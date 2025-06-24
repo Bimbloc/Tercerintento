@@ -16,8 +16,8 @@ os.makedirs(graphics_path, exist_ok=True)
 image_path = os.path.join(graphics_path, f"{timestamp}")
 print(image_path)
 os.makedirs(image_path, exist_ok=True)
-folder_path = os.path.expanduser("~")
-folder_path += '\\AppData\\LocalLow\\TerretaGames\\Burocracia Celestial\\Data'
+folder_path = os.path.dirname(os.path.realpath(__file__))
+folder_path += '\\SampleTelemetry'
 
 logging.info(("Carpeta de datos: " + folder_path) )
 
