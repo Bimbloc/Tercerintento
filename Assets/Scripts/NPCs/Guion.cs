@@ -59,7 +59,7 @@ public class Guion : MonoBehaviour
         {
             int random = Random.Range(0, guionBueno.Length);
             Npc.Cosabuena c = guionBueno[random];
-            Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewFavor, new NewFavorParams(){favor = random}));
+            Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewFavor, new NewFavorParams(random)));
             int j = 0;
             while (j < i && c.texto != result[j].texto)
                 j++;
@@ -84,7 +84,7 @@ public class Guion : MonoBehaviour
         {
             int random = Random.Range(0, guionMalo.Length);
             Npc.Cosamala c = guionMalo[random];
-            Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewSin, new NewSinParams() {sin = random}));
+            Tracker.Instance.TrackEvent(new TrackerEvent(EventType.NewSin, new NewSinParams(random)));
             int j = 0;
             while (j < i && c.texto != result[j].texto)
                 j++;

@@ -32,12 +32,12 @@ public class Tracker : MonoBehaviour {
     private void Init() {
         persistenceObject.Init();
         // Evento de Inicio de Juego
-        TrackEvent(new TrackerEvent(EventType.GameStart, new GameStartParams() { time = (int)(Time.time * 1000) }));
+        TrackEvent(new TrackerEvent(EventType.GameStart, new EventParams()));
     }
 
     private void End() {
         // Evento de Final de Juego
-        TrackEvent(new TrackerEvent(EventType.GameEnd, new GameEndParams() { time = (int)(Time.time * 1000) }));
+        TrackEvent(new TrackerEvent(EventType.GameEnd, new EventParams()));
         persistenceObject.Flush();
         persistenceObject.End();
     }
