@@ -7,6 +7,7 @@ public class Tracker {
 
     private IPersistence persistenceObject;
 
+    public System.Random rnd;
     public static void Init(IPersistence persistence) {
         if (Instance == null) {
             Instance = new Tracker();
@@ -16,6 +17,7 @@ public class Tracker {
 
     public void Start() {
         persistenceObject.Init();
+        rnd = new System.Random();
     }
 
     public void End() {

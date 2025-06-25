@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     GameObject generatorNPC;
@@ -129,8 +130,7 @@ public class GameManager : MonoBehaviour
     void a()
     {
         Tracker.Instance.TrackEvent(new TrackerEvent(EventType.DayEnd, new DayEndParams(caosTotal)));
-        Debug.Log("DayEnded " + Time.time * 1000);
-        Debug.Log("DayOrder " + caosTotal);
+       
         changeScene("endOfDay");
     }
 
