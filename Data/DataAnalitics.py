@@ -20,7 +20,7 @@ folder_path = os.path.dirname(os.path.realpath(__file__))
 folder_path += '\\SampleTelemetry'
 
 logging.info(("Carpeta de datos: " + folder_path) )
-
+print("Carpeta de archivos:" +  folder_path)
 #Pregunta 1 
 #Puntuaciones del libro ordebadas cronologicamente 
 orderRatings = np.zeros(6)
@@ -74,7 +74,7 @@ for file_name in os.listdir(folder_path):
         if file_name.endswith('.json'):  #Process only JSON files
             file_path = os.path.join(folder_path, file_name)
 
-            print(f"Processing file: {file_name}")
+            print(f"Procesando archivo: {file_name}")
             logging.info(("procesando archivo "+ file_name))
             # Leer Contenidos de cada archivo
             with open(file_path, 'r') as file:
