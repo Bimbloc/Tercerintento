@@ -225,7 +225,11 @@ plt.xticks(numvars)
 #hay que convertir los datos crudos en tasas
 ##totalRightGueses = sum(correctGuessSin)
 for i in range(0,len(correctGuessSin)):
-    correctGuessSin[i] = (correctGuessSin[i]/totalRightGueses)*100
+    correctGSApp=correctGuessSin[i]
+    if(correctGSApp>0):
+        correctGuessSin[i] = (correctGuessSin[i]/totalRightGueses)*100
+    else:
+        correctGuessSin[i]=0    
 
 ##print(sum(correctGuessSin))    
 plt.bar(numvars,correctGuessSin,color=colors)
@@ -240,7 +244,11 @@ plt.xticks(numvars)
 #hay que convertir los datos crudos en tasas
 ##totalWrongGueses = sum(wrongGuessSins)
 for i in range(0,len(wrongGuessSins)):
-   wrongGuessSins[i] = (wrongGuessSins[i]/totalWrongGuesses)*100
+   wrongGSApp = wrongGuessSins[i]
+   if(wrongGSApp>0): 
+        wrongGuessSins[i] = (wrongGuessSins[i]/totalWrongGuesses)*100
+   else:
+       wrongGuessSins[i]=0
 plt.bar(numvars,wrongGuessSins,color=colors)
 plt.savefig(image_path + "/Pregunta2PecadosFallos.png")
 
@@ -254,7 +262,11 @@ plt.xticks(numvars)
 #hay que convertir los datos crudos en tasas
 ##totalRightGueses = sum(correctGuessFavor)
 for i in range(0,len(correctGuessFavor)):
-    correctGuessFavor[i] = (correctGuessFavor[i]/totalRightGueses)*100
+    correctGFApp=correctGuessFavor[i]
+    if(correctGFApp>0):
+        correctGuessFavor[i] = (correctGFApp/totalRightGueses)*100
+    else:
+            correctGuessFavor[i] =0
 ##print(sum(correctGuessFavor))    
 plt.bar(numvars,correctGuessFavor,color=colors)
 plt.savefig(image_path + "/Pregunta2FavoresAciertos.png")
@@ -267,7 +279,11 @@ plt.ylabel("tasa de fallos(%)")
 plt.xticks(numvars)
 ##totalWrongGueses = sum(wrongGuessSins)
 for i in range(0,len(wrongGuessFavors)):
-   wrongGuessFavors[i] = (wrongGuessFavors[i]/totalWrongGuesses)*100
+   wrongGFApp = wrongGuessFavors[i]
+   if(wrongGFApp>0):
+        wrongGuessFavors[i] = (wrongGFApp/totalWrongGuesses)*100
+   else:
+      wrongGuessFavors[i] =0      
 plt.bar(numvars,wrongGuessFavors,color=colors)
 plt.savefig(image_path + "/Pregunta2FavoresFallos.png")
 
@@ -338,7 +354,11 @@ plt.xticks(np.arange(0,len(characterTypes)))
 #lo pasamos a tasas 
 totalCharacters = sum(characterTypes)
 for i in range(0,len(characterTypes)):
-    characterTypes[i] = (characterTypes[i]/totalCharacters)*100
+    charsTypeApp = characterTypes[i]
+    if(charsTypeApp>0):
+        characterTypes[i] = (charsTypeApp/totalCharacters)*100
+    else:
+        characterTypes[i]=0    
 plt.bar(np.arange(0,len(characterTypes)),characterTypes,color=colors)
 plt.savefig(image_path + "/Pregunta5TiposPersonaje.png")
 
@@ -354,7 +374,11 @@ for char in characterSentences:
       
       totalFrases= sum(char)
       for i in range(0,len(char)):
-         char[i] = (char[i]/totalFrases)*100
+         charApp=char[i]
+         if(charApp):
+            char[i] = (charApp/totalFrases)*100
+         else:
+             char[i]=0   
       plt.bar(np.arange(0,len(char)),char,color=colors)
       plt.savefig(image_path + "/Pregunta5FrasesTipo" + str(charCounter) + ".png")
       charCounter+=1
@@ -366,8 +390,12 @@ plt.xlabel("ID del favor")
 plt.ylabel("Tasa de apariciones (%)")
 plt.xticks(numvars)
 for i in range(0,len(totalFavorApearance)):
-    totalFavorApearance[i]= (totalFavorApearance[i]/totalFavors)*100
-print(sum(totalFavorApearance))
+    totalFApearance = totalFavorApearance[i]
+    if(totalFApearance>0):
+        totalFavorApearance[i]= (totalFApearance/totalFavors)*100
+    else:
+        totalFavorApearance[i]=0
+#print(sum(totalFavorApearance))
 plt.bar(numvars,totalFavorApearance,color=colors)
 plt.savefig(image_path + "/Pregunta6AparicionFavores.png")
 
@@ -378,8 +406,12 @@ plt.xlabel("ID del pecado")
 plt.ylabel("Tasa de apariciones")
 plt.xticks(numvars)
 for i in range(0,len(totalSinAppearance)):
-    totalSinAppearance[i]= (totalSinAppearance[i]/totalSins)*100
-print(sum(totalSinAppearance))    
+    totalSAppearance = totalSinAppearance[i]
+    if(totalSAppearance>0):
+     totalSinAppearance[i]= ( totalSAppearance/totalSins)*100
+    else:
+        totalSinAppearance[i]=0
+#print(sum(totalSinAppearance))    
 plt.bar(numvars,totalSinAppearance,color=colors)
 plt.savefig(image_path + "/Pregunta6AparicionPecados.png")
 
